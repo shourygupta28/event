@@ -1,0 +1,6 @@
+.cards{
+	width: 100% !important;
+	display: flex !important;
+	flex-wrap: wrap !important;
+	padding: 5px;
+}

@@ -1,0 +1,1504 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+    <link rel="shortcut icon" href="{%static 'home/images/favicon.ico'%}" type="image/x-icon">
+    <style id='benri-style-inline-css' type='text/css'>
+        /* Body background */
+        body {
+            background: url() center top;
+        }
+
+        /* Header gradient */
+
+
+        /* Body gradient */
+
+
+        /* Menu Global Color changes */
+
+        /*Menu Hover Color*/
+
+        .header-alt .menucont.cl-effect-6 div>ul>li>a:hover::before,
+        .header-alt .menucont.cl-effect-6 div>ul>li>a:focus::before,
+        .menucont.cl-effect-6 div>ul>li>a:hover::before,
+        .menucont.cl-effect-6 div>ul>li>a:focus::before {
+            text-shadow: 10px 0 #2f92bb, -10px 0 #2f92bb;
+        }
+
+
+
+        .menucont.cl-effect-1 div>ul>li>a::before,
+        .menucont.cl-effect-1 div>ul>li>a::after {
+            color: #ffffff;
+        }
+
+        .menu.menuEffects ul li a:hover,
+        .hsocial a:hover,
+        .hsearch a:hover,
+        .menucont ul.navbar-nav>li>a:hover,
+        .footer_bottom .fb_social a:hover,
+        .menucont ul.navbar-nav>li>a:focus,
+        .header-alt .menucont.cl-effect-1 div>ul>li>a:hover::before,
+        .header-alt .menucont.cl-effect-1 div>ul>li>a:hover::after,
+        .header-alt .menucont.cl-effect-1 div>ul>li>a:focus::before,
+        .header-alt .menucont.cl-effect-1 div>ul>li>a:focus::after,
+        .header-alt .menucont.cl-effect-5 div>ul>li>a:hover::before,
+        .header-alt .menucont.cl-effect-5 div>ul>li>a:hover::after,
+        .header-alt .menucont.cl-effect-5 div>ul>li>a:focus::before,
+        .header-alt .menucont.cl-effect-5 div>ul>li>a:focus::after,
+        .header-alt .menucont.cl-effect-2 div>ul>li>a:focus,
+        .header-alt .menucont.cl-effect-3 div>ul>li>a::before,
+        .header-alt .menucont.cl-effect-6 div>ul>li>a:hover::before,
+        .header-alt .menucont.cl-effect-6 div>ul>li>a:focus::before,
+        .header-alt .menucont.cl-effect-6 div>ul>li>a:hover,
+        .header-alt .menucont.cl-effect-6 div>ul>li>a:focus,
+        .menucont.cl-effect-1 div>ul>li>a:hover::before,
+        .menucont.cl-effect-1 div>ul>li>a:hover::after,
+        .menucont.cl-effect-1 div>ul>li>a:focus::before,
+        .menucont.cl-effect-1 div>ul>li>a:focus::after,
+        .menucont.cl-effect-5 div>ul>li>a:hover::before,
+        .menucont.cl-effect-5 div>ul>li>a:hover::after,
+        .menucont.cl-effect-5 div>ul>li>a:focus::before,
+        .menucont.cl-effect-5 div>ul>li>a:focus::after,
+        .menucont.cl-effect-2 div>ul>li>a:focus,
+        .menucont.cl-effect-3 div>ul>li>a::before,
+        .menucont.cl-effect-6 div>ul>li>a:hover::before,
+        .menucont.cl-effect-6 div>ul>li>a:focus::before,
+        .menucont.cl-effect-6 div>ul>li>a:hover,
+        .menucont.cl-effect-6 div>ul>li>a:focus {
+            color: #2f92bb;
+        }
+
+
+        .menucont.cl-effect-2 div>ul>li>a::before,
+        .menucont.cl-effect-2 div>ul>li>a::after,
+        .menucont.cl-effect-5 div>ul>li>a::before,
+        .menucont.cl-effect-5 div>ul>li>a::after,
+        .menucont.cl-effect-3 div>ul>li>a::before,
+        .menucont.cl-effect-4 div>ul>li>a::after,
+        .menucont.cl-effect-5 div>ul>li>a::before,
+        .menucont.cl-effect-5 div>ul>li>a::after {
+            background-color: #ffffff;
+        }
+
+
+        .header-alt .menucont.cl-effect-2 div>ul>li>a:hover::before,
+        .header-alt .menucont.cl-effect-2 div>ul>li>a:focus::before,
+        .header-alt .menucont.cl-effect-2 div>ul>li>a:hover::after,
+        .header-alt .menucont.cl-effect-2 div>ul>li>a:focus::after,
+        .header-alt .menucont.cl-effect-3 div>ul>li>a:hover::before,
+        .header-alt .menucont.cl-effect-3 div>ul>li>a:focus::before,
+        .header-alt .menucont.cl-effect-4 div>ul>li>a:hover::after,
+        .header-alt .menucont.cl-effect-4 div>ul>li>a:focus::after,
+        .header-alt .menucont.cl-effect-5 div>ul>li>a:hover::before,
+        .header-alt .menucont.cl-effect-5 div>ul>li>a:hover::after,
+        .header-alt .menucont.cl-effect-5 div>ul>li>a:focus::before,
+        .header-alt .menucont.cl-effect-5 div>ul>li>a:focus::after,
+        .menucont.cl-effect-2 div>ul>li>a:hover::before,
+        .menucont.cl-effect-2 div>ul>li>a:focus::before,
+        .menucont.cl-effect-2 div>ul>li>a:hover::after,
+        .menucont.cl-effect-2 div>ul>li>a:focus::after,
+        .menucont.cl-effect-3 div>ul>li>a:hover::before,
+        .menucont.cl-effect-3 div>ul>li>a:focus::before,
+        .menucont.cl-effect-4 div>ul>li>a:hover::after,
+        .menucont.cl-effect-4 div>ul>li>a:focus::after,
+        .menucont.cl-effect-5 div>ul>li>a:hover::before,
+        .menucont.cl-effect-5 div>ul>li>a:hover::after,
+        .menucont.cl-effect-5 div>ul>li>a:focus::before,
+        .menucont.cl-effect-5 div>ul>li>a:focus::after {
+
+            background-color: #2f92bb;
+        }
+
+
+        .menucont.cl-effect-7 div>ul>li>a::before,
+        .menucont.cl-effect-7 div>ul>li>a::after {
+            border-color: #ffffff;
+        }
+
+
+        .header-alt .menucont.cl-effect-7 div>ul>li>a:hover::before,
+        .header-alt .menucont.cl-effect-7 div>ul>li>a:focus::before,
+        .header-alt .menucont.cl-effect-7 div>ul>li>a:hover::after,
+        .header-alt .menucont.cl-effect-7 div>ul>li>a:focus::after,
+        .menucont.cl-effect-7 div>ul>li>a:hover::before,
+        .menucont.cl-effect-7 div>ul>li>a:focus::before,
+        .menucont.cl-effect-7 div>ul>li>a:hover::after,
+        .menucont.cl-effect-7 div>ul>li>a:focus::after {
+            border-color: #2f92bb;
+        }
+
+
+
+        /* Fixed header color fixing */
+
+        .header-alt .menucont.cl-effect-1 div>ul>li>a::before,
+        .header-alt .menucont.cl-effect-1 div>ul>li>a::after {
+            color: #ffffff;
+        }
+
+
+        .header-alt .menucont.cl-effect-2 div>ul>li>a::before,
+        .header-alt .menucont.cl-effect-2 div>ul>li>a::after,
+        .header-alt .menucont.cl-effect-5 div>ul>li>a::before,
+        .header-alt .menucont.cl-effect-5 div>ul>li>a::after,
+        .header-alt .menucont.cl-effect-3 div>ul>li>a::before,
+        .header-alt .menucont.cl-effect-4 div>ul>li>a::after,
+        .header-alt .menucont.cl-effect-5 div>ul>li>a::before,
+        .header-alt .menucont.cl-effect-5 div>ul>li>a::after {
+            background-color: #ffffff;
+        }
+
+
+
+        .header-alt .menucont.cl-effect-7 div>ul>li>a::before,
+        .header-alt .menucont.cl-effect-7 div>ul>li>a::after {
+            border-color: #ffffff;
+        }
+
+        html .woocommerce #respond input#submit.alt,
+        html .woocommerce a.button.alt,
+        html .woocommerce button.button.alt,
+        html .woocommerce input.button.alt,
+        ul.products li.product .button.product_type_simple,
+        .widget_shopping_cart_content .buttons a,
+        body .protip-skin-default--scheme-pro.protip-container,
+        .mejs__volume-current,
+        .mejs__volume-handle,
+        .mejs__horizontal-volume-current,
+        .mejs__time-current,
+        .mejs__time-handle-content,
+        .widget.widget_calendar #wp-calendar tbody tr td a:hover:before,
+        .example-1 .spmenu-content li,
+        .gallery-header-wrap .gallery-header-center-right-links strong::after,
+        button,
+        .button,
+        input[type='submit'] {
+            background: #2f92bb;
+        }
+
+        ::selection {
+            background: #2f92bb;
+        }
+
+        ::-moz-selection {
+            background: #2f92bb;
+        }
+
+/*        html .woocommerce div.product .stock,
+        .pagination ul li a:hover,
+        .pagination.default_wp_p .wp_pag>li:hover,
+        .pagination.default_wp_p .wp_pag>a:hover,
+        .blogs-style1.spcard.blogs-style2.blogs-featured .spbutton,
+        .post-meta a:hover,
+        .post-meta a:focus,
+        .post-meta a:active,
+        .spcard .spauthor a,
+        .portfolio-navigation.portfolio-nav-imgs .port-next:hover,
+        .portfolio-navigation.portfolio-nav-imgs .port-previous:hover,
+        .portfolio-navigation.portfolio-nav-imgs .port-links .back-to-list:hover,
+        .portfolio-navigation .port-previous:hover i,
+        .portfolio-navigation .port-next:hover i,
+        .gallery-header-center-right-links-current,
+        .gallery-header-center-right-links:hover,
+        .portfolio-navigation a.back-to-list:hover {
+            color: #2f92bb;
+        }*/
+
+        .pagination ul li a:hover,
+        body .pagination.default_wp_p .wp_pag>li,
+        .pagination.default_wp_p .wp_pag>li:hover,
+        .pagination.default_wp_p .wp_pag>a:hover,
+        .pagination ul li.active a,
+        button,
+        .button,
+        input[type='submit'] {
+            border-color: #2f92bb;
+        }
+
+        body .pmeta-category a {
+            border: 2px solid;
+        }
+
+        .pmeta-category a:hover,
+        .pmeta-category a:focus {
+            color: #f2f2f2;
+            border: 2px solid #f2f2f2;
+        }
+
+        .author-wrapper .author-link,
+        body #payment .place-order .button {
+            background: #2f92bb;
+        }
+
+/*        .sticky.blogs-style1.spcard.blogs-style2 .sptitle a,
+        body .woocommerce ul.cart_list li a:hover,
+        body .woocommerce ul.product_list_widget li a:hover {
+            color: #2f92bb;
+        }
+*/
+        body .protip-skin-default--scheme-pro[data-pt-position='top'] .protip-arrow {
+            border-color: #2f92bb transparent transparent transparent;
+        }
+
+        .cart-notification,
+        .widget_shopping_cart,
+        .woocommerce .cart-notification {
+            background: #f9f9f9;
+        }
+
+        body .widget_shopping_cart .product_list_widget li.empty {
+            color: #888888;
+        }
+
+        /* Header */
+
+        /*Header Size*/
+        .hlogo a,
+        .hlogo,
+        .menuArea,
+        header,
+        .no_header {
+            height: 80px;
+        }
+
+        .menucont,
+        .menucont div>ul>li>a,
+        header .hsocial a,
+        header .hsearch {
+            line-height: 80px;
+        }
+
+        header .hsocial a,
+        header .hsearch {
+            height: 80px;
+        }
+
+        .hsocial a i,
+        .hsearch a i {
+            line-height: 80px !important;
+        }
+
+        header.burger-menu .menuEffects {
+            padding-top: 80px;
+        }
+
+        .menucont.cl-effect-3 div>ul>li>a::before,
+        #custom__menu .open,
+        #custom__menu .open:before,
+        #custom__menu .open:after {
+            background-color: #ffffff;
+        }
+
+
+
+
+        .header-alt .menu.menuEffects ul li a,
+        .header-alt .menucont ul.navbar-nav>li>a,
+        .header-alt .hsocial a,
+        .header-alt .hsearch a {
+            color: #ffffff;
+        }
+
+        .header-alt .menucont.cl-effect-3 div>ul>li>a::before,
+        #custom__menu.header-alt .open,
+        #custom__menu.header-alt .open:before,
+        #custom__menu.header-alt .open:after {
+            background-color: #ffffff;
+        }
+
+
+        header.left-side-menu {
+            width: 240px !important;
+        }
+
+        body.side-menu .main-wrapper,
+        body.side-menu footer {
+            padding-left: 240px;
+        }
+
+        /* Page Title */
+
+        .page-title-wrap {
+            padding-top: 100px;
+            padding-bottom: 100px !important;
+            margin-top: -80px;
+        }
+
+        /* Header image */
+        .page-title-wrap {
+            background-image: url({%static 'home/images/ImagesAboutPage/bench-accounting-49025.jpg'%}) !important;
+        }
+
+        .page-title-bg {
+            background-image: url({%static 'home/images/ImagesAboutPage/bench-accounting-49025.jpg'%}) !important;
+        }
+
+
+        /* Footer image */
+        .main_footer {
+            background-image: url() !important;
+            padding-top: 70px;
+            padding-bottom: 70px;
+            background-size: cover;
+        }
+
+
+        body {
+            background: #ffffff !important
+        }
+
+
+        .cat_color_f79e40_border {
+            border: 2px solid #f79e40;
+        }
+
+        .cat_color_f79e40_background {
+            background: #f79e40;
+        }
+
+        .cat_color_f79e40_background_color {
+            background-color: #f79e40 !important;
+        }
+
+        .cat_color_f79e40_color {
+            color: #f79e40;
+        }
+
+        .cat_color_2f92bb_border {
+            border: 2px solid #2f92bb;
+        }
+
+        .cat_color_2f92bb_background {
+            background: #2f92bb;
+        }
+
+        .cat_color_2f92bb_background_color {
+            background-color: #2f92bb !important;
+        }
+
+        .cat_color_2f92bb_color {
+            color: #2f92bb;
+        }
+
+        .cat_color_11c5fc_border {
+            border: 2px solid #11c5fc;
+        }
+
+        .cat_color_11c5fc_background {
+            background: #11c5fc;
+        }
+
+        .cat_color_11c5fc_background_color {
+            background-color: #11c5fc !important;
+        }
+
+        .cat_color_11c5fc_color {
+            color: #11c5fc;
+        }
+
+
+
+
+        .cat_color_2f92bb_border {
+            border: 2px solid #2f92bb;
+        }
+
+        .cat_color_2f92bb_background {
+            background: #2f92bb;
+        }
+
+        .cat_color_2f92bb_background_color {
+            background-color: #2f92bb !important;
+        }
+
+        .cat_color_2f92bb_color {
+            color: #2f92bb;
+        }
+
+        .cat_color_eeeeee_color {
+            color: #eeeeee;
+        }
+
+        .cat_color_eeeeee_border {
+            border: 2px solid #eeeeee;
+        }
+
+
+
+
+        .cat_color_83e825_border {
+            border: 2px solid #83e825;
+        }
+
+        .cat_color_83e825_background {
+            background: #83e825;
+        }
+
+        .cat_color_83e825_background_color {
+            background-color: #83e825 !important;
+        }
+
+        .cat_color_83e825_color {
+            color: #83e825;
+        }
+
+
+
+
+        .cat_color_0b9ee8_border {
+            border: 2px solid #0b9ee8;
+        }
+
+        .cat_color_0b9ee8_background {
+            background: #0b9ee8;
+        }
+
+        .cat_color_0b9ee8_background_color {
+            background-color: #0b9ee8 !important;
+        }
+
+        .cat_color_0b9ee8_color {
+            color: #0b9ee8;
+        }
+
+
+
+
+        .cat_color_2f92bb_border {
+            border: 2px solid #2f92bb;
+        }
+
+        .cat_color_2f92bb_background {
+            background: #2f92bb;
+        }
+
+        .cat_color_2f92bb_background_color {
+            background-color: #2f92bb !important;
+        }
+
+        .cat_color_2f92bb_color {
+            color: #2f92bb;
+        }
+
+        .cat_color_eeeeee_color {
+            color: #eeeeee;
+        }
+
+        .cat_color_eeeeee_border {
+            border: 2px solid #eeeeee;
+        }
+
+               .cat_color_83e825_border{
+         border: 2px solid #83e825;
+        }
+
+        .cat_color_83e825_background{
+         background: #83e825;
+        }
+
+        .cat_color_83e825_background_color{
+         background-color: #83e825 !important;
+        }
+
+        .cat_color_83e825_color{
+         color: #83e825;
+        }
+
+
+
+
+        .cat_color_0b9ee8_border{
+         border: 2px solid #0b9ee8;
+        }
+
+        .cat_color_0b9ee8_background{
+         background: #0b9ee8;
+        }
+
+        .cat_color_0b9ee8_background_color{
+         background-color: #0b9ee8 !important;
+        }
+
+        .cat_color_0b9ee8_color{
+         color: #0b9ee8;
+        }
+
+
+
+
+        .cat_color_2f92bb_border{
+         border: 2px solid #2f92bb;
+        }
+
+        .cat_color_2f92bb_background{
+         background: #2f92bb;
+        }
+
+        .cat_color_2f92bb_background_color{
+         background-color: #2f92bb !important;
+        }
+
+        .cat_color_2f92bb_color{
+         color: #2f92bb;
+        }
+
+        .cat_color_eeeeee_color{
+         color: #eeeeee;
+        }
+
+        .cat_color_eeeeee_border{
+         border: 2px solid #eeeeee;
+        }
+    </style>
+
+    <style type="text/css" title="dynamic-css" class="options-output">
+        .sk-folding-cube .sk-cube:before,
+        .rotating-plane,
+        .double-bounce1,
+        .double-bounce2,
+        .rectangle-bounce>div,
+        .cube1,
+        .cube2,
+        .pulse,
+        .dot1,
+        .dot2,
+        .three-bounce>div,
+        .sk-circle .sk-child:before,
+        .sk-cube-grid .sk-cube,
+        .sk-fading-circle .sk-circle:before {
+            background-color: #2f92bb;
+        }
+
+        .se-pre-con {
+            background-color: #000c21;
+        }
+
+        .regular-header .header-bottom,
+        #custom__menu {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .header-alt .header-bottom,
+        #custom__menu.header-alt {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .menu.menuEffects ul li a,
+        .menucont ul.navbar-nav>li>a,
+        .hsocial a,
+        .hsearch a {
+            font-family: Lato;
+            line-height: 21px;
+            font-weight: 700;
+            font-style: normal;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .hsocial a:hover,
+        .hsearch a:hover,
+        custom__menu .navbar-nav li:hover .sub-menu 
+        {
+        display: block;
+        
+        }
+        .menucont ul.navbar-nav>li>a:focus {
+            color: #2f92bb;
+            
+        }
+
+        ul.sub-menu li a,
+        #custom__menu .menu.menuEffects ul li .sub-menu a,
+        #custom__menu .menucont div>ul>li>a,
+        #custom__menu .menu.menuEffects ul li a,
+        #custom__menu.header-alt .menu.menuEffects ul li a {
+            line-height: 12px;
+            font-weight: 700;
+            font-style: normal;
+            color: #ffffff;
+            font-size: 12px;
+            
+            
+        }
+
+        ul.sub-menu li a:hover {
+            
+            color: #c5e4f0;
+        }
+
+        ul.sub-menu,
+        .menu.menuEffects,
+        #custom__menu .menu.menuEffects .menuContent {
+            
+            background-color: #2f92bb;
+            
+        }
+
+        ul.sub-menu li a {
+            
+            border-color: #2f92bb;
+        }
+
+        body {
+            background-color: #f9f9f9;
+        }
+
+        .page-title-tint {
+            background-color: rgba(14, 29, 47, 0.74);
+        }
+
+        body {
+            font-family: Lato;
+            line-height: 24px;
+            font-weight: 400;
+            font-style: normal;
+            color: #888888;
+            font-size: 14px;
+        }
+
+/*        a,
+        .sticky.blogs-style1.spcard.blogs-style2 .sptitle a,
+        .widget_rss ul li .rss-date,
+        .widget_rss ul li a.rsswidget,
+        .woocommerce ul.cart_list li a,
+        .woocommerce ul.product_list_widget li a {
+            color: #2f92bb;
+        }
+*/
+        a:hover {
+            color: #74bddb;
+        }
+
+        h1 {
+            font-family: Montserrat;
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        h2 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        h3 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        h4 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        h5 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .main_footer {
+            background-color: #202329;
+        }
+
+        .footer_bottom {
+            background-color: #282d33;
+        }
+        @media(max-width: 700px){
+        .hide{
+            display: none;
+        }
+        .event_title{
+            font-size: 15px;
+        }
+    }
+    </style>
+
+    <noscript>
+        <style>
+            .wpb_animate_when_almost_visible {
+                opacity: 1;
+            }
+
+        </style>
+    </noscript>
+
+    <style>
+        .row{
+            margin-right: 0px !important;
+        }
+        .vc_row{
+            max-width: 100vw !important;
+            margin-right: 0px !important;
+            padding: 0px !important;
+        }
+    </style>
+    <style type="text/css">
+    	@media(max-width: 1200px){
+    		#linkedin_footer, #facebook_footer, #instagram_footer{
+    			width: 50px;
+    			height: auto;
+    		}
+    		#footer_h3{
+    			font-size: 22px !important;
+    		}
+    		#footer_h4{
+    			font-size: 25px !important;
+    		}          
+            .footer_column{
+                flex: 2 !important;
+            }
+            .contact-cards{
+                align-items: center !important;
+            }
+    	}
+    	@media(max-width: 991px){
+            #footer_list{
+                margin-left: 0px !important;
+            } 
+            #footer_h3{
+    			font-size: 18px !important;
+                padding-bottom: 5px; 
+    		}
+    		#footer_h4{
+    			font-size: 20px !important;
+    		}
+    		#footer_logo{
+    			width: 200px;
+    		}
+    		#linkedin_footer, #facebook_footer, #instagram_footer{
+    			width: 40px;
+    			height: auto;
+    			font-size: 30px !important;
+    		}
+    		#footer_list li{
+    			font-size: 12px;
+    		}
+    	@media(max-width: 768px){
+    		#linkedin_footer, #facebook_footer, #instagram_footer{
+    			width: 35px;
+    			height: auto;
+    		}
+    		#hr_footer{
+    			width: 200px;
+                margin: auto;
+            }
+    		#hr_footer1{
+    			width: 300px;
+                margin: auto;
+    		}
+    		#fc_inner2{
+    			margin-left: 200px;
+    		}
+    		#favimg{
+    			font-size: 30px !important;
+    		}
+    		#copyright_footer{
+    			margin-left: 180px;
+    		}
+
+    	}
+    	@media(max-width: 500px){
+    		#hr_footer{
+    			width: 250px;
+    		}
+            #hr_footer1{
+                width: 250px;
+            }
+    		#copyright_footer{
+    			margin-left: 120px;
+    		}
+    		#linkedin_footer, #facebook_footer, #instagram_footer{
+    			margin-left: 30px;
+    		}
+    		.footer_column{
+    			min-width: auto !important;
+    		}
+    	}
+
+    	@media(max-width: 414px){
+    		#footer_list li{
+    			font-size: 10px;
+    		}
+    		#copyright_footer{
+    			margin-left: 80px;
+    		}
+    		#copyright_text{
+    			font-size: 10px !important;
+    		}
+    		#favimg{
+    			font-size: 25px !important;
+    		}
+            #hr_footer{
+                width: 193px;
+            }
+            #hr_footer1{
+                width: 193px;
+            }
+    	}
+    	@media(max-width: 320px){
+    		#footer_h3{
+    			font-size: 14px !important;
+    		}
+    		#footer_h4{
+    			font-size: 16px !important;
+    		}
+            
+    	}
+    </style>
+<!--     <style type="text/css">
+    	@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        #instagram_footer:hover{
+            color: #2f92bb !important;
+            transition: all .5s ease;
+        }
+        #facebook_footer:hover{
+            color: #2f92bb !important;
+            transition: all .5s ease;
+        }
+        #linkedin_footer:hover{
+            color: #2f92bb !important;
+            transition: all .5s ease;
+        }
+    </style> -->
+    <style type="text/css">
+        .event_title{
+            font-size: 19px;
+        }
+        @media only screen and (max-width: 580px){
+            .event_title{
+                font-size: 19px;
+            }
+        }   
+
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel='stylesheet' id='redux-google-fonts-benri_redux-css' href='https://fonts.googleapis.com/css?family=Lato%3A700%2C400%7CMontserrat%3A700&amp;subset=latin&amp;ver=1548095607' type='text/css' media='all' />
+    <link rel='stylesheet' id='ultimate-google-fonts-css' href='https://fonts.googleapis.com/css?family=Montserrat:regular,700' type='text/css' media='all' />
+    <link rel='stylesheet' id='ls-google-fonts-css' href='https://fonts.googleapis.com/css?family=Lato:100,300,regular,700,900&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
+
+    <!--<meta property="og:image:width" content="2000" />
+        <meta property="og:image:height" content="1338" /> -->
+
+    <link rel='stylesheet' id='layerslider-css'             href="{% static 'home/css/layerslider.css' %}"              type='text/css' media='all' />
+    <link rel='stylesheet' id='wp-block-library-css'        href="{% static 'home/css/block-library/style.min.css' %}"  type='text/css' media='all' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' id='wc-block-style-css'          href="{% static 'home/css/blocks/style.css' %}"             type='text/css' media='all'/>
+    <link rel='stylesheet' id='contact-form-7-css'          href="{% static 'home/css/includes/css/styles.css' %}"      type='text/css' media='all' />
+    <link rel='stylesheet' id='woocommerce-layout-css'      href="{% static 'home/css/woocommerce-layout.css' %}"       type='text/css' media='all' />
+    <link rel='stylesheet' id='woocommerce-smallscreen-css' href="{% static 'home/css/woocommerce-smallscreen.css' %}"  type='text/css' media='only screen and (max-width: 768px)' />
+    <link rel='stylesheet' id='woocommerce-general-css'     href="{% static 'home/css/woocommerce.css' %}"              type='text/css' media='all' />
+    <link rel='stylesheet' id='wpsw_social-icons-css'       href="{% static 'home/css/social-icons.css' %}"             type='text/css' media='all' />
+    <link rel='stylesheet' id='wpsw_social-css-css'         href="{% static 'home/css/social-style.css' %}"             type='text/css' media='all' />
+    <link rel='stylesheet' id='benri-style-css'             href="{% static 'home/css/style.css' %}"                    type='text/css' media='all' />
+    <link rel='stylesheet' id='fontawesome-css'             href="{% static 'home/css/fontawesome-all.css' %}"          type='text/css' media='all' />
+    <link rel='stylesheet' id='benri-minified-css'          href="{% static 'home/css/minified-css.css' %}"             type='text/css' media='all' />
+    <link rel='stylesheet' id='benri-main-css'              href="{% static 'home/css/main.css' %}"                     type='text/css' media='all' />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/94ea23ad31.js" crossorigin="anonymous"></script>
+
+    <!--[if lt IE 9]>
+        <link rel='stylesheet' id='vc_lte_ie9-css'  href='https://skywarriorthemes.com/benri/demo1/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css' type='text/css' media='screen' />
+        <![endif]-->
+
+    <link rel='stylesheet' id='js_composer_front-css' href="{% static 'home/css/js_composer.min.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='bsf-Defaults-css' href="{% static 'home/css/Defaults.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='ultimate-style-css' href="{% static 'home/css/style.min.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='ultimate-animate-css' href="{% static 'home/css/animate.min.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='ult-btn-css' href="{% static 'home/css/advanced-buttons.min.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='ult-flip-style-css' href="{%static 'home/css/flip-box.min.css'%}" type='text/css' media='all' />
+    <link rel='stylesheet' id='info-box-style-css' href="{%static 'home/css/info-box.min.css'%}" type='text/css' media='all' />
+    <link rel='stylesheet' id='ultimate-headings-style-css' href="{%static 'home/css/headings.min.css'%}" type='text/css' media='all' />
+    <link rel="stylesheet" type="text/css" href="{%static 'home/css/cards.css'%}">
+
+    <script type='text/javascript' src="{% static 'home/js/greensock.js' %}"></script>
+    <script type='text/javascript' src="{% static 'home/js/jquery.js' %}"></script>
+    <script type='text/javascript' src="{% static 'home/js/jquery-migrate.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'home/js/layerslider.kreaturamedia.jquery.js' %}"></script>
+    <script type='text/javascript' src="{% static 'home/js/layerslider.transitions.js' %}"></script>
+    <script type='text/javascript' src="{% static 'home/js/jquery.blockUI.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'home/js/add-to-cart.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'home/js/woocommerce-add-to-cart.js' %}"></script>
+    <script type='text/javascript' src="{% static 'home/js/ultimate-params.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'home/js/custom.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'home/js/jquery-appear.min.js' %}"></script>
+    <script type='text/javascript' src="{%static 'home/js/headings.min.js'%}"></script>
+
+    <!-- head block -->
+    {% block head %}{% endblock head %}
+
+</head>
+
+
+
+
+
+
+
+
+<body {% block bodytag %}{% endblock bodytag %}>
+    <!-- Pre Loader-->
+    <div class="se-pre-con">
+        <div class="rotating-plane"></div>
+    </div>
+
+    <div class="main-wrapper">
+
+
+        <!-- NavBar -->
+        <header class="right-aligned-menu fullwidth page_header regular-header">
+            <!-- Top bar -->
+            <div class="header-top">
+            </div>
+
+            <!-- Main menu container -->
+            <div class="header-bottom">
+                <div class="">
+                    <div class="hlogo">
+                        <div class="hlogoinner">
+                            <a href="{% url 'home' %}">
+                                <img height="80" width="146" alt="" src="{% static 'home/images/Logo.png' %}" style="padding: 5px !important" />
+                                <img height="80" width="146" class="fixed_header_logo" alt="" src="{% static 'home/images/Logo.png' %}" style="padding: 5px !important" />
+                            </a>
+                        </div>
+                    </div>
+
+
+                <div class="mainmenucont menucont cl-effect-1">
+                    <div class="menu-main-menu-container">
+                        <ul class="nav navbar-nav">
+                            <li id="menu-item-1470"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1470"><a
+                                    href="{% url 'home' %}" data-hover="Home">Home</a></li>
+                            <li id="menu-item-1478"
+                                class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1478">
+                                <a href="">Events</a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-1482"
+                                        class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
+                                        <a href="" aria-current="page">The StartUp Weekend</a></li>
+                                    <li id="menu-item-1483"
+                                        class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483"><a
+                                            href="" data-hover="Header generic style">E-Summit</a></li>
+                                    <li id="menu-item-1483"
+                                        class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483"><a
+                                            href="" data-hover="Header generic style">Venture Lab</a></li>
+                                    <li id="menu-item-1483"
+                                        class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483"><a
+                                            href="" data-hover="Header generic style">E-Talks</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-1478"
+                                class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1478">
+                                <a href="">StartUp Ecosystem</a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-1482"
+                                        class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
+                                        <a href=""  aria-current="page">StartUp</a></li>
+                                    <li id="menu-item-1483"
+                                        class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483"><a
+                                            href="" data-hover="Header generic style">Investor</a></li>
+                                    <li id="menu-item-1483"
+                                        class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483"><a
+                                            href="" data-hover="Header generic style">Venture
+                                            Capitalist</a></li>
+                                </ul>
+                            </li>
+                
+                            <li id="menu-item-1471" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1471">
+                                <a href="">Bizfinatics</a>
+                            </li>
+                            <li id="menu-item-1480" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1480">
+                                <a href="">Internships</a>
+                            </li>
+                            <li id="menu-item-1480" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1480">
+                                <a href="">Our Team</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <!-- Fullscreen pop up menu -->
+                <div class="fullscreen-menu">
+                    <div class="menuArea">
+                        <input type="checkbox" id="menuToggle">
+                
+                        <label for="menuToggle" class="menuOpen">
+                            <span class="open"></span>
+                        </label>
+                
+                        <div class="menu menuEffects">
+                            <label for="menuToggle"></label>
+                            <div class="menuContent">
+                                <div class="menu-main-menu-container">
+                                    <ul class="nav navbar-nav">
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1470">
+                                            <a href="{% url 'home' %}" data-hover="Home">Home</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1478">
+                                            <a href="">Events</a>
+                                            <ul class="sub-menu">
+                                                <li
+                                                    class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
+                                                    <a href="" aria-current="page">E-Talks</a>
+                                                </li>
+                                                <li
+                                                    class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                    <a href="" data-hover="Header generic style">The Startup
+                                                        Weekend</a>
+                                                </li>
+                                                <li
+                                                    class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                    <a href="" data-hover="Header generic style">E-Summit</a>
+                                                </li>
+                                                <li
+                                                    class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                    <a href="" data-hover="Header generic style">Venture Lab Weekend</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1478">
+                                            <a href="">Startup Ecosystem</a>
+                                            <ul class="sub-menu">
+                                                <li
+                                                    class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
+                                                    <a href=""  aria-current="page">Startups</a>
+                                                </li>
+                                                <li
+                                                    class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                    <a href="" data-hover="Header generic style">Investors</a>
+                                                </li>
+                                                <li
+                                                    class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                    <a href="" data-hover="Header generic style">Venture
+                                                        Capitalists</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1479">
+                                            <a href="">BizFinatics</a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1479">
+                                            <a href="" data-hover="Articles">Internships</a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1481">
+                                            <a href="">Our Team</a>
+                                        </li>
+                                    
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+                </div>
+                </div>
+                
+                
+                <div id="search_wrapper">
+                    <form method="get" id="searchForma">
+                        <i class="fas fa-search"></i>
+                        <a id="search_close"><i class="fas fa-times"></i></a>
+                        <input type="text" class="field" name="s" placeholder="Enter your search">
+                        <input type="submit" class="submit" value="">
+                    </form>
+                
+                </div>
+                
+                </header>
+                
+                
+                <!-- Custom menu link HEADER -->
+                <header id="custom__menu">
+                    <!-- Top bar -->
+                    <!-- Main menu container -->
+                
+                    <div class="">
+                
+                        <div class="hlogo">
+                            <div class="hlogoinner">
+                                <a href="">
+                                    <img height="80" width="146" alt="" src="{% static 'home/images/Logo.png' %}" />
+                                    <img height="80" width="146" class="fixed_header_logo" alt=""
+                                        src="{% static 'home/images/Logo.png' %}" />
+                                </a>
+                            </div>
+                        </div>
+                
+                
+                        <div class="menucont">
+                
+                            <div class="menu-main-menu-container">
+                                <ul class="nav navbar-nav">
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1470">
+                                        <a href="{% url 'home' %}" data-hover="Home">Home</a>
+                                    </li>
+                                    <li
+                                        class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1478">
+                                        <a href="">Events</a>
+                                        <ul class="sub-menu">
+                                            <li
+                                                class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
+                                                <a href="" aria-current="page">E-Talks</a>
+                                            </li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                <a href="" data-hover="Header generic style">The StartUp
+                                                    Weekend</a>
+                                            </li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                <a href="" data-hover="Header generic style">E-Summit</a>
+                                            </li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                <a href="" data-hover="Header generic style">Venture Lab Weekend</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li
+                                        class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1478">
+                                        <a href="">StartUp Ecosystem</a>
+                                        <ul class="sub-menu">
+                                            <li
+                                                class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
+                                                <a href=""  aria-current="page">Startups</a>
+                                            </li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                <a href="" data-hover="Header generic style">Investors</a>
+                                            </li>
+                                            <li class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                <a href="" data-hover="Header generic style">Venture
+                                                    Capitalists</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1479">
+                                        <a href="">Bizfinatics</a>
+                                    </li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1479">
+                                        <a href="" data-hover="Articles">Internships</a>
+                                    </li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1479">
+                                        <a href="" data-hover="Articles">Our Team</a>
+                                    </li>
+                
+   
+                                    
+                                </ul>
+                            </div>
+                
+                
+                        </div>
+                
+                
+                
+                        <!-- Fullscreen pop up menu -->
+                
+                        <div class="fullscreen-menu">
+                            <div class="menuArea">
+                                <input type="checkbox" id="mobilemenu">
+                
+                                <label for="mobilemenu" class="menuOpen">
+                                    <span class="open"></span>
+                                </label>
+                
+                                <div class="menu menuEffects">
+                                    <label for="mobilemenu"></label>
+                                    <div class="menuContent">
+                
+                                        <div class="menu-main-menu-container">
+                                            <ul class="nav navbar-nav">
+                                                <li
+                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1470">
+                                                    <a href="{% url 'home' %}" data-hover="Home" style="color: white">Home</a>
+                                                </li>
+                                                <li
+                                                    class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1478">
+                                                    <a href="" style="color: white">Events</a>
+                                                    <ul class="sub-menu">
+                                                        <li
+                                                            class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482" >
+                                                            <a href="" aria-current="page">E-Talks</a>
+                                                        </li>
+                                                        
+                                                        <li 
+                                                            class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                            <a href="" data-hover="Header generic style">The
+                                                                StartUp Weekend</a>
+                                                        </li>
+                                                        <li
+                                                            class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                            <a href="" data-hover="Header generic style">E-Summit</a>
+                                                        </li>
+                                                        <li
+                                                            class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                            <a href="" data-hover="Header generic style">Venture Lab
+                                                                Weekend</a>
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </li>
+                                                <li
+                                                    class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1478" >
+                                                    <a href="" style="color: white">StartUp Ecosystem</a>
+                                                    <ul class="sub-menu">
+
+                                                        <li
+                                                            class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                            <a href=""
+                                                                data-hover="Header generic style">Investors</a>
+                                                        </li>
+                                                        <li
+                                                            class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                            <a href=""
+                                                                data-hover="Header generic style">Venture Capitalists</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1481">
+                                                    <a href="" style="color: white">BizFinatics</a>
+                                                </li>
+                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1481">
+                                                    <a href="" style="color: white">Internships</a>
+                                                </li>
+                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1479">
+                                                    <a href="" data-hover="Articles" style="color: white">Our
+                                                        Team</a>
+                                                </li>
+
+                                            
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="clear"></div>
+                    </div>
+                </header>
+        <!-- end Custom menu link HEADER -->
+
+
+        <!-- Body -->
+        {% block body %}{% endblock body %}
+        <!--Footer-->
+        <footer>
+            <div class="main_footer footer_fourcolumns" style="padding: 20px 0px 15px 0px;">
+                <div class="" style="display: flex; flex-direction: row; flex-wrap: wrap; width: 90%; margin: auto;">
+                    <div class="footer_column" style="flex: 1; padding: 30px; min-width: 100px;">
+                        <div class="fc_inner">
+                            <div>
+                                <img src="{% static 'home/images/logoscroll.png' %}" height="300px" width="250px" id="footer_logo" style="max-width: 100%;">
+                            </div>
+                            <br>
+                            <div class="contact" style="display: flex; flex-direction: row; justify-content: space-around;">
+                                <div><a href="https://www.linkedin.com/school/entrepreneurship-development-cell-thapar-university/" target="_blank">
+                                	<!-- <img src="{% static 'home/images/linkedin.png' %}" height="40px" width="40px" id="linkedin_footer"> -->
+                                	<i class="fa fa-linkedin" id="linkedin_footer" style="color: white; font-size: 40px;"></i>
+                                	</a> </div>
+
+                                <div><a href="https://www.instagram.com/edc_tiet/" target="_blank">
+                                		<!-- <img src="{% static 'home/images/insta.png' %}" height="40px" width="40px" id="instagram_footer"> -->
+                                		<i class="fa fa-instagram" id="instagram_footer" style="color: white; font-size: 40px;"></i>
+                                	</a></div>
+
+                                <div><a href="https://www.facebook.com/tuedcell/" target="_blank">
+                                		<!-- <img src="{% static 'home/images/Facebook.png' %}" height="40px" width="40px" id="facebook_footer"> -->
+                                		<i class="fa fa-facebook" id="facebook_footer" style="color: white; font-size: 40px;"></i>
+                                	</a></div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="footer_column" style="flex: 1; padding: 10px;">
+                        <div class="fc_inner">
+                            <h3 style="color: white; font-size: 18px; margin-bottom: 0px;" id="footer_h3">Our Events</h3>
+                            <hr size="4px" align="left" noshade="noshade" color="#2f92bb" width="50px" id="hr_footer">
+                            </hr>
+                            <ul style="padding: 0%;" type="none">
+                                <li>
+                                    <a href="">
+                                        <p style="color: white; font-family: PT Sans; font-weight: bold;" onmouseover="this.style.color='#c5e4f0';" onmouseout="this.style.color='white';">E-Summit</p>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="">
+                                        <p style="color: white; font-family: PT Sans; font-weight: bold;" onmouseover="this.style.color='#c5e4f0';" onmouseout="this.style.color='white';">Venture Lab</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <p style="color: white; font-family: PT Sans; font-weight: bold;" onmouseover="this.style.color='#c5e4f0';" onmouseout="this.style.color='white';">E-Talks</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <p style="color: white; font-family: PT Sans; font-weight: bold;" onmouseover="this.style.color='#c5e4f0';" onmouseout="this.style.color='white';">Start-Up Weekend</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="footer_column" style="flex: 1.5;  padding: 10px;">
+                        <div class="fc_inner">
+                            <h3 style="color: white; font-size: 18px; margin-bottom: 0px;" id="footer_h3">Start-Up Eco-System</h3>
+                            <hr size="4px" align="left" noshade="noshade" color="#2f92bb" width="70px" id="hr_footer1">
+                            <ul style="padding: 0%;" type="none">
+                                <li>
+                                    <a href="">
+                                        <p style="color: white; font-family: PT Sans; font-weight: bold;" onmouseover="this.style.color='#c5e4f0';" onmouseout="this.style.color='white';">About</p>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="" >
+                                        <p style="color: white; font-family: PT Sans; font-weight: bold;" onmouseover="this.style.color='#c5e4f0';" onmouseout="this.style.color='white';">StartUps</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <p style="color: white; font-family: PT Sans; font-weight: bold;" onmouseover="this.style.color='#c5e4f0';" onmouseout="this.style.color='white';">Venture Capitalists</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <p style="color: white; font-family: PT Sans; font-weight: bold;" onmouseover="this.style.color='#c5e4f0';" onmouseout="this.style.color='white';">Investors</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <p style="color: white; font-family: PT Sans; font-weight: bold;" onmouseover="this.style.color='#c5e4f0';" onmouseout="this.style.color='white';">Internships</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="footer_column" style="flex: 2; padding: 10px;">
+                        <div class="fc_inner">
+                            <div style="">
+                                <div class="textwidget">
+                                    <h3 style="color: white; font-size: 18px; margin-bottom: 0px;" id="footer_h3">Contact Us</h3>
+                                    <hr size="4px" align="left" noshade="noshade" color="#2f92bb" width="50px" id="hr_footer">
+                                    <ul type="none" class="contact-cards" id="footer_list" style="margin-left: 0px; margin-top: 10px;display: flex; flex-direction: column; padding: 0px; align-items: flex-start;">
+                                        <li>
+                                            <div class="contact" id="lower_contact">
+                                                <div class="col1">
+                                                    <!-- <img src="{% static 'home/images/blueloct.png' %}" height="30px" width="30px" id="favimg"> -->
+                                                    <i class="fa fa-map-marker" id="favimg" style="color: #2f92bb; font-size: 30px;"></i>
+                                                </div>
+                                                <div class="col2" style="margin-left: 8px; margin-top: 0px;">
+                                                    <a href="https://g.page/ThaparInstitute?share" target="_blank">
+                                                        <p style="color: white; font-family: PT Sans; font-weight: bold;" onmouseover="this.style.color='#c5e4f0';" onmouseout="this.style.color='white';">Thapar Institute of Engineering and Technology, Patiala</p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <br>
+                                        <li>
+                                            <div class="contact" id="lower_contact">
+                                                <div class="col1">
+                                                    <!-- <img src="{% static 'home/images/bluecall.png' %}" height="35px" width="35px" id="favimg"> -->
+                                                    <i class="fa fa-mobile" id="favimg" style="color: #2f92bb; font-size: 30px; margin-top: 10px;"></i>
+                                                </div>
+                                                <div class="col2" style="margin-left: 12px; margin-top: -6px;">
+                                                    <p style="color: white; font-family: PT Sans; font-weight: bold;">Animesh Bisen: <a href="tel:9140470096">+91 9140470096</a></p>
+                                                    <p style="color: white; font-family: PT Sans; margin-top: -5px; font-weight: bold;">Anmol Jindal: <a href="tel:8264245458">+91 8264245458</a></p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <br>
+                                        <li>
+                                            <div class="contact" id="lower_contact">
+                                                <div class="col1">
+                                                    <!-- <img src="{% static 'home/images/bluemail.png' %}" height="35px" width="35px" id="favimg" style="color: blue; background: rgba(0,0,0,0)"> -->
+                                                    <i class="fa fa-envelope" id="favimg" style="color: #2f92bb; font-size: 30px;"></i>
+                                                </div>
+                                                <div class="col2" style="margin-left: 12px; margin-top: 0px;">
+                                                    <a href="mailto:tuedcell@gmail.com">
+                                                        <p style="color: white; font-family: PT Sans; font-weight: bold;" onmouseover="this.style.color='#c5e4f0';" onmouseout="this.style.color='white';">tuedcell@gmail.com</p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="footer_bottom">
+                <div class="">
+                    <div class="fb_text" style="color: grey !important;" id="copyright_footer">
+                        <img src="{% static 'home/images/copyright.png' %}" height="15px" width="15px">
+                        <span style="font-size: 15px" id="copyright_text"> 2020-21 All Rights Reserved. Designed by <a href="{% url 'home' %}"> EDC-TIET</a></span>
+                    </div>
+                    <div class="fb_social">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </footer>
+        <a id="back-to-top" title="Back to top"><i class="fas fa-angle-double-up" aria-hidden="true"></i></a>
+
+
+
+        <link rel='stylesheet' id='vc_animate-css-css' href="{% static 'home/css/animate.min.css' %}" type='text/css' media='all' />
+		<link rel='stylesheet' id='ult-background-style-css'  href=" {% static 'home/css/background-style.min.css' %}" type='text/css' media='all' />
+        <script type='text/javascript' src="{% static 'home/js/scripts.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/js.cookie.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/woocommerce.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/cart-fragments.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/isotope.pkgd.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/jquery.prettyPhoto.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/mediaelement-and-player.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/anime.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/tilt.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/slimMenu.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/flickity.pkgd.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/prototip.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/global.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/comment-reply.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/wp-embed.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/js_composer_front.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/vc-waypoints.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/ultimate_bg.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/mb-YTPlayer.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'home/js/vc_isotope_gallery.js' %}"></script>
+        <script type='text/javascript' src="{%static 'home/js/info-box.min.js'%}"></script>
+        <script type='text/javascript' src="{%static 'home/js/flip-box.min.js'%}"></script>
+        <script type='text/javascript' src="{%static 'home/js/vhparallax.min.js'%}"></script>
+</body>
+
+</html>
