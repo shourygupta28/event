@@ -6,7 +6,6 @@
 <head>
     <link rel="stylesheet" href="{% static 'home/css/trading/bootstrap-iso.css' %}" />
     <link rel="stylesheet" href="{% static 'home/css/trading/css/bootstrap.min.css' %}" />
-    <title>EDC,TIET-Internships</title>
     <style type="text/css">
         img.wp-smiley,
         img.emoji {
@@ -365,28 +364,14 @@ vc_responsive"
 
     <div class="row main_body" style="max-width:100% !important; display:flex; justify-content: center;">
         <div class="col-12 col-md-8 col-lg-8 col-sm-12 main_body_center ">
-<!--             {% if user.is_startup %}
-            <div class="create_button">
-                <a href="{% url 'internship-create' %}">
-                    Create an Internship
-                </a>
-            </div>
-            {% endif %} -->
 
-
-            <!--  Internship Cards  -->
-<!--             {%if internships %}
-            {% for internship in internships %} -->
 
             <div id="startup" class="card supcard"
-                style=" margin-top: 30px; border:none; box-shadow: 3px 5px 6px #ccc; padding-bottom: 2%; padding-left: 2%; padding-right: 2%; margin-bottom:30px;">
                 <div class="supcard_top" style="max-width:80% !important;">
 
 
                     <div class="card-body" style="margin-top: 15px;">
                         <!-- <img src="" style="width: 10%;" class="card-img-top" alt="startup logo"> -->
-                        <h4 class="card-title" style="font-size: 28px;">internship.startup.startup_name</h4>
-                        <h5 class="card-title" style="color:#2f92bb; font-size: 20px; ">
                              internship.field_of_internship 
                         </h5>
                         <hr>
@@ -395,26 +380,18 @@ vc_responsive"
                 <div class="supcard_mid" style=" margin-bottom: 20px; margin-left: 20px; overflow: visible;">
 
                     <div class="location">
-                        <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Location:</h5>
-                        <p class="card-text" style=" font-size: 16px;"> internship.location </p>
 
                     </div>
                     <div class="duration">
-                        <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Duration:</h5>
 
-                        <p class="card-text" style=" font-size: 16px;"> internship.duration </p>
                     </div>
                     <div class="Start">
-                        <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Stipend:</h5>
 
-                        <p class="card-text" style=" font-size: 16px;"> internship.stipend </p>
                     </div>
-                    <div class="applyBy">
                         <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Skills Required:
                         </h5>
 
                         <p class="card-text" style=" font-size: 16px;"> internship.skills_required </p>
-                    </div>
                 </div>
                 <hr>
                 <div class="card-footer " style="background-color:white;">
@@ -432,9 +409,6 @@ vc_responsive"
                     </div>
                 </div>
             </div>
-<!--             {% endfor %} -->
-
-<!--             {% else %} -->
             <br><br><br><br>
             <div class="wrapper">
                 <h1 style="font-weight: bold; ">New Internships To Be Added Soon...</h1>
