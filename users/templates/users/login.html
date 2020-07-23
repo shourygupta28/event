@@ -1,0 +1,278 @@
+  {% extends "home/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block head %}
+<title>EDC,TIET-Login</title>
+    <link rel="pingback" href="{% static 'home/xmlrpc.php'%}" />
+    <link rel='stylesheet' id='ult-stats-counter-style-css' href="{% static 'home/css/stats-counter.min.css' %}" type='text/css' media='all' />
+
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <style type="text/css" data-type="vc_shortcodes-custom-css">
+      .vc_custom_1522954642578 {
+          padding-top: 50px !important;
+          padding-bottom: 70px !important;
+      }
+  
+      .vc_custom_1494624914514 {
+          padding-top: 50px !important;
+      }
+  
+      .vc_custom_1494624919805 {
+          padding-bottom: 100px !important;
+      }
+  
+      .vc_custom_1494626839758 {
+          padding-top: 100px !important;
+          padding-bottom: 210px !important;
+      }
+  
+      .vc_custom_1494625858679 {
+          margin-top: -150px !important;
+      }
+  
+      .vc_custom_1495476778635 {
+          margin-top: 100px !important;
+          margin-bottom: 0px !important;
+      }
+  
+      .vc_custom_1494618991842 {
+          padding-top: 50px !important;
+      }
+  
+      .vc_custom_1494621972326 {
+          padding-top: 100px !important;
+      }
+  
+      .vc_custom_1494621689637 {
+          margin-top: 30px !important;
+      }
+  
+      .vc_custom_1494626651578 {
+          margin-top: 0px !important;
+          margin-bottom: 45px !important;
+      }
+  
+      .vc_custom_1494628064641 {
+          margin-bottom: 45px !important;
+      }
+  
+      .vc_custom_1494626726323 {
+          margin-top: 30px !important;
+          margin-bottom: 30px !important;
+      }
+  
+      .vc_custom_1494625719386 {
+          margin-top: 0px !important;
+          margin-right: 0px !important;
+          margin-bottom: 0px !important;
+          margin-left: 0px !important;
+          padding-top: 0px !important;
+          padding-right: 0px !important;
+          padding-bottom: 0px !important;
+          padding-left: 0px !important;
+      }
+  
+      .vc_custom_1494625728900 {
+          margin-top: 0px !important;
+          margin-right: 0px !important;
+          margin-bottom: 0px !important;
+          margin-left: 0px !important;
+          padding-top: 0px !important;
+          padding-right: 0px !important;
+          padding-bottom: 0px !important;
+          padding-left: 0px !important;
+      }
+  
+      .vc_custom_1494625737076 {
+          margin-top: 0px !important;
+          margin-right: 0px !important;
+          margin-bottom: 0px !important;
+          margin-left: 0px !important;
+          padding-top: 0px !important;
+          padding-right: 0px !important;
+          padding-bottom: 0px !important;
+          padding-left: 0px !important;
+      }
+  
+      .vc_custom_1495476642306 {
+          padding-bottom: 50px !important;
+      }
+  
+  </style>
+  
+  <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+  <link rel='stylesheet' id='ls-google-fonts-css' href='https://fonts.googleapis.com/css?family=Lato:100,300,regular,700,900&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
+  <style id='woocommerce-inline-inline-css' type='text/css'>
+      .woocommerce form .form-row .required {
+          visibility: visible;
+      }
+  </style>
+  
+  <style>
+      audio::-webkit-media-controls-timeline,
+      video::-webkit-media-controls-timeline {
+          display: none;
+      }
+  </style>
+  <noscript>
+      <style>
+          .woocommerce-product-gallery {
+              opacity: 1 !important;
+          } 
+          .wpb_animate_when_almost_visible {
+              opacity: 1;
+          }
+      </style>
+  </noscript>
+  
+  <style>
+      .vc_row{
+          max-width: 99vw;
+      }
+  </style>
+    <style>
+      .body-bg{
+        background-image: url({% static 'home/images/joanna-kosinska-1_CMoFsPfso-unsplash.jpg' %}) !important;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        padding: 7em 0px;
+      }
+      .main {
+        background-color: #FFFFFF;
+        width: 800px;
+        height: 600px;
+        margin: 0px auto;
+        border-radius: 1.5em;
+        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+        }
+        .sign {
+        padding-top: 40px;
+        color: rgb(47, 146, 187);
+        font-family: 'Montserrat';
+        font-weight: bold;
+        font-size: 40px;
+        }
+        form.form1 {
+        padding-top: 40px;
+        }
+        .un {
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Montserrat';
+    }
+    .pass {
+            width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Montserrat';
+    }
+    .submit {
+      cursor: pointer;
+        border-radius: 5em;
+        color: #fff;
+        background: linear-gradient(to right, rgb(16, 153, 212), rgb(47, 146, 187));
+        border: 0;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-family: 'Montserrat';
+        margin-left: 35%;
+        font-size: 13px;
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    }
+    
+    a {
+      font-weight: bold;
+      color: rgb(47, 146, 187);
+    }
+
+    a:hover {
+      color:black;
+    }
+
+    strong {
+      color: #ff1111;
+    }
+    </style>
+    <style type="text/css">
+        @media(max-width: 725px){
+            .main{
+                width: 90%;
+            }
+
+        }
+    </style>
+{% endblock head %}
+
+{% block bodytag %}
+class="woocommerce-no-js has-fixed-header wpb-js-composer js-comp-ver-6.0.5 vc_responsive"
+{% endblock bodytag %}
+
+{% block body %}
+<div class="body-bg" style="height: 100%;">
+  <div class="main">
+      <p class="sign" style="padding-top: 70px;" align="center">Login</p>
+      <div class="" style="margin-left: 80px; margin-right: 80px; font-family: 'Montserrat';" >
+        <form class="form1" method="POST">
+            {% csrf_token %}
+            <br>
+            {{ form|crispy }}
+            <div class="form-group" >
+                <input style="background-color: rgb(47, 146, 187)" type="submit" value="Login" class="btn btn-primary pull-right" />
+            </div>
+        </form>
+        <div class="border-top pt-4" style="font-size: 20px; padding-bottom: 50px; padding-top: 80px; text-align: center;">
+            <small class="text-muted">
+                Need An Account? Sign Up Now<a class="ml-2" href="{% url 'student-signup' %}"> As a Student </a> or <a class="ml-2" href="{% url 'startup-signup' %}">As a Startup</a>.
+           </small>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}
+
+
+
+
+
+
+        
+               
+                
