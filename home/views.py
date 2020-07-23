@@ -5,4 +5,7 @@ def home(request):
 
 def trading(request):
 	return render(request, 'home/trading.html')
-# Create your views here.
+
+def mycompanies(request):
+	return render(request, 'home/mycompanies.html')
+
