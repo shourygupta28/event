@@ -7,9 +7,16 @@ from .models import User
 
 class UserRegistrationForm(UserCreationForm):
 	name 				= forms.CharField(max_length=60)
-	email 				= forms.EmailField(help_text='Email Address')
-	contact 			= PhoneNumberField(widget=forms.TextInput(attrs={'placeholder': ('')}), label=("Phone number"), required=False, help_text='Add Country Code before your contact number.')
-	
+	Username 			= forms.CharField(max_length=15)
+	email 				= forms.EmailField()
+
 	class Meta(UserCreationForm.Meta):
-		model 	= User
-		fields 	= ['name']
+		models 		= User
+		fields 		= ['name','email','password1','password2']
+	# name 				= forms.CharField(max_length=60)
+	# email 				= forms.EmailField(help_text='Email Address')
+	# # contact 			= PhoneNumberField(widget=forms.TextInput(attrs={'placeholder': ('')}), label=("Phone number"), required=False, help_text='Add Country Code before your contact number.')
+	
+	# class Meta(UserCreationForm.Meta):
+	# 	model 	= User
+	# 	fields 	= ['name','email','password1','password2']
