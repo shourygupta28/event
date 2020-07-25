@@ -1294,7 +1294,14 @@
                 </header>
         <!-- end Custom menu link HEADER -->
 
-
+        {% if messages %}
+            <div style="background: black; height:80px; width: 100%"></div>
+            <ul class="messages" style="background: #32a852; width: 100%; color: rgb(255, 255, 255); text-align: center; margin: 0px; padding: 10px;">
+                {% for message in messages %}
+                    <h1 style="font-weight: 600; font-size: 25px; margin: 0px;">{{ message }}</h1>
+                {% endfor %}
+            </ul>
+        {% endif %}
         <!-- Body -->
         {% block body %}{% endblock body %}
         <!--Footer-->
