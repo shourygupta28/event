@@ -6,13 +6,13 @@ from django.db import transaction
 from .models import User
 
 class UserRegistrationForm(UserCreationForm):
-	name 				= forms.CharField(max_length=60)
-	Username 			= forms.CharField(max_length=15)
+	# name 				= forms.CharField(max_length=60)
+	username 			= forms.CharField(max_length=15)
 	email 				= forms.EmailField()
 
 	class Meta(UserCreationForm.Meta):
 		models 		= User
-		fields 		= ['name','email','password1','password2']
+		fields 		= ['username','email','password1','password2']
 	# name 				= forms.CharField(max_length=60)
 	# email 				= forms.EmailField(help_text='Email Address')
 	# # contact 			= PhoneNumberField(widget=forms.TextInput(attrs={'placeholder': ('')}), label=("Phone number"), required=False, help_text='Add Country Code before your contact number.')
