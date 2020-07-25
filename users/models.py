@@ -7,13 +7,15 @@ class User(AbstractUser):
 	email 		= models.EmailField(verbose_name='Email Address', unique=True)
 	name 		= models.CharField(max_length=50)
 
-	USERNAME_FIELD 		= 'Username'
+	USERNAME_FIELD 		= 'username'
 	user_permissions 	= None
 	groups 				= None
 	REQUIRED_FIELDS 	= []
 
 	def __str__():
 		return self.name
+
+
 # class User(AbstractUser):
 # 	email 				= models.EmailField(verbose_name='Email Address', unique=True)
 # 	name				= models.CharField(max_length=50,)
