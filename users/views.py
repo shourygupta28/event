@@ -12,6 +12,7 @@ def register(request):
             User = form.save()
 
             messages.success(request, f'Your account has been created! You can login now.')
+            return redirect('login')
 
     else:
         form = UserRegistrationForm()

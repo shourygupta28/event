@@ -127,3 +127,5 @@ STATIC_URL = '/static/'
 # AUTH_USER_MODEL = "users.User"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'mycompanies'
