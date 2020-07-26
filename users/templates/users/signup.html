@@ -2,7 +2,7 @@
 {% load static %} 
 {%load crispy_forms_tags %} 
 {% block head %}
-<title>EDC,TIET-SignUp Student</title>
+<title>EDC,TIET-Registration</title>
     <link rel="pingback" href="{% static 'home/xmlrpc.php'%}" />
     <link rel='stylesheet' id='ult-stats-counter-style-css' href="{% static 'home/css/stats-counter.min.css' %}" type='text/css' media='all' />
 
@@ -256,7 +256,7 @@
 
 <div class="body-bg">
   <div class="main">
-    <p class="sign" style="padding-top: 70px;" align="center">Sign Up As a Student</p>
+    <p class="sign" style="padding-top: 70px;" align="center">Sign Up for ______________</p>
     <div class="" style="margin-left: 10%; margin-right: 10%; font-family: 'Montserrat';" >
       <form class="form1" id="login-form" method="post" action="" >
         {% csrf_token %} 
@@ -269,7 +269,7 @@
 
         <div class="border-top pt-4" style="font-size: 20px; padding-bottom: 50px; padding-top: 80px; text-align: center;">
             <small class="text-muted">
-                Already Have An Account?<a class="ml-2" href="#"> Login Now </a>
+                Already Have An Account?<a class="ml-2" href="{% url 'login' %}"> Login Now </a>
             </small>
         </div>
     </div>
