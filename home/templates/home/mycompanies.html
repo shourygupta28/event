@@ -356,7 +356,7 @@ vc_responsive"
                                             style="width: 100%; height: 100%;padding-top: 35%; text-align:center;font-weight:800;font-style:normal;text-decoration:none;font-family:Lato;font-size:100px;line-height:120px;color:#ffffff; text-align: center;"
                                             data-ls="showinfo:1;parallax:true;parallaxlevel:-18;parallaxtype:3d;parallaxevent:scroll;parallaxaxis:y;"
                                             data-ls="showinfo:1;parallax:true;parallaxlevel:-18;parallaxtype:3d;parallaxevent:scroll;parallaxaxis:y;">
-                                            MY <br> COMPANIES
+                                            {{ user.username }} <br> COMPANIES
                                         </h1>
                                         <a style="" class="ls-l" href="#startup" target="_self"
                                             data-ls="showinfo:1;offsetyin:-50px;delayin:1000;parallax:true;parallaxlevel:-10;parallaxtype:3d;parallaxevent:scroll;parallaxaxis:y;">
@@ -377,9 +377,17 @@ vc_responsive"
         </div>
     </div>
 
-
+            <h1 class="ls-l"
+                style="width: 100%; height: 100%;padding-top: 3%; text-align:center;font-weight:800;font-style:normal;text-decoration:none;font-family:Lato;font-size:25px;line-height:120px;color:#000000; text-align: center;"> 
+                E-COINS AVAILABLE : {{ user.eCoins }}
+            </h1>
     <div class="row main_body" style="max-width:100% !important; display:flex; justify-content: center;">
+
         <div class="col-12 col-md-8 col-lg-8 col-sm-12 main_body_center ">
+<!--             <h1 class="ls-l"
+                style="width: 100%; height: 100%;padding-top: 35%; text-align:center;font-weight:800;font-style:normal;text-decoration:none;font-family:Lato;font-size:100px;line-height:120px;color:#ffffff; text-align: center;"> 
+                E-COINS AVAILABLE : {{ user.eCoins }}
+            </h1> -->
 
 
             <div id="startup" class="card supcard"
