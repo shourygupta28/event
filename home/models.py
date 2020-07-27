@@ -11,6 +11,8 @@ class Company(models.Model):
         return self.company_name
 
 class Trading(models.Model):
+    company_name = models.CharField(max_length=30, default= 'Company')
+    multiplicationfactor = models.PositiveIntegerField(default=1)
     your_bid_price = models.IntegerField()
     percentage_for_sale = models.IntegerField()
 
