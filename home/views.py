@@ -1,7 +1,11 @@
 from django.shortcuts import render
+from .models import Company, Trading
 
 def home(request):
-	return render(request, 'home/index.html', )
+	context = {
+		'Companys': Company.objects.all()
+	}
+	return render(request, 'home/index.html', context)
 
 def trading(request):
 	return render(request, 'home/trading.html')

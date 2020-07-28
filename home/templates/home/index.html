@@ -288,45 +288,30 @@ class="home page-template-default page page-id-17 woocommerce-no-js has-fixed-he
                     </div>
                 </div>
             </div>
-            <div style="align-self: center; width: 80vw; padding-left: 5vw; padding-right: 5vw; padding-bottom: 5vw; padding-top: 1vw; margin: auto;">
-                <table class="companies">
-                    <tr>
-                        <th>S.No.</th>
-                        <th>Company Name</th>
-                        <th>Current Multiplication Factor</th>
-                    </tr>                    
-                    <tr>
-                        <td>S.No.</td>
-                        <td>Company Name</td>
-                        <td>Current Multiplication Factor</td>
-                    </tr>
-                    <tr>
-                        <td>S.No.</td>
-                        <td>Company Name</td>
-                        <td>Current Multiplication Factor</td>
-                    </tr>
-                    <tr>
-                        <td>S.No.</td>
-                        <td>Company Name</td>
-                        <td>Current Multiplication Factor</td>
-                    </tr>
-                    <tr>
-                        <td>S.No.</td>
-                        <td>Company Name</td>
-                        <td>Current Multiplication Factor</td>
-                    </tr>
-                    <tr>
-                        <td>S.No.</td>
-                        <td>Company Name</td>
-                        <td>Current Multiplication Factor</td>
-                    </tr>
-                    <tr>
-                        <td>S.No.</td>
-                        <td>Company Name</td>
-                        <td>Current Multiplication Factor</td>
-                    </tr>
-                </table>
-            </div>
+
+            {%if Companys %}
+                <div style="align-self: center; width: 80vw; padding-left: 5vw; padding-right: 5vw; padding-bottom: 5vw; padding-top: 1vw; margin: auto;">
+                    <table class="companies">
+                        <tr>
+                            <th>S.No.</th>
+                            <th>Company Name</th>
+                            <th>Current Multiplication Factor</th>
+                        </tr>  
+                {% for Company in Companys %}
+                            <tr>
+                                <td>S.No.</td>
+                                <td>{{ Company.company_name }}</td>
+                                <td>{{ Company.multiplication_factor }}</td>
+                            </tr>
+
+                {% endfor %}
+                    </table>
+                </div>
+            {% else %}
+                <h1>Companies will be shown here</h1>
+            {% endif %}
+
+
 <!--                 <div class="wpb_column vc_column_container vc_col-md-5" id="aboutimg">
                     <div class="vc_column-inner">
                         <div class="wpb_wrapper">
