@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Company, Trading
+from .forms import BidForm
+
 
 def home(request):
 	context = {
@@ -7,8 +9,21 @@ def home(request):
 	}
 	return render(request, 'home/index.html', context)
 
+
 def trading(request):
-	return render(request, 'home/trading.html')
+	# if request.method == 'POST':
+	# 	form = BidForm(request.POST)
+	# 	if form.is_valid():
+	# 		Trading = form.save()
+
+			# messages.success(request, f'Your account has been created! You can login now.')
+	# 		return redirect('trading')
+
+	# else:
+	# 	form = BidForm()
+		return render(request, 'home/trading.html', { 'Tradings': Trading.objects.all()})
+
+
 
 def bidding(request):
 	return render(request, 'home/letsbid.html')
