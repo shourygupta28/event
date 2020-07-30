@@ -20,9 +20,13 @@ def trading(request):
 	# 		return redirect('trading')
 
 	# else:
-	# 	form = BidForm()
-		return render(request, 'home/trading.html', { 'Tradings': Trading.objects.all()})
-
+	# form = BidForm()
+	context = {
+		'Tradings': Trading.objects.all(),
+		'Companys': Company.objects.all()	
+	}
+	# print(context[trading])
+	return render(request, 'home/trading.html', context)
 
 
 def bidding(request):

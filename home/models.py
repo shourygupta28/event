@@ -11,8 +11,11 @@ class Company(models.Model):
         return self.company_name
 
 class Trading(models.Model):
-    company_name = models.CharField(max_length=30, default= 'Company')
-    multiplicationfactor = models.PositiveIntegerField(default=1)
+    company = models.ForeignKey(Company, related_name = 'company_details_trading', on_delete=models.CASCADE)
     your_bid_price = models.IntegerField()
     percentage_for_sale = models.IntegerField()
 
+class Share(models.Model):
+    company = models.ManyToManyField(Company, related_name = 'company_details')
+    shareholder = models.ManyToManyField(User, related_name = 'shareholder_details')
+    percentage_of_share = models.IntegerField()
