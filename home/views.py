@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Company, Trading
+from .models import Company, Trading, Share
 from .forms import BidForm
 
 
@@ -33,5 +33,8 @@ def bidding(request):
 	return render(request, 'home/letsbid.html')
 
 def mycompanies(request):
-	return render(request, 'home/mycompanies.html')
+	context = {
+		'Shares': Share.objects.all(),
+	}
+	return render(request, 'home/mycompanies.html', context)
 

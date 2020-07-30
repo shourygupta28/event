@@ -383,6 +383,81 @@ vc_responsive"
             </h1>
     <div class="row main_body" style="max-width:100% !important; display:flex; justify-content: center;">
 
+        <!-- <div class="col-12 col-md-8 col-lg-8 col-sm-12 main_body_center ">
+
+
+
+            <div id="startup" class="card supcard"
+                style=" margin-top: 30px; border:none; box-shadow: 3px 5px 6px #ccc; padding-bottom: 2%; padding-left: 2%; padding-right: 2%; margin-bottom:30px; margin-left: 2%; margin-right: 2%">
+                <div class="supcard_top" style="max-width:80% !important;">
+
+
+                    <div class="card-body" style="margin-top: 15px;">
+                        <h4 class="card-title" style="font-size: 28px;">Company Name</h4>
+
+                        <hr>
+                    </div>
+                </div>
+                <div class="supcard_mid" style=" margin-bottom: 20px; margin-left: 20px; overflow: visible;">
+
+                    <div class="location">
+                        <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Current Multiplication Factor:</h5>
+                        <p class="card-text" style=" font-size: 16px;"> 1 </p>
+
+                    </div>
+                    <div class="duration">
+                        <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Your Share %</h5>
+
+                        <p class="card-text" style=" font-size: 16px;"> XX% </p>
+                    </div>
+
+                <hr>
+                <div class="supcard_mid" style=" margin-bottom: 20px; margin-left: 20px; overflow: visible;">
+
+                    <div class="">
+                        <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Min Selling Price</h5>
+                    </div>
+                    <div class="duration">
+                        <input type="text" name="" style="margin-bottom: 10px; font-size: 20px; margin-left: 5%; width: 25%; min-width: 150px;">
+
+                    </div>
+                    <div class="Start">
+                        <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;"></h5>
+
+                        <p class="card-text" style=" font-size: 16px;"></p>
+                    </div>
+                    <div class="applyBy">
+                    <div class="create_button">
+                        <a href="">
+                            Place for Trade
+                        </a>
+                    </div>
+
+                    </div>                    
+                    <div class="applyBy">
+                    <div class="create_button">
+                        <a href="">
+                            Sell Shares
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br>
+
+
+        </div>
+
+    </div> -->
+
+    {% if Shares %}
+    {% for Share in Shares %}
+    {% if Share.shareholder == user %}
+
+    <div class="row main_body" style="max-width:100% !important; display:flex; justify-content: center;">
+
+
+
         <div class="col-12 col-md-8 col-lg-8 col-sm-12 main_body_center ">
 <!--             <h1 class="ls-l"
                 style="width: 100%; height: 100%;padding-top: 35%; text-align:center;font-weight:800;font-style:normal;text-decoration:none;font-family:Lato;font-size:100px;line-height:120px;color:#ffffff; text-align: center;"> 
@@ -476,7 +551,13 @@ vc_responsive"
 
 
         </div>
+
+
+        
     </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
 </div>
 
 {% endblock body %}
