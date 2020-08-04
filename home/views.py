@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Company, Trading, Share
+from users.models import User
 from .forms import BidForm
 
 

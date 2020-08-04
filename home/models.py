@@ -18,4 +18,4 @@ class Trading(models.Model):
 class Share(models.Model):
     company = models.ManyToManyField(Company, related_name = 'company_details')
     shareholder = models.ManyToManyField(User, related_name = 'shareholder_details')
-    percentage_of_share = models.IntegerField()
+    percentage_of_share = models.IntegerField() 
