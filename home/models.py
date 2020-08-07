@@ -19,3 +19,7 @@ class Share(models.Model):
     company = models.ManyToManyField(Company, related_name = 'company_details')
     shareholder = models.ManyToManyField(User, related_name = 'shareholder_details')
     percentage_of_share = models.IntegerField() 
+
+class Bidding(models.Model):
+    company = models.ForeignKey(Company, related_name = 'company_details_bidding', on_delete=models.CASCADE)
+    bidding_price = models.IntegerField()
