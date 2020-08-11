@@ -366,7 +366,8 @@ vc_responsive"
     <div class="row main_body" style="max-width:100% !important; display:flex; justify-content: center;">
         <div class="col-12 col-md-8 col-lg-8 col-sm-12 main_body_center ">
 
-
+            {% if Bid %}
+            {% for Bidding in Bid %}
             <div id="startup" class="card supcard"
                 style=" margin-top: 30px; border:none; box-shadow: 3px 5px 6px #ccc; padding-bottom: 2%; padding-left: 2%; padding-right: 2%; margin-bottom:30px; margin-left: 2%; margin-right: 2%">
                 <div class="supcard_top" style="max-width:80% !important;">
@@ -374,7 +375,7 @@ vc_responsive"
 
                     <div class="card-body" style="margin-top: 15px;">
                         <!-- <img src="" style="width: 10%;" class="card-img-top" alt="startup logo"> -->
-                        <h4 class="card-title" style="font-size: 28px;">Company Name</h4>
+                        <h4 class="card-title" style="font-size: 28px;">{{ Bidding.company.company_name }}</h4>
 <!--                         <h5 class="card-title" style="color:#2f92bb; font-size: 20px; ">
                              internship.field_of_internship 
                         </h5> -->
@@ -385,7 +386,7 @@ vc_responsive"
 
                     <div class="location">
                         <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Current Multiplication Factor:</h5>
-                        <p class="card-text" style=" font-size: 16px;"> 1 </p>
+                        <p class="card-text" style=" font-size: 16px;"> {{ Bidding.company.multiplication_factor }} </p>
 
                     </div>
                    
@@ -431,6 +432,8 @@ vc_responsive"
                     </div>
                 </div>
             </div>
+            {%endfor%}
+            {% endif %}
             <br><br><br><br>
 <!--             <div class="wrapper">
                 <h1 style="font-weight: bold; ">New Internships To Be Added Soon...</h1>
