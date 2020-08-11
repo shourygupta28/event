@@ -3,6 +3,9 @@ from .models import Company, Trading, Share, Bidding
 from users.models import User
 from .forms import BidForm
 
+def coming(request):
+	return render(request, 'home/comingsoon.html')
+
 
 def home(request):
 	context = {
@@ -15,13 +18,12 @@ def trading(request, id=None):
 	if request.method == 'POST':
 		form = BidForm(request.POST)
 		if form.is_valid():
-			Trading = form.save()
-
+			form.save()
 			# messages.success(request, f'Your account has been created! You can login now.')
 			return redirect('trading')
 
 	else:
-	form = BidForm()
+		form = BidForm()
 
 	context = {
 		'form':form,
