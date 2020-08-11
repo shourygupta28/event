@@ -3,7 +3,9 @@ from .models import Company, Trading, Share
 from users.models import User
 from .forms import BidForm
 
-
+def coming(request):
+	return render(request, 'home/comingsoon.html')
+	
 def home(request):
 	context = {
 		'Companys': Company.objects.all()
