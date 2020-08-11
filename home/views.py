@@ -3,7 +3,9 @@ from .models import Company, Trading, Share
 from users.models import User
 from .forms import BidForm
 
-
+def coming(request):
+	return render(request, 'home/comingsoon.html')
+	
 def home(request):
 	context = {
 		'Companys': Company.objects.all()
@@ -12,23 +14,30 @@ def home(request):
 
 
 def trading(request):
+	context = {
+		'Tradings': Trading.objects.all(),
+	}
+	tradingform(my_var)
+	return render(request, 'home/trading.html', context)
 	# if request.method == 'POST':
 	# 	form = BidForm(request.POST)
-	# 	if form.is_valid():
-	# 		Trading = form.save()
+	# 	form = 
+			# Trading = form.save()
 
 			# messages.success(request, f'Your account has been created! You can login now.')
 	# 		return redirect('trading')
 
 	# else:
 	# form = BidForm()
-	context = {
-		'Tradings': Trading.objects.all(),
-		'Companys': Company.objects.all()	
-	}
-	# print(context[trading])
-	return render(request, 'home/trading.html', context)
 
+	# print(context[trading])
+	
+def tradingform(my_var):
+	if request.method == 'POST':
+		form = BidForm(request.POST, instance=my_var)
+
+		if form.is_valid():
+			form.save()
 
 def bidding(request):
 	return render(request, 'home/letsbid.html')
