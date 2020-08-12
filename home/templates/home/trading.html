@@ -399,6 +399,11 @@ vc_responsive"
                                             <div class="Start">
                                                 <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Current Highest Bid</h5>
 
+                                                <p class="card-text" style=" font-size: 16px;"> {{ Trading.highets_bid }}  E-Coins </p>
+                                            </div>
+                                            <div class="Start">
+                                                <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Current your Bid</h5>
+
                                                 <p class="card-text" style=" font-size: 16px;"> {{ Trading.your_bid_price }}  E-Coins </p>
                                             </div>
                         <!--                     <div class="applyBy">
@@ -416,6 +421,7 @@ vc_responsive"
                                             {{ form }}
                                             <div class="form-group" >
                                                 <!-- <input type="text" name="" style="margin-bottom: 10px; font-size: 20px; margin-left: 5%; width: 25%; min-width: 150px;"/> -->
+                                                <a href="{% url 'trading-update' Trading.id %}"></a>
                                                 <input type="submit" value="Place Your Bid">
                                                 <!-- <button>
                                                     <div class="applyBy">

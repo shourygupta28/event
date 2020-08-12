@@ -12,7 +12,8 @@ class Company(models.Model):
 
 class Trading(models.Model):
     company = models.ForeignKey(Company, related_name = 'company_details_trading', on_delete=models.CASCADE, null=True, blank=True)
-    your_bid_price = models.IntegerField()
+    your_bid_price = models.IntegerField(default=0)
+    highets_bid = models.IntegerField(default=0)
     # user = models.ForeignKey(User,on_delete)
     # percentage_for_sale = models.IntegerField(blank=True)
 
