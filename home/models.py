@@ -11,9 +11,10 @@ class Company(models.Model):
         return self.company_name
 
 class Trading(models.Model):
-    company = models.ForeignKey(Company, related_name = 'company_details_trading', on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, related_name = 'company_details_trading', on_delete=models.CASCADE, null=True, blank=True)
     your_bid_price = models.IntegerField()
-    percentage_for_sale = models.IntegerField()
+    # user = models.ForeignKey(User,on_delete)
+    # percentage_for_sale = models.IntegerField(blank=True)
 
 class Share(models.Model):
     company = models.ManyToManyField(Company, related_name = 'company_details')
