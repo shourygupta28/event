@@ -13,7 +13,7 @@ class User(AbstractUser):
 	USERNAME_FIELD 		= 'username'
 	user_permissions 	= None
 	groups 				= None
-	REQUIRED_FIELDS 	= []
+	REQUIRED_FIELDS 	= ['email']
 
 	def __str__(self):
 		return self.name

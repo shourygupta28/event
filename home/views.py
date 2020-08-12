@@ -14,38 +14,47 @@ def home(request):
 	return render(request, 'home/index.html', context)
 
 
-def trading(request, id=None):
-	if request.method == 'POST':
-		form = BidForm(request.POST)
-		if form.is_valid():
-			form.save()
-			# messages.success(request, f'Your account has been created! You can login now.')
-			return redirect('trading')
 
+##############################################
+# trading view not required, can be deleted
+##############################################
+
+# def trading(request, id=None):
+# 	if request.method == 'POST':
+# 		form = BidForm(request.POST)
+# 		if form.is_valid():
+# 			form.save()
+# 			# messages.success(request, f'Your account has been created! You can login now.')
+# 			return redirect('trading')
+
+# 	else:
+# 		form = BidForm()
+
+# 	context = {
+# 		'form':form,
+# 		'Tradings': Trading.objects.all(),
+# 		'Companys': Company.objects.all(),
+# 	}
+	
+# 	# print(context[trading])
+# 	return render(request, 'home/trading.html', context)
+
+
+def tradingUpdateView(request, id=None):
+	if id:
+		trade = Trading.objects.get(id = id)
+		if request.method == 'POST':
+			form = BidForm(request.POST, instance=trade)
+			if form.is_valid():
+				form.save()
+			return redirect('trading')
 	else:
 		form = BidForm()
 
 	context = {
-		'form':form,
+		'form':form	,
 		'Tradings': Trading.objects.all(),
 		'Companys': Company.objects.all(),
-	}
-	
-	# print(context[trading])
-	return render(request, 'home/trading.html', context)
-
-def tradingUpdateView(request, id=None):
-	trade = Trading.objects.get(id = id)
-	if request.method == 'POST':
-		form = BidForm(request.POST, instance=trade)
-		if form.is_valid():
-			form.save()
-			return redirect('trading')
-	else:
-		form = BidForm(instance=trade)
-
-	context = {
-		'form':form	
 	}
 
 	return render(request, 'home/trading.html', context)
