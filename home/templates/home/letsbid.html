@@ -393,7 +393,7 @@ vc_responsive"
                     <div class="Start">
                         <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Highest Bid</h5>
 
-                        <p class="card-text" style=" font-size: 16px;"> Rs. XX,XXX </p>
+                        <p class="card-text" style=" font-size: 16px;"> {{Bidding.bidding_price}} </p>
                     </div>
 <!--                     <div class="applyBy">
                         <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Skills Required:
@@ -405,15 +405,35 @@ vc_responsive"
                 <hr>
                 <div class="supcard_mid" style=" margin-bottom: 20px; margin-left: 20px; overflow: visible;">
 
-                    <div class="">
+                    <form class="form1" method="POST" action="{% url 'bidding-update' Bidding.id %}">
+                        {% csrf_token %}
+                        <br>
+                        {{ form }}
+                        <div class="form-group" >
+                            <!-- <input type="text" name="" style="margin-bottom: 10px; font-size: 20px; margin-left: 5%; width: 25%; min-width: 150px;"/> -->
+                            <!-- <a href=""> -->
+                                <input type="submit" value="Place Your Bid">
+                            <!-- </a> -->
+                            <!-- <button>
+                                <div class="applyBy">
+                                    <div class="create_button">
+                                        <a href="">
+                                            Place Your Bid
+                                        </a>
+                                    </div>
+                                </div> -->
+                        </div>
+                    </form>
+                    
+                    <!-- <div class="">
                         <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Place Your Bid</h5>
                     </div>
                     <div class="duration">
-                        <input type="text" name="" style="margin-bottom: 10px; font-size: 20px; margin-left: 5%; width: 25%; min-width: 150px;">
+                        <input type="text" name="" style="margin-bottom: 10px; font-size: 20px; margin-left: 5%; width: 25%; min-width: 150px;"> -->
 <!--                         <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Precent For Sale:</h5>
 
                         <p class="card-text" style=" font-size: 16px;"> XX% </p> -->
-                    </div>
+                    <!-- </div>
                     <div class="Start">
                         <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;"></h5>
 
@@ -424,12 +444,12 @@ vc_responsive"
                         <a href="">
                             Place Your Bid
                         </a>
-                    </div>
+                    </div> -->
 <!--                         <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Skills Required:
                         </h5>
 
                         <p class="card-text" style=" font-size: 16px;"> internship.skills_required </p> -->
-                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
             {%endfor%}
