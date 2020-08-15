@@ -84,3 +84,6 @@ def mycompanies(request):
 	}
 	return render(request, 'home/mycompanies.html', context)
 
+def newpage(request):
+    return render(request, 'home/newpage.html')
+
