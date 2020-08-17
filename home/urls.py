@@ -9,5 +9,6 @@ urlpatterns = [
     path('bidding/', 		views.bidding ,			name='bidding'),
     path('bidding/<int:id>',views.bidding ,			name='bidding-update'),
     path('my_companies/', 	views.mycompanies ,		name='mycompanies'),
+    path('my_companies/<int:id>', 	views.mycompanies ,		name='mycompanies-trade'),
     path('newpage/', views.newpage,	name='newpage'),
 ]
