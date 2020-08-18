@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from .models import Company, Trading, Share, Bidding
+from .models import Company, Trading, Bidding
 from users.models import User
 from .forms import TradeForm, BidForm, CompanyForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from .models import Share as var
 
-i = Share.objects.all()
 
 def coming(request):
 	return render(request, 'home/comingsoon.html')
@@ -20,21 +20,28 @@ def home(request):
 	return render(request, 'home/index.html', context)
 
 def timepage(request):
-	context = {
-	'Shares' : Share.objects.all
-	}
-	return render(request, 'home/save.html', context)
+	return render(request, 'home/save.html')
 
 def time(request):
-	i = Share.objects.all();
-	for Share in i:
-		# coin = Share.shareholder.eCoins + Share.percentage_of_share*Share.company.multiplication_factor*10
+
+	i = var.objects.all();
+	print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+	print(i)
+	for j in i:
+		print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+		print(j)
+		coin = j.shareholder.eCoins + j.percentage_of_share*j.company.multiplication_factor*10
+		j.save()
 		print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-		print(i)
+		print(coin)
+		print(j.shareholder.contact_no)
+		print(j.shareholder.name)
+		User.objects.filter(id = j.shareholder.id).update(eCoins = coin)
+
 	# context = {
 	# 	'Shares': Share.objects.all()
 	# }
-	return render(request, 'home/save.html')
+	return redirect('timepage')
 
 
 
