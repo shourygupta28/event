@@ -25,22 +25,10 @@ def timepage(request):
 def time(request):
 
 	i = var.objects.all();
-	print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
 	print(i)
 	for j in i:
-		print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-		print(j)
 		coin = j.shareholder.eCoins + j.percentage_of_share*j.company.multiplication_factor*10
-		j.save()
-		print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-		print(coin)
-		print(j.shareholder.contact_no)
-		print(j.shareholder.name)
 		User.objects.filter(id = j.shareholder.id).update(eCoins = coin)
-
-	# context = {
-	# 	'Shares': Share.objects.all()
-	# }
 	return redirect('timepage')
 
 @login_required()
@@ -90,19 +78,22 @@ def bidding(request, id=None):
 
 def mycompanies(request, id=None):
 	if id:
-		current_share = Share.objects.get(id = id)
+		current_share = var.objects.get(id = id)
 		if request.method == 'POST':
 			form = CompanyForm(request.POST)
-			if form.is_valid():
+			if int(form['percentage_for_sale'].value()) > 5 and int(form['percentage_for_sale'].value()) < 49 and form.is_valid():
 				form.instance.company = current_share.company
+				form.instance.your_bid_price = int(form['highest_bid'].value())
 				form.save()
+			else:
+				messages.add_message(request, messages.INFO, 'You need to sell minimum 5 percent of Shares')
 			return redirect('trading')
 	else:
 		form = CompanyForm()
 
 	context = {
 		'form' : form,
-		'Shares': Share.objects.filter(shareholder=request.user),
+		'Shares': var.objects.filter(shareholder=request.user),
 	}
 	return render(request, 'home/mycompanies.html', context)
 

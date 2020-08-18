@@ -368,6 +368,7 @@ vc_responsive"
 
             {% if Bid %}
             {% for Bidding in Bid %}
+            {% if Bidding.visible %}
             <div id="startup" class="card supcard"
                 style=" margin-top: 30px; border:none; box-shadow: 3px 5px 6px #ccc; padding-bottom: 2%; padding-left: 2%; padding-right: 2%; margin-bottom:30px; margin-left: 2%; margin-right: 2%">
                 <div class="supcard_top" style="max-width:80% !important;">
@@ -452,6 +453,7 @@ vc_responsive"
                     <!-- </div> -->
                 </div>
             </div>
+            {% endif %}
             {%endfor%}
             {% endif %}
             <br><br><br><br>
