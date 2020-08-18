@@ -3,8 +3,35 @@
 <html lang="en-US">
 
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174334759-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    <link rel="shortcut icon" href="{%static 'home/images/fav.ico'%}" type="image/x-icon">
+  gtag('config', 'UA-174334759-2');
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-175500951-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-175500951-1');
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7RLP5023J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-F7RLP5023J');
+    </script>
+    <link rel="shortcut icon" href="{%static 'home/images/Fav.ico'%}" type="image/x-icon">
     <style id='benri-style-inline-css' type='text/css'>
         /* Body background */
         body {
@@ -967,9 +994,9 @@
                 <div class="">
                     <div class="hlogo">
                         <div class="hlogoinner">
-                            <a href="{% url 'home' %}">
-                                <img height="80" width="146" alt="" src="{% static 'home/images/LogoEvent.png' %}" style="padding: 5px !important" />
-                                <img height="80" width="146" class="fixed_header_logo" alt="" src="{% static 'home/images/LogoEvent.png' %}" style="padding: 5px !important" />
+                            <a href="{% url 'newpage' %}">
+                                <img height="80" width="146" alt="" src="{% static 'home/images/LogoEvent2.png' %}" style="padding: 5px !important" />
+                                <img height="80" width="146" class="fixed_header_logo" alt="" src="{% static 'home/images/LogoEvent2.png' %}" style="padding: 5px !important" />
                             </a>
                         </div>
                     </div>
@@ -1158,9 +1185,9 @@
                         <div class="hlogo">
                             <div class="hlogoinner">
                                 <a href="">
-                                    <img height="80" width="146" alt="" src="{% static 'home/images/Logo.png' %}" />
+                                    <img height="80" width="146" alt="" src="{% static 'home/images/LogoEvent2.png' %}" />
                                     <img height="80" width="146" class="fixed_header_logo" alt=""
-                                        src="{% static 'home/images/Logo.png' %}" />
+                                        src="{% static 'home/images/LogoEvent2.png' %}" />
                                 </a>
                             </div>
                         </div>
@@ -1392,13 +1419,13 @@
                                     <a href="{% url 'comingsoon' %}">
                                         <p style="color: white; font-family: PT Sans; font-weight: bold;" onmouseover="this.style.color='#c5e4f0';" onmouseout="this.style.color='white';">Instructions</p>
                                     </a>
-                                </li> 
+                                </li>
                                 <li>
                                     <a href="{% url 'mycompanies' %}">
                                         <p style="color: white; font-family: PT Sans; font-weight: bold;" onmouseover="this.style.color='#c5e4f0';" onmouseout="this.style.color='white';">My Companies</p>
                                     </a>
                                 </li>
-
+                                
                                 <li>
                                     <a href="{% url 'bidding' %}">
                                         <p style="color: white; font-family: PT Sans; font-weight: bold;" onmouseover="this.style.color='#c5e4f0';" onmouseout="this.style.color='white';">Bidding</p>
@@ -1413,7 +1440,7 @@
                         </div>
                         <br>
                     </div>
-                    <div class="footer_column" style="flex: 1.5;  padding: 10px;">
+                    <!-- <div class="footer_column" style="flex: 1.5;  padding: 10px;">
                         <div class="fc_inner">
                             <h3 style="color: white; font-size: 18px; margin-bottom: 0px;" id="footer_h3">Start-Up Eco-System</h3>
                             <hr size="4px" align="left" noshade="noshade" color="#2f92bb" width="70px" id="hr_footer1">
@@ -1447,7 +1474,7 @@
                             </ul>
                         </div>
                         <br>
-                    </div>
+                    </div> -->
                     <div class="footer_column" style="flex: 2; padding: 10px;">
                         <div class="fc_inner">
                             <div style="">
@@ -1516,8 +1543,7 @@
             <div class="footer_bottom">
                 <div class="">
                     <div class="fb_text" style="color: grey !important;" id="copyright_footer">
-                        <img src="{% static 'home/images/copyright.png' %}" height="15px" width="15px">
-                        <span style="font-size: 15px" id="copyright_text"> 2020-21 All Rights Reserved. Designed by <a href="{% url 'home' %}"> EDC-TIET</a></span>
+                        <span style="font-size: 15px" id="copyright_text"> © 2020-21 All Rights Reserved. Designed by <a href="{% url 'home' %}"> EDC-TIET</a></span>
                     </div>
                     <div class="fb_social">
                     </div>
