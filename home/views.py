@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from .models import Company, Trading, Share, Bidding
 from users.models import User
 from .forms import TradeForm, BidForm, CompanyForm
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 
 def coming(request):
 	return render(request, 'home/comingsoon.html')
@@ -39,7 +42,7 @@ def home(request):
 # 	# print(context[trading])
 # 	return render(request, 'home/trading.html', context)
 
-
+@login_required()
 def tradingUpdateView(request, id=None):
 	if id:
 		trade = Trading.objects.get(id = id)
@@ -60,7 +63,7 @@ def tradingUpdateView(request, id=None):
 	return render(request, 'home/trading.html', context)
 	
 
-
+@login_required()
 def bidding(request, id=None):
 	if id:
 		bid = Bidding.objects.get(id = id)
