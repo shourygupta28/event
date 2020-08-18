@@ -43,16 +43,17 @@ def time(request):
 	# }
 	return redirect('timepage')
 
-
-
 @login_required()
 def tradingUpdateView(request, id=None):
 	if id:
 		trade = Trading.objects.get(id = id)
 		if request.method == 'POST':
 			form = TradeForm(request.POST, instance=trade)
-			if form.is_valid():
+			if trade.highest_bid < int(form['highest_bid'].value()) and form.is_valid():
+				trade.buyer = request.user
 				form.save()
+			else:
+				messages.add_message(request, messages.INFO, 'Enter a Bid Price higher than the current Highest Bid Price')
 			return redirect('trading')
 	else:
 		form = TradeForm()
@@ -69,11 +70,14 @@ def tradingUpdateView(request, id=None):
 @login_required()
 def bidding(request, id=None):
 	if id:
-		bid = Bidding.objects.get(id = id)
+		bid = Bidding.objects.filter(id = id).first()
 		if request.method == 'POST':
 			form = BidForm(request.POST, instance=bid)
-			if form.is_valid():
+			if bid.bidding_price < int(form['bidding_price'].value()) and form.is_valid():
+				bid.buyer = request.user
 				form.save()
+			else:
+				messages.add_message(request, messages.INFO, 'Enter a Bid Price higher than the current Highest Bid Price')
 			return redirect('bidding')
 	else:
 		form = BidForm()
@@ -83,7 +87,6 @@ def bidding(request, id=None):
 		'Companys': Company.objects.all()	
 	}
 	return render(request, 'home/letsbid.html', context)
-
 
 def mycompanies(request, id=None):
 	if id:
