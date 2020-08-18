@@ -19,8 +19,8 @@ class Trading(models.Model):
     # percentage_for_sale = models.IntegerField(blank=True)
 
 class Share(models.Model):
-    company = models.ManyToManyField(Company, related_name = 'company_details')
-    shareholder = models.ManyToManyField(User, related_name = 'shareholder_details')
+    company = models.ForeignKey(Company, default=None, on_delete=models.CASCADE ,related_name = 'company_details')
+    shareholder = models.ForeignKey(User, default=None, on_delete=models.CASCADE, related_name = 'shareholder_details')
     percentage_of_share = models.IntegerField() 
 
 class Bidding(models.Model):

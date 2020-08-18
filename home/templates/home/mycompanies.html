@@ -385,17 +385,11 @@ vc_responsive"
 
     {% if Shares %}
     {% for Share in Shares %}
-    {% if Share.shareholder.first == user %}
     <div class="row main_body" style="max-width:100% !important; display:flex; justify-content: center;">
 
 
 
         <div class="col-12 col-md-8 col-lg-8 col-sm-12 main_body_center ">
-<!--             <h1 class="ls-l"
-                style="width: 100%; height: 100%;padding-top: 35%; text-align:center;font-weight:800;font-style:normal;text-decoration:none;font-family:Lato;font-size:100px;line-height:120px;color:#ffffff; text-align: center;"> 
-                E-COINS AVAILABLE : {{ user.eCoins }}
-            </h1> -->
-
 
             <div id="startup" class="card supcard"
                 style=" margin-top: 30px; border:none; box-shadow: 3px 5px 6px #ccc; padding-bottom: 2%; padding-left: 2%; padding-right: 2%; margin-bottom:30px; margin-left: 2%; margin-right: 2%">
@@ -403,11 +397,7 @@ vc_responsive"
 
 
                     <div class="card-body" style="margin-top: 15px;">
-                        <!-- <img src="" style="width: 10%;" class="card-img-top" alt="startup logo"> -->
-                        <h4 class="card-title" style="font-size: 28px;">{{ Share.company.first.company_name }}</h4>
-<!--                         <h5 class="card-title" style="color:#2f92bb; font-size: 20px; ">
-                             internship.field_of_internship 
-                        </h5> -->
+                        <h4 class="card-title" style="font-size: 28px;">{{ Share.company.company_name }}</h4>
                         <hr>
                     </div>
                 </div>
@@ -415,7 +405,7 @@ vc_responsive"
 
                     <div class="location">
                         <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Current Multiplication Factor:</h5>
-                        <p class="card-text" style=" font-size: 16px;">{{ Share.company.first.multiplication_factor }}</p>
+                        <p class="card-text" style=" font-size: 16px;">{{ Share.company.multiplication_factor }}</p>
 
                     </div>
                     <div class="duration">
@@ -423,17 +413,6 @@ vc_responsive"
 
                         <p class="card-text" style=" font-size: 16px;"> {{ Share.percentage_of_share }}% </p>
                     </div>
-<!--                     <div class="Start">
-                        <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Current Highest Bid</h5>
-
-                        <p class="card-text" style=" font-size: 16px;"> Rs. XX,XXX </p>
-                    </div> -->
-<!--                     <div class="applyBy">
-                        <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Skills Required:
-                        </h5>
-
-                        <p class="card-text" style=" font-size: 16px;"> internship.skills_required </p>
-                    </div> -->
                 </div>
                 <hr>
                 <div class="supcard_mid" style=" margin-bottom: 20px; margin-left: 20px; overflow: visible;">
@@ -442,77 +421,20 @@ vc_responsive"
                         <br>
                         {{ form }}
                         <div class="form-group" >
-                            <!-- <input type="text" name="" style="margin-bottom: 10px; font-size: 20px; margin-left: 5%; width: 25%; min-width: 150px;"/> -->
-                            <!-- <a href=""> -->
-                                <input type="submit" value="Place for Trade">
-                            <!-- </a> -->
-                            <!-- <button>
-                                <div class="applyBy">
-                                    <div class="create_button">
-                                        <a href="">
-                                            Place Your Bid
-                                        </a>
-                                    </div>
-                                </div> -->
+                                <input type="submit" value="Place Your Trade">
+
                         </div>
                     </form>
-
-                    <!-- <div class="">
-                        <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Min Selling Price</h5>
-                    </div> -->
-                    <!-- <div class="duration">
-                        <input type="text" name="" style="margin-bottom: 10px; font-size: 20px; margin-left: 5%; width: 25%; min-width: 150px;">
-                    </div> -->                    
-<!--                     <div class="">
-                        <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Percent of Shares Selling</h5>
-                    </div>
-                    <div class="duration">
-                        <input type="text" name="" style="margin-bottom: 10px; font-size: 20px; margin-left: 5%; width: 25%; min-width: 150px;"> -->
-<!--                         <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Precent For Sale:</h5>
-
-                        <p class="card-text" style=" font-size: 16px;"> XX% </p> -->
-<!--                     </div>
-                    <div class="Start">
-                        <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;"></h5>
-
-                        <p class="card-text" style=" font-size: 16px;"></p>
-                    </div>
-                    <div class="applyBy">
-                    <div class="create_button">
-                        <a href="">
-                            Place for Trade
-                        </a>
-                    </div> -->
-<!--                         <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Skills Required:
-                        </h5>
-
-                        <p class="card-text" style=" font-size: 16px;"> internship.skills_required </p> -->
-<!--                     </div>                    
-                    <div class="applyBy">
-                    <div class="create_button">
-                        <a href="">
-                            Sell Shares
-                        </a>
-                    </div> -->
-<!--                         <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Skills Required:
-                        </h5>
-
-                        <p class="card-text" style=" font-size: 16px;"> internship.skills_required </p> -->
                     </div>
                 </div>
             </div>
             <br><br><br><br>
-<!--             <div class="wrapper">
-                <h1 style="font-weight: bold; ">You have no posted internship. Post Now!</h1>
-            </div> -->
-
 
         </div>
 
 
         
     </div>
-    {% endif %}
     {% endfor %}
     {% endif %}
 

@@ -18,30 +18,6 @@ def home(request):
 
 
 
-##############################################
-# trading view not required, can be deleted
-##############################################
-
-# def trading(request, id=None):
-# 	if request.method == 'POST':
-# 		form = TradeForm(request.POST)
-# 		if form.is_valid():
-# 			form.save()
-# 			# messages.success(request, f'Your account has been created! You can login now.')
-# 			return redirect('trading')
-
-# 	else:
-# 		form = TradeForm()
-
-# 	context = {
-# 		'form':form,
-# 		'Tradings': Trading.objects.all(),
-# 		'Companys': Company.objects.all(),
-# 	}
-	
-# 	# print(context[trading])
-# 	return render(request, 'home/trading.html', context)
-
 @login_required()
 def tradingUpdateView(request, id=None):
 	if id:
@@ -81,6 +57,7 @@ def bidding(request, id=None):
 	}
 	return render(request, 'home/letsbid.html', context)
 
+
 def mycompanies(request, id=None):
 	if id:
 		current_share = Share.objects.get(id = id)
@@ -92,9 +69,10 @@ def mycompanies(request, id=None):
 			return redirect('trading')
 	else:
 		form = CompanyForm()
+
 	context = {
 		'form' : form,
-		'Shares': Share.objects.all(),
+		'Shares': Share.objects.filter(shareholder=request.user),
 	}
 	return render(request, 'home/mycompanies.html', context)
 
