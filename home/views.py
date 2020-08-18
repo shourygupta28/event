@@ -5,16 +5,36 @@ from .forms import TradeForm, BidForm, CompanyForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
+i = Share.objects.all()
 
 def coming(request):
 	return render(request, 'home/comingsoon.html')
 
+def comingbidding(request):
+	return render(request, 'home/comingsoon.html')
 
 def home(request):
 	context = {
 		'Companys': Company.objects.all()
 	}
 	return render(request, 'home/index.html', context)
+
+def timepage(request):
+	context = {
+	'Shares' : Share.objects.all
+	}
+	return render(request, 'home/save.html', context)
+
+def time(request):
+	i = Share.objects.all();
+	for Share in i:
+		# coin = Share.shareholder.eCoins + Share.percentage_of_share*Share.company.multiplication_factor*10
+		print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+		print(i)
+	# context = {
+	# 	'Shares': Share.objects.all()
+	# }
+	return render(request, 'home/save.html')
 
 
 
