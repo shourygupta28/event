@@ -114,7 +114,7 @@ def mycompanies(request, id=None):
 	return render(request, 'home/mycompanies.html', context)
 
 def newpage(request):
-    return render(request, 'home/newpage.html')
+    return render(request, 'home/home.html')
 
 def mytrade(request):
 	context = {
