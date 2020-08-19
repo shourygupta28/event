@@ -17,8 +17,6 @@ class Trading(models.Model):
     buyer = models.ForeignKey(User, related_name = 'trading_buyer', on_delete=models.CASCADE, null=True, blank=True)
     seller = models.ForeignKey(User, related_name = 'trading_seller', on_delete=models.CASCADE,  null=True, blank=True)
     percentage_for_sale = models.DecimalField(default=1, decimal_places = 0, max_digits = 3 )
-    # user = models.ForeignKey(User,on_delete)
-    # percentage_for_sale = models.IntegerField(blank=True)
     
 class Share(models.Model):
     company = models.ForeignKey(Company, default=None, on_delete=models.CASCADE ,related_name = 'company_details')
