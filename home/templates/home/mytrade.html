@@ -415,18 +415,16 @@ vc_responsive"
                     </div>
                 </div>
                 <hr>
-                <!-- <div class="supcard_mid" style=" margin-bottom: 20px; margin-left: 20px; overflow: visible;">
-                    <form class="form1" method="POST" action="{% url 'mycompanies-trade' Share.id %}">
-                        {% csrf_token %}
+                <div class="supcard_mid" style=" margin-bottom: 20px; margin-left: 20px; overflow: visible;">
+                    <form class="form1" method="" action="{% url 'close-trade' obj.id %}">
                         <br>
-                        {{ form }}
                         <div class="form-group" >
-                                <input type="submit" value="Place Your Trade">
+                                <input type="submit" value="Close Trade">
 
                         </div>
                     </form>
                     </div>
-                </div> -->
+                </div>
             </div>
             <br><br><br><br>
 
