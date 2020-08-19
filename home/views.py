@@ -79,14 +79,20 @@ def bidding(request, id=None):
 def mycompanies(request, id=None):
 	if id:
 		current_share = var.objects.get(id = id)
+		trade = Trading.objects.filter(id = id).first()
 		if request.method == 'POST':
 			form = CompanyForm(request.POST)
-			if int(form['percentage_for_sale'].value()) > 5 and int(form['percentage_for_sale'].value()) < 49 and form.is_valid():
+			if int(form['percentage_for_sale'].value()) > 5 and int(form['percentage_for_sale'].value()) < 49 and int(form['percentage_for_sale'].value()) < int(current_share.percentage_of_share) and form.is_valid():
 				form.instance.company = current_share.company
 				form.instance.your_bid_price = int(form['highest_bid'].value())
+				form.instance.seller = request.user
 				form.save()
-			else:
+			elif int(form['percentage_for_sale'].value()) < 5:
 				messages.add_message(request, messages.INFO, 'You need to sell minimum 5 percent of Shares')
+			elif int(form['percentage_for_sale'].value()) > int(current_share.percentage_of_share):
+				messages.add_message(request, messages.INFO, 'Add a value less than current share')
+			elif int(form['percentage_for_sale'].value()) > 49:
+				messages.add_message(request, messages.INFO, 'Add a value more than 49%')
 			return redirect('trading')
 	else:
 		form = CompanyForm()

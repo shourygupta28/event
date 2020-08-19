@@ -15,7 +15,7 @@ class Trading(models.Model):
     your_bid_price = models.IntegerField(default=0)
     highest_bid = models.IntegerField(default=0)
     buyer = models.OneToOneField(User, related_name = 'trading_buyer', on_delete=models.CASCADE, null=True, blank=True)
-    seller = models.ForeignKey(User, related_name = 'trading_seller', on_delete=models.CASCADE,  null=True, blank=True)
+    seller = models.OneToOneField(User, related_name = 'trading_seller', on_delete=models.CASCADE,  null=True, blank=True)
     percentage_for_sale = models.DecimalField(default=1, decimal_places = 0, max_digits = 3 )
     # user = models.ForeignKey(User,on_delete)
     # percentage_for_sale = models.IntegerField(blank=True)
