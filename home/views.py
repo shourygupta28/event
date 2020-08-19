@@ -16,7 +16,7 @@ def comingbidding(request):
 
 def home(request):
 	context = {
-		'Companys': Company.objects.all()
+		'Companys': Company.objects.order_by('-id')
 	}
 	return render(request, 'home/index.html', context)
 
@@ -51,8 +51,8 @@ def tradingUpdateView(request, id=None):
 
 	context = {
 		'form':form	,
-		'Tradings': Trading.objects.all(),
-		'Companys': Company.objects.all(),
+		'Tradings': Trading.objects.order_by('-id'),
+		'Companys': Company.objects.order_by('-id')
 	}
 
 	return render(request, 'home/trading.html', context)
@@ -100,8 +100,8 @@ def bidding(request, id=None):
 		form = BidForm()
 	context = {
 		'form' : form,
-		'Bid': bidvar.objects.all(),
-		'Companys': Company.objects.all()	
+		'Bid': bidvar.objects.order_by('-id'),
+		'Companys': Company.objects.order_by('-id')	
 	}
 	return render(request, 'home/letsbid.html', context)
 
@@ -131,7 +131,7 @@ def mycompanies(request, id=None):
 
 	context = {
 		'form' : form,
-		'Shares': var.objects.filter(shareholder=request.user).exclude(percentage_of_share=0),
+		'Shares': var.objects.filter(shareholder=request.user).exclude(percentage_of_share=0).order_by('-id'),
 	}
 	return render(request, 'home/mycompanies.html', context)
 
@@ -140,6 +140,6 @@ def newpage(request):
 
 def mytrade(request):
 	context = {
-		'Trades': Trading.objects.filter(seller=request.user),
+		'Trades': Trading.objects.filter(seller=request.user).order_by('-id'),
 	}
 	return render(request, 'home/mytrade.html', context)
