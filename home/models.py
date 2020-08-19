@@ -18,13 +18,22 @@ class Trading(models.Model):
     seller = models.ForeignKey(User, related_name = 'trading_seller', on_delete=models.CASCADE,  null=True, blank=True)
     percentage_for_sale = models.DecimalField(default=1, decimal_places = 0, max_digits = 3 )
     
+    def __str__(self):
+        return self.company.company_name + " - " + str(self.percentage_for_sale)
+
 class Share(models.Model):
     company = models.ForeignKey(Company, default=None, on_delete=models.CASCADE ,related_name = 'company_details')
     shareholder = models.ForeignKey(User, default=None, on_delete=models.CASCADE, related_name = 'shareholder_details')
     percentage_of_share = models.IntegerField() 
+    
+    def __str__(self):
+        return self.company.company_name + " - " + str(self.percentage_of_share)
 
 class Bidding(models.Model):
     company = models.ForeignKey(Company, related_name = 'company_details_bidding', on_delete=models.CASCADE)
     bidding_price = models.IntegerField()
     buyer = models.ForeignKey(User, related_name = 'bidding_buyer', on_delete=models.CASCADE, null=True, blank=True)
     visible = models.BooleanField(default = False)
+
+    def __str__(self):
+        return self.company.company_name

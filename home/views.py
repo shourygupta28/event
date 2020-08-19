@@ -36,12 +36,15 @@ def tradingUpdateView(request, id=None):
 		trade = Trading.objects.get(id = id)
 		if request.method == 'POST' and trade.seller != request.user:
 			form = TradeForm(request.POST, instance=trade)
-			if trade.highest_bid < int(form['highest_bid'].value()) and form.is_valid():
-				trade.buyer = request.user
-				form.save()
-				return redirect('mycompanies-trade')
+			if trade.highest_bid < int(form['highest_bid'].value()):
+				if request.user.eCoins > int(form['highest_bid'].value()) and form.is_valid():
+					trade.buyer = request.user
+					form.save()
+					messages.add_message(request, messages.INFO, f'Your Bid has been placed sucessfully on {trade.company.company_name}.' )
+				else:
+					messages.add_message(request, messages.INFO, 'You don\'t have enough E-Coins to place this bid.' )
 			else:
-				messages.add_message(request, messages.INFO, 'Enter a Bid Price higher than the current Highest Bid Price')
+				messages.add_message(request, messages.INFO, 'Enter a bid price higher than the current highest bid price.')
 		return redirect('trading')
 	else:
 		form = TradeForm()
@@ -82,13 +85,14 @@ def bidding(request, id=None):
 		bid = bidvar.objects.filter(id = id).first()
 		if request.method == 'POST':
 			form = BidForm(request.POST, instance=bid)
-			if bid.bidding_price < int(form['bidding_price'].value()) and form.is_valid():				
-				for b in a:
-					if b.shareholder == request.user:
-						messages.add_message(request, messages.INFO, 'You cant have higest bid on two Companies')
-					else:
-						bid.buyer = request.user
-						form.save()					
+			for b in a:
+				if b.buyer == request.user:
+					messages.add_message(request, messages.INFO, 'You can\'t have highest bid on two Companies')
+					return redirect('bidding')
+			if bid.bidding_price < int(form['bidding_price'].value()) and form.is_valid():
+				bid.buyer = request.user
+				form.save()	
+				messages.add_message(request, messages.INFO, f'Your Bid has been placed sucessfully on {bid.company.company_name}' )				
 			else:
 				messages.add_message(request, messages.INFO, 'Enter a Bid Price higher than the current Highest Bid Price')
 			return redirect('bidding')
