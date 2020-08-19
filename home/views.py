@@ -24,9 +24,7 @@ def timepage(request):
 	return render(request, 'home/save.html')
 
 def time(request):
-
 	i = var.objects.all();
-	# print(i)
 	for j in i:
 		coin = j.shareholder.eCoins + j.percentage_of_share*j.company.multiplication_factor*10
 		User.objects.filter(id = j.shareholder.id).update(eCoins = coin)
@@ -86,9 +84,6 @@ def bidding(request, id=None):
 			form = BidForm(request.POST, instance=bid)
 			if bid.bidding_price < int(form['bidding_price'].value()) and form.is_valid():				
 				for b in a:
-					print("$$$$$$$$$$$$$$$$$$$")
-					print(b)
-					print("$$$$$$$$$$$$$$$$$$$")
 					if b.shareholder == request.user:
 						messages.add_message(request, messages.INFO, 'You cant have higest bid on two Companies')
 					else:
@@ -109,28 +104,30 @@ def bidding(request, id=None):
 def mycompanies(request, id=None):
 	if id:
 		current_share = var.objects.get(id = id)
-		trade = Trading.objects.filter(id = id).first()
 		if request.method == 'POST':
 			form = CompanyForm(request.POST)
-			if int(form['percentage_for_sale'].value()) > 5 and int(form['percentage_for_sale'].value()) < 49 and int(form['percentage_for_sale'].value()) < int(current_share.percentage_of_share) and form.is_valid():
+			per_for_sale = int(form['percentage_for_sale'].value()) 
+			if per_for_sale > 5 and per_for_sale < 49 and per_for_sale < int(current_share.percentage_of_share) and form.is_valid():
 				form.instance.company = current_share.company
 				form.instance.your_bid_price = int(form['highest_bid'].value())
 				form.instance.seller = request.user
 				form.instance.buyer = request.user
 				form.save()
-			elif int(form['percentage_for_sale'].value()) < 5:
+				per_of_share = current_share.percentage_of_share - per_for_sale
+				var.objects.filter(id=id).update(percentage_of_share=per_of_share)
+			elif per_for_sale < 5:
 				messages.add_message(request, messages.INFO, 'You need to sell minimum 5 percent of Shares')
-			elif int(form['percentage_for_sale'].value()) > int(current_share.percentage_of_share):
+			elif per_for_sale > int(current_share.percentage_of_share):
 				messages.add_message(request, messages.INFO, 'Add a value less than current share')
-			elif int(form['percentage_for_sale'].value()) > 49:
-				messages.add_message(request, messages.INFO, 'Add a value more than 49%')
-			return redirect('trading')
+			elif per_for_sale > 49:
+				messages.add_message(request, messages.INFO, 'Add a value less than 49%')
+			return redirect('mycompanies')
 	else:
 		form = CompanyForm()
 
 	context = {
 		'form' : form,
-		'Shares': var.objects.filter(shareholder=request.user),
+		'Shares': var.objects.filter(shareholder=request.user).exclude(percentage_of_share=0),
 	}
 	return render(request, 'home/mycompanies.html', context)
 
