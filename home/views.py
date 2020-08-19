@@ -36,14 +36,15 @@ def time(request):
 def tradingUpdateView(request, id=None):
 	if id:
 		trade = Trading.objects.get(id = id)
-		if request.method == 'POST':
+		if request.method == 'POST' and trade.seller != request.user:
 			form = TradeForm(request.POST, instance=trade)
 			if trade.highest_bid < int(form['highest_bid'].value()) and form.is_valid():
 				trade.buyer = request.user
 				form.save()
+				return redirect('mycompanies-trade')
 			else:
 				messages.add_message(request, messages.INFO, 'Enter a Bid Price higher than the current Highest Bid Price')
-			return redirect('trading')
+		return redirect('trading')
 	else:
 		form = TradeForm()
 
@@ -55,6 +56,26 @@ def tradingUpdateView(request, id=None):
 
 	return render(request, 'home/trading.html', context)
 	
+@login_required
+def tradingCloseView(request, id=None):
+	trade = Trading.objects.get(id=id)
+	if trade.seller == request.user:
+		if trade.buyer != trade.seller:
+			coins = request.user.eCoins + trade.highest_bid
+			User.objects.filter(id=trade.seller.id).update(eCoins=coins)
+			coins = User.objects.get(id=trade.seller.id).eCoins - trade.highest_bid
+			User.objects.filter(id=trade.buyer.id).update(eCoins=coins)
+		obj = var.objects.filter(company=trade.company).filter(shareholder=trade.buyer)
+		if obj:
+			sum = obj.first().percentage_of_share + trade.percentage_for_sale
+			obj.update(percentage_of_share=sum)
+		else:
+			var.objects.create(company=trade.company,
+								 shareholder=trade.buyer,
+								 percentage_of_share=trade.percentage_for_sale)
+		trade.delete()
+	return redirect('mytrade')
+
 
 @login_required()
 def bidding(request, id=None):

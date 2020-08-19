@@ -13,6 +13,7 @@ urlpatterns = [
     path('my_companies/<int:id>/', 	views.mycompanies ,		name='mycompanies-trade'),
     path('newpage/', views.newpage, name='newpage'),
     path('my_trades/', 	views.mytrade ,		name='mytrade'),
+    path('trade/close/<int:id>/', views.tradingCloseView, name='close-trade'),
 
     #path('time/', views.time,   name='time'),
     #path('timepage/', views.timepage,	name='timepage'),
