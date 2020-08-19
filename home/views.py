@@ -106,3 +106,8 @@ def mycompanies(request, id=None):
 def newpage(request):
     return render(request, 'home/newpage.html')
 
+def mytrade(request):
+	context = {
+		'Trades': Trading.objects.filter(seller=request.user),
+	}
+	return render(request, 'home/mytrade.html', context)
