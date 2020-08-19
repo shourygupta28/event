@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
-from .models import Company, Trading, Bidding
+from .models import Company, Trading
 from users.models import User
 from .forms import TradeForm, BidForm, CompanyForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Share as var
+from .models import  Bidding as bidvar
 
 
 def coming(request):
@@ -25,7 +26,7 @@ def timepage(request):
 def time(request):
 
 	i = var.objects.all();
-	print(i)
+	# print(i)
 	for j in i:
 		coin = j.shareholder.eCoins + j.percentage_of_share*j.company.multiplication_factor*10
 		User.objects.filter(id = j.shareholder.id).update(eCoins = coin)
@@ -58,12 +59,20 @@ def tradingUpdateView(request, id=None):
 @login_required()
 def bidding(request, id=None):
 	if id:
-		bid = Bidding.objects.filter(id = id).first()
+		a = bidvar.objects.all();
+		bid = bidvar.objects.filter(id = id).first()
 		if request.method == 'POST':
 			form = BidForm(request.POST, instance=bid)
-			if bid.bidding_price < int(form['bidding_price'].value()) and form.is_valid():
-				bid.buyer = request.user
-				form.save()
+			if bid.bidding_price < int(form['bidding_price'].value()) and form.is_valid():				
+				for b in a:
+					print("$$$$$$$$$$$$$$$$$$$")
+					print(b)
+					print("$$$$$$$$$$$$$$$$$$$")
+					if b.shareholder == request.user:
+						messages.add_message(request, messages.INFO, 'You cant have higest bid on two Companies')
+					else:
+						bid.buyer = request.user
+						form.save()					
 			else:
 				messages.add_message(request, messages.INFO, 'Enter a Bid Price higher than the current Highest Bid Price')
 			return redirect('bidding')
@@ -71,7 +80,7 @@ def bidding(request, id=None):
 		form = BidForm()
 	context = {
 		'form' : form,
-		'Bid': Bidding.objects.all(),
+		'Bid': bidvar.objects.all(),
 		'Companys': Company.objects.all()	
 	}
 	return render(request, 'home/letsbid.html', context)
@@ -86,6 +95,7 @@ def mycompanies(request, id=None):
 				form.instance.company = current_share.company
 				form.instance.your_bid_price = int(form['highest_bid'].value())
 				form.instance.seller = request.user
+				form.instance.buyer = request.user
 				form.save()
 			elif int(form['percentage_for_sale'].value()) < 5:
 				messages.add_message(request, messages.INFO, 'You need to sell minimum 5 percent of Shares')
