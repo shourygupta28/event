@@ -122,7 +122,7 @@ def mycompanies(request, id=None):
 		if request.method == 'POST':
 			form = CompanyForm(request.POST)
 			per_for_sale = int(form['percentage_for_sale'].value()) 
-			if per_for_sale > 5 and per_for_sale < 49 and per_for_sale < int(current_share.percentage_of_share) and form.is_valid():
+			if per_for_sale > 5 and per_for_sale < int(current_share.percentage_of_share) and form.is_valid():
 				form.instance.company = current_share.company
 				form.instance.your_bid_price = int(form['highest_bid'].value())
 				form.instance.seller = request.user
@@ -134,8 +134,6 @@ def mycompanies(request, id=None):
 				messages.add_message(request, messages.INFO, 'You need to sell minimum 5 percent of Shares')
 			elif per_for_sale > int(current_share.percentage_of_share):
 				messages.add_message(request, messages.INFO, 'Add a value less than current share')
-			elif per_for_sale > 49:
-				messages.add_message(request, messages.INFO, 'Add a value less than 49%')
 			return redirect('mycompanies')
 	else:
 		form = CompanyForm()
