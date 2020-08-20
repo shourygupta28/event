@@ -36,4 +36,4 @@ class Bidding(models.Model):
     visible = models.BooleanField(default = False)
 
     def __str__(self):
-        return self.company.company_name + "current" + str(self.buyer)
+        return self.company.company_name + " current " + str(self.buyer)
