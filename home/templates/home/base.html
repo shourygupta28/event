@@ -1075,7 +1075,7 @@
                         <ul class="nav navbar-nav">
                             <li id="menu-item-1470"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1470">
-                                <a href="{% url 'home' %}" data-hover="Home">Companies</a></li>
+                                <a href="{% url 'home' %}" data-hover="Home" style="font-size: 15px !important;" >Companies</a></li>
                             <!-- <li id="menu-item-1478"
                                 class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1478">
                                 <a href="">StartUp Ecosystem</a>
@@ -1096,15 +1096,15 @@
 
                             <li id="menu-item-1471"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1471">
-                                <a href="{% url 'bidding' %}">Bidding</a>
+                                <a href="{% url 'bidding' %}" style="font-size: 15px !important;">Bid</a>
                             </li>
                             <li id="menu-item-1471"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1471">
-                                <a href="{% url 'trading' %}">Trading</a>
+                                <a href="{% url 'trading' %}" style="font-size: 15px !important;">Trade</a>
                             </li>
                             <li id="menu-item-1471"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1471">
-                                <a href="{% url 'newpage' %}">Instructions</a>
+                                <a href="{% url 'newpage' %}" style="font-size: 15px !important;">Instructions</a>
                             </li>
                             {%  if user.is_authenticated %}
                             <li
@@ -1114,26 +1114,26 @@
                                             <ul class="sub-menu">
                                                 <li id="menu-item-1482"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
-                                                    <a href="#" aria-current="page">Balance : {{ user.eCoins }} E-Coins</a></li>
+                                                    <a href="#" aria-current="page" style="font-size: 15px !important;">E-Coins : {{ user.eCoins }} </a></li>
                                                 <li id="menu-item-1482"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
-                                                    <a href="{% url 'mycompanies' %}" aria-current="page">My Companies</a></li>
+                                                    <a href="{% url 'mycompanies' %}" aria-current="page" style="font-size: 13px !important;" >My Companies</a></li>
                                                 <li id="menu-item-1483"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
-                                                    <a href="{% url 'mytrade' %}" data-hover="Header generic style">My Trades</a></li>
+                                                    <a href="{% url 'mytrade' %}" data-hover="Header generic style"style="font-size: 13px !important;">My Trades</a></li>
                                                 <li id="menu-item-1483"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
-                                                    <a href="{% url 'logout' %}" data-hover="Header generic style">Logout</a></li>
+                                                    <a href="{% url 'logout' %}" data-hover="Header generic style" style="font-size: 13px !important;">Logout</a></li>
                                             </ul>
                                         </li>
                             {% else %}
                             <li id="menu-item-1471"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1471">
-                                <a href="{% url 'register' %}">Register</a>
+                                <a href="{% url 'register' %}" style="font-size: 15px !important;">Register</a>
                             </li>
                             <li id="menu-item-1480"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1480">
-                                <a href="{% url 'login' %}">Login</a>
+                                <a href="{% url 'login' %}" style="font-size: 15px !important;">Login</a>
                             </li>
                             {% endif %}
                         </ul>
@@ -1197,11 +1197,11 @@
  -->
                                         <li
                                             class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
-                                            <a href="{% url 'bidding' %}" data-hover="Header generic style">Bidding</a>
+                                            <a href="{% url 'bidding' %}" data-hover="Header generic style">Bid</a>
                                         </li>
                                         <li
                                             class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
-                                            <a href="{% url 'trading' %}" data-hover="Header generic style">Trading</a>
+                                            <a href="{% url 'trading' %}" data-hover="Header generic style">Trade</a>
                                         </li>
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1471">
                                 <a href="{% url 'newpage' %}">Instructions</a>
@@ -1214,7 +1214,7 @@
                                             <ul class="sub-menu">
                                                 <li id="menu-item-1482"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
-                                                    <a href="#" aria-current="page">Balance : {{ user.eCoins }} E-Coins</a></li>
+                                                    <a href="#" aria-current="page">E-Coins : {{ user.eCoins }}</a></li>
                                                 <li id="menu-item-1482"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
                                                     <a href="{% url 'mycompanies' %}" aria-current="page">My Companies</a></li>
