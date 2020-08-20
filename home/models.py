@@ -20,7 +20,7 @@ class Trading(models.Model):
     percentage_for_sale = models.DecimalField(default=1, decimal_places = 0, max_digits = 3 )
     
     def __str__(self):
-        return self.company.company_name + " - " + str(self.percentage_for_sale)
+        return self.company.company_name + " - " + str(self.percentage_for_sale) + " From " + str(self.seller) + " to " + str(self.buyer)
 
 class Share(models.Model):
     company = models.ForeignKey(Company, default=None, on_delete=models.CASCADE ,related_name = 'company_details')
@@ -28,7 +28,7 @@ class Share(models.Model):
     percentage_of_share = models.PositiveIntegerField(validators=[MaxValueValidator(100)]) 
     
     def __str__(self):
-        return self.company.company_name + " - " + str(self.percentage_of_share)
+        return self.company.company_name + " - " + str(self.percentage_of_share) + " with " + str(self.shareholder)
 
 class Bidding(models.Model):
     company = models.ForeignKey(Company, related_name = 'company_details_bidding', on_delete=models.CASCADE)
@@ -37,4 +37,4 @@ class Bidding(models.Model):
     visible = models.BooleanField(default = False)
 
     def __str__(self):
-        return self.company.company_name
+        return self.company.company_name + "current" + str(self.buyer)

@@ -1041,7 +1041,7 @@
 
 
 
-<body {% block bodytag %}{% endblock bodytag %}>
+<body onload = "JavaScript:AutoRefresh(15000);" {% block bodytag %}{% endblock bodytag %}>
     <!-- Pre Loader-->
     <div class="se-pre-con">
         <div class="rotating-plane"></div>
@@ -1112,6 +1112,9 @@
                                             <a href="#" data-hover="Articles">Hi,
                                                 {{ user.username }}</a>
                                             <ul class="sub-menu">
+                                                <li id="menu-item-1482"
+                                                    class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
+                                                    <a href="#" aria-current="page">Balance : {{ user.eCoins }} E-Coins</a></li>
                                                 <li id="menu-item-1482"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
                                                     <a href="{% url 'mycompanies' %}" aria-current="page">My Companies</a></li>
@@ -1209,6 +1212,9 @@
                                             <a href="#" data-hover="Articles">Hi,
                                                 {{ user.username }}</a>
                                             <ul class="sub-menu">
+                                                <li id="menu-item-1482"
+                                                    class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
+                                                    <a href="#" aria-current="page">Balance : {{ user.eCoins }} E-Coins</a></li>
                                                 <li id="menu-item-1482"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
                                                     <a href="{% url 'mycompanies' %}" aria-current="page">My Companies</a></li>
@@ -1701,7 +1707,13 @@
     <a id="back-to-top" title="Back to top"><i class="fas fa-angle-double-up" aria-hidden="true"></i></a>
 
 
-
+      <script type = "text/JavaScript">
+         <!--
+            function AutoRefresh( t ) {
+               setTimeout("location.reload(true);", t);
+            }
+         //-->
+      </script>
     <link rel='stylesheet' id='vc_animate-css-css' href="{% static 'home/css/animate.min.css' %}" type='text/css'
         media='all' />
     <link rel='stylesheet' id='ult-background-style-css' href=" {% static 'home/css/background-style.min.css' %}"
