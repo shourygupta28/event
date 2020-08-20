@@ -53,6 +53,8 @@ def tradingUpdateView(request, id=None):
 					messages.add_message(request, messages.INFO, 'You don\'t have enough E-Coins to place this bid.' )
 			else:
 				messages.add_message(request, messages.INFO, 'Enter a bid price higher than the current highest bid price.')
+		else:
+			messages.add_message(request, messages.INFO, 'You can\'t bid on your own company')
 		return redirect('trading')
 	else:
 		form = TradeForm()
@@ -72,7 +74,7 @@ def tradingCloseView(request, id=None):
 		if trade.buyer != trade.seller:
 			coins = request.user.eCoins + trade.highest_bid
 			User.objects.filter(id=trade.seller.id).update(eCoins=coins)
-			coins = User.objects.get(id=trade.seller.id).eCoins - trade.highest_bid
+			coins = User.objects.get(id=trade.buyer.id).eCoins - trade.highest_bid
 			User.objects.filter(id=trade.buyer.id).update(eCoins=coins)
 		obj = var.objects.filter(company=trade.company).filter(shareholder=trade.buyer)
 		if obj:

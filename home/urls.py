@@ -12,7 +12,7 @@ urlpatterns = [
     path('bidding/<int:id>/',       views.bidding ,			name='bidding-update'),
     path('my-companies/',           views.mycompanies ,     name='mycompanies'),
     path('my-companies/<int:id>/', 	        views.mycompanies ,		name='mycompanies'),
-    path('newpage/',                views.newpage,          name='newpage'),
+    path('homepage/',                views.newpage,          name='newpage'),
     path('my-trades/', 	            views.mytrade ,		    name='mytrade'),
     path('trade/close/<int:id>/',   views.tradingCloseView, name='close-trade'),
 
