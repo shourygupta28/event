@@ -97,10 +97,13 @@ def bidding(request, id=None):
 				if b.buyer == request.user:
 					messages.add_message(request, messages.INFO, 'You can\'t have highest bid on two Companies')
 					return redirect('bidding')
-			if bid.bidding_price < int(form['bidding_price'].value()) and form.is_valid():
-				bid.buyer = request.user
-				form.save()	
-				messages.add_message(request, messages.INFO, f'Your Bid has been placed sucessfully on {bid.company.company_name}' )				
+			if bid.bidding_price < int(form['bidding_price'].value()):
+				if request.user.eCoins > int(form['bidding_price'].value()) and form.is_valid():
+					bid.buyer = request.user
+					form.save()	
+					messages.add_message(request, messages.INFO, f'Your Bid has been placed sucessfully on {bid.company.company_name}' )
+				else:
+					messages.add_message(request, messages.INFO, 'You don\'t have enough E-Coins to place this bid.' )				
 			else:
 				messages.add_message(request, messages.INFO, 'Enter a Bid Price higher than the current Highest Bid Price')
 			return redirect('bidding')
