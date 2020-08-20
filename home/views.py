@@ -113,20 +113,24 @@ def bidding(request, id=None):
 	}
 	return render(request, 'home/letsbid.html', context)
 
+@login_required
 def mycompanies(request, id=None):
 	if id:
 		current_share = var.objects.get(id = id)
 		if request.method == 'POST':
 			form = CompanyForm(request.POST)
 			per_for_sale = int(form['percentage_for_sale'].value()) 
-			if per_for_sale > 5 and per_for_sale < 49 and per_for_sale < int(current_share.percentage_of_share) and form.is_valid():
+			if per_for_sale >= 5 and per_for_sale <= int(current_share.percentage_of_share) and form.is_valid():
 				form.instance.company = current_share.company
-				form.instance.your_bid_price = int(form['highest_bid'].value())
+				form.instance.your_bid_price = int(form['lowest_bid_price'].value())
 				form.instance.seller = request.user
 				form.instance.buyer = request.user
-				form.save()
+				obj = form.save()
+				obj.highest_bid = form.cleaned_data.get('lowest_bid_price')
+				obj.save()
 				per_of_share = current_share.percentage_of_share - per_for_sale
 				var.objects.filter(id=id).update(percentage_of_share=per_of_share)
+				return redirect('trading')
 			elif per_for_sale < 5:
 				messages.add_message(request, messages.INFO, 'You need to sell minimum 5 percent of Shares')
 			elif per_for_sale > int(current_share.percentage_of_share):
