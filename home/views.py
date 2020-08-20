@@ -11,6 +11,9 @@ from .models import  Bidding as bidvar
 def coming(request):
 	return render(request, 'home/comingsoon.html')
 
+def trading_closed(request):
+	return render(request, 'home/closed_trading.html')
+
 def comingbidding(request):
 	return render(request, 'home/comingsoon.html')
 
@@ -21,14 +24,19 @@ def home(request):
 	return render(request, 'home/index.html', context)
 
 def timepage(request):
-	return render(request, 'home/save.html')
-
+	if request.user.is_superuser:
+		return render(request, 'home/save.html')
+	else:
+		return redirect('comingsoon')
 def time(request):
-	i = var.objects.all();
-	for j in i:
-		coin = j.shareholder.eCoins + j.percentage_of_share*j.company.multiplication_factor*10
-		User.objects.filter(id = j.shareholder.id).update(eCoins = coin)
-	return redirect('timepage')
+	if request.user.is_superuser:
+		i = var.objects.all();
+		for j in i:
+			coin = j.shareholder.eCoins + j.percentage_of_share*j.company.multiplication_factor*10
+			User.objects.filter(id = j.shareholder.id).update(eCoins = coin)
+		return redirect('timepage')
+	else:
+		return redirect('comingsoon')
 
 @login_required()
 def tradingUpdateView(request, id=None):
