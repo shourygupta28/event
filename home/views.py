@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Share as var
 from .models import  Bidding as bidvar
-
+from django.core.paginator import Paginator
 
 def coming(request):
 	return render(request, 'home/comingsoon.html')
@@ -89,7 +89,7 @@ def tradingCloseView(request, id=None):
 
 
 @login_required()
-def bidding(request, id=None):
+def bidding(request, id=None, pg=None):
 	if id:
 		a = bidvar.objects.all();
 		bid = bidvar.objects.filter(id = id).first()
@@ -98,7 +98,7 @@ def bidding(request, id=None):
 			for b in a:
 				if b.buyer == request.user:
 					messages.add_message(request, messages.INFO, 'You can\'t have highest bid on two Companies')
-					return redirect('bidding')
+					return redirect('bidding', pg=pg)						
 			if bid.bidding_price < int(form['bidding_price'].value()):
 				if request.user.eCoins > int(form['bidding_price'].value()) and form.is_valid():
 					bid.buyer = request.user
@@ -108,12 +108,16 @@ def bidding(request, id=None):
 					messages.add_message(request, messages.INFO, 'You don\'t have enough E-Coins to place this bid.' )				
 			else:
 				messages.add_message(request, messages.INFO, 'Enter a Bid Price higher than the current Highest Bid Price')
-			return redirect('bidding')
+			return redirect('bidding', pg=pg)
 	else:
 		form = BidForm()
+		bid_list = bidvar.objects.filter(visible=True).order_by('-id')
+		paginator = Paginator(bid_list, 2)
 	context = {
 		'form' : form,
-		'Bid': bidvar.objects.order_by('-id'),
+		'Bid' : paginator.page(pg),
+		'page' : pg,
+		'paginator' : paginator,
 		'Companys': Company.objects.order_by('-id')	
 	}
 	return render(request, 'home/letsbid.html', context)
