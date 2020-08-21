@@ -258,15 +258,7 @@ class="home page-template-default page page-id-17 woocommerce-no-js has-fixed-he
 
                                 </script>
 
-                                <div id="layerslider_1" class="ls-wp-container fitvidsignore" style="background-color: #000; width:1280px;height:730px;margin:0 auto; margin-bottom: 0px;">
-                                    <div class="ls-slide" data-ls="kenburnsscale:1.2;">
-                                        <img width="2000" height="1336" src="{% static 'home/images/ImagesHomePage/images (33).jpeg' %}" class="ls-bg" sizes="(max-width: 2000px) 100vw, 2000px" style="opacity: 0.25;" />
-                                        <p class="ls-l" style="top:450px;left:400px;text-align:center;font-weight:300;font-style:normal;text-decoration: none;color:#2F92BB;font-size:50px; font-weight: bold; font-family:Lato, serif;" data-ls="showinfo:1;parallax:true;parallaxlevel:-15;parallaxtype:3d;parallaxevent:scroll;parallaxaxis:y;">You Ideate, We Foster</p>
-                                        <p style="top:520px;left:360px;text-align:center;font-weight:300;font-style:normal;text-decoration:none;color:#2F92BB;font-size:20px;font-weight: bold; font-family: Lato, serif;" class="ls-l" data-ls="showinfo:1;parallax:true;parallaxlevel:-15;parallaxtype:3d;parallaxevent:scroll;parallaxaxis:y;">THAPAR INSTITUTE OF ENGINEERING AND TECHNOLOGY</p>
-                                        <h1 style="top:228px;left:241px;text-align:center;font-weight:800;font-style:normal;text-decoration:none;font-family: 'Josefin Sans', sans-serif;font-size:80px;line-height:100px;color:#ffffff; font-family:Lato, serif;" class="ls-l" data-ls="showinfo:1;parallax:true;parallaxlevel:-18;parallaxtype:3d;parallaxevent:scroll;parallaxaxis:y;">ENTREPRENEURSHIP <br>
-                                            DEVELOPMENT CELL</h1>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -292,14 +284,14 @@ class="home page-template-default page page-id-17 woocommerce-no-js has-fixed-he
             {%if Companys %}
                 <div style="align-self: center; width: 80vw; padding-left: 5vw; padding-right: 5vw; padding-bottom: 5vw; padding-top: 1vw; margin: auto;">
                     <table class="companies">
-                        <tr>
+                        <tr style="font-size: 100px !important">
                             <th>S.No.</th>
                             <th>Company Name</th>
                             <th>Current Multiplication Factor</th>
                         </tr> 
                 {% for Company in Companys %}
                             <tr>
-                                <td>S.No. {{ forloop.counter }}</td>
+                                <td> {{ forloop.counter }}</td>
                                 <td>{{ Company.company_name }}</td>
                                 <td>{{ Company.multiplication_factor }}</td>
                             </tr>
