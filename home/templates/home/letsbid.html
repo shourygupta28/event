@@ -296,6 +296,11 @@
                 align-content: center;
             }
         }
+
+        .pagination a:hover{
+            color: black !important;
+            font-weight: bold;
+        }
     </style>
 </head>
 {% endblock head %}
@@ -415,8 +420,26 @@ vc_responsive"
             <div style="font-size: 50px; line-height: 55px; height: auto; padding-top:90px">No bids available at the moment.</div>
             </center>
             {% endif %}
-            <br><br><br><br>
-        </div>
+            <div id="post-496" class=" spaudio-post blogs-featured blogs-style2 blogs-style1 spcard post-496 post type-post status-publish format-audio has-post-thumbnail hentry category-art category-blog category-retro tag-country tag-natur tag-photo tag-photog post_format-post-format-audio" style="margin-top: 30px; margin-bottom: 120px; width: 100%;">
+    
+                <div class="pagination">
+                    <ul style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center;">
+                        {% if Bid.has_previous %}
+                            <li><a class='page-selector' href= "{% url 'bidding'  page|add:'-1' %}">&laquo;</a></li>
+                        {% endif %}
+                        {% for p in paginator.page_range %}
+                            {% if p == page %}
+                                <li class='active'><a href=''>{{p}}</a></li>
+                            {% else %}
+                                <li><a href="{% url 'bidding' p %}" class='inactive'>{{p}}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if Bid.has_next %}
+                            <li><a class='page-selector' href= "{% url 'bidding' page|add:'+1' %}">&raquo;</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
     </div>
 </div>
 

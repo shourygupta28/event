@@ -296,6 +296,11 @@
                 align-content: center;
             }
         }
+
+        .pagination a:hover{
+            color: black !important;
+            font-weight: bold;
+        }
     </style>
 </head>
 {% endblock head %}
@@ -403,17 +408,7 @@ vc_responsive"
 
                                                 <p class="card-text" style=" font-size: 16px;"> {{ Trading.highest_bid }}  E-Coins </p>
                                             </div>
-                                            <!-- <div class="Start">
-                                                <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Current your Bid</h5>
 
-                                                <p class="card-text" style=" font-size: 16px;"> {{ Trading.your_bid_price }}  E-Coins </p>
-                                            </div> -->
-                        <!--                     <div class="applyBy">
-                                                <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Skills Required:
-                                                </h5>
-
-                                                <p class="card-text" style=" font-size: 16px;"> internship.skills_required </p>
-                                            </div> -->
                                         </div>
                                         <hr>
                                         <div class="supcard_mid" style=" margin-bottom: 20px; margin-left: 20px; overflow: visible;">
@@ -422,39 +417,10 @@ vc_responsive"
                                             <br>
                                             {{ form }}
                                             <div class="form-group" >
-                                                <!-- <input type="text" name="" style="margin-bottom: 10px; font-size: 20px; margin-left: 5%; width: 25%; min-width: 150px;"/> -->
-                                                <!-- <a href=""> -->
-                                                    <input type="submit" value="Place Your Bid">
-                                                <!-- </a> -->
-                                                <!-- <button>
-                                                    <div class="applyBy">
-                                                        <div class="create_button">
-                                                            <a href="">
-                                                                Place Your Bid
-                                                            </a>
-                                                        </div>
-                                                    </div> -->
+                                                <input type="submit" value="Place Your Bid">
                                             </div>
                                         </form>
-<!--                                         <div class="">
-                                                <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Your Bid Price</h5>
-                                            </div>
-                                            <div class="duration">
-                                                <input type="text" name="" style="margin-bottom: 10px; font-size: 20px; margin-left: 5%; width: 25%; min-width: 150px;">
-                                            </div>
-                                            <div class="Start">
-                                                <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;"></h5>
-
-                                                <p class="card-text" style=" font-size: 16px;"></p>
-                                            </div>
-                                            <div class="applyBy">
-                                            <div class="create_button">
-                                                <a href="">
-                                                    Place Your Bid
-                                                </a>
-                                            </div>
-                                            </div>
- -->                                        </div>
+                                      </div>
                                     </div>
             {% endwith %}
             {% endfor %}
@@ -463,13 +429,26 @@ vc_responsive"
             <div style="font-size: 70px; line-height: 70px; height: auto; padding-top:90px">Coming Soon!</div>
             </center>
             {% endif %}
-
-
-            <br><br><br><br>
-<!--             <div class="wrapper">
-                <h1 style="font-weight: bold; ">New Internships To Be Added Soon...</h1>
+            <div id="post-496" class=" spaudio-post blogs-featured blogs-style2 blogs-style1 spcard post-496 post type-post status-publish format-audio has-post-thumbnail hentry category-art category-blog category-retro tag-country tag-natur tag-photo tag-photog post_format-post-format-audio" style="margin-top: 30px; margin-bottom: 120px; width: 100%;">
+    
+                <div class="pagination">
+                    <ul style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center;">
+                        {% if Tradings.has_previous %}
+                            <li><a class='page-selector' href= "{% url 'trading'  page|add:'-1' %}">&laquo;</a></li>
+                        {% endif %}
+                        {% for p in paginator.page_range %}
+                            {% if p == page %}
+                                <li class='active'><a href=''>{{p}}</a></li>
+                            {% else %}
+                                <li><a href="{% url 'trading' p %}" class='inactive'>{{p}}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if Tradings.has_next %}
+                            <li><a class='page-selector' href= "{% url 'trading' page|add:'+1' %}">&raquo;</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
- -->
         </div>
     </div>
 </div>
