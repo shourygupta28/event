@@ -10,11 +10,31 @@ from django.core.paginator import Paginator
 import time as setInterval
 
 def alert_update(request):
-	while(True):
-		User.objects.all().update(alert='')
-		setInterval.sleep(300)
-	return redirect('time')
+	if request.user.is_superuser:
+		while(True):
+			User.objects.all().update(alert='')
+			setInterval.sleep(300)
+		return redirect('timepage')
+	else:
+		return redirect('home')
 
+
+def add_mycompanies(request):
+	if request.user.is_superuser:
+		for bid in bidvar.objects.all():
+			temp = var.objects.filter(company=bid.company)
+			print(bid.bidding_price)
+			if not temp:
+				var.objects.create(company=bid.company,
+							  	   shareholder=bid.buyer,
+							   	   percentage_of_share=100)
+				coins = User.objects.get(id=bid.buyer.id).eCoins - bid.bidding_price
+				print(coins)
+				User.objects.filter(id=bid.buyer.id).update(eCoins=coins)
+		return redirect('timepage')
+	else:
+		return redirect('home')
+	
 
 def coming(request):
 	return render(request, 'home/comingsoon.html')

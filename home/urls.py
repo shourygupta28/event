@@ -14,10 +14,11 @@ urlpatterns = [
     path('my-companies/',           views.mycompanies,      name='mycompanies'),
     path('my-companies/<int:id>/', 	views.mycompanies,		name='mycompanies'),
     # path('my-companies/no-trade/',  views.mycompanies_notrade,name='notrade'),
+    path('my-companies/add/',       views.add_mycompanies,  name='add-mycompanies'),
     path('homepage/',               views.newpage,          name='newpage'),
     path('my-trades/',              views.mytrade ,         name='mytrade'),
     path('my-bid/', 	            views.mybid ,		    name='mybids'),
     path('trade/close/<int:id>/',   views.tradingCloseView, name='close-trade'),
-    path('time/', views.time,   name='time'),
-    path('timepage/', views.timepage,	name='timepage'),
+    path('time/',                   views.time,             name='time'),
+    path('timepage/',               views.timepage,	        name='timepage'),
 ]
