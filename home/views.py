@@ -158,3 +158,9 @@ def mytrade(request):
 		'Trades': Trading.objects.filter(seller=request.user).order_by('-id'),
 	}
 	return render(request, 'home/mytrade.html', context)
+
+def mybid(request):
+	context = {
+		'Trades': Trading.objects.filter(buyer=request.user).order_by('-id'),
+	}
+	return render(request, 'home/mybids.html', context)
