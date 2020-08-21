@@ -45,9 +45,15 @@ def tradingUpdateView(request, id=None, pg=1):
 		if request.method == 'POST' and trade.seller != request.user:
 			form = TradeForm(request.POST, instance=trade)
 			if trade.highest_bid < int(form['highest_bid'].value()):
+				prev_bid = trade.highest_bid
 				if request.user.eCoins > int(form['highest_bid'].value()) and form.is_valid():
+					if trade.buyer != trade.seller:
+						coins = User.objects.get(id=trade.buyer.id).eCoins + prev_bid
+						User.objects.filter(id=trade.buyer.id).update(eCoins=coins)
 					trade.buyer = request.user
 					form.save()
+					coins = User.objects.get(id=trade.buyer.id).eCoins - trade.highest_bid
+					User.objects.filter(id=trade.buyer.id).update(eCoins=coins)
 					messages.add_message(request, messages.INFO, f'Your Bid has been placed sucessfully on {trade.company.company_name}.' )
 				else:
 					messages.add_message(request, messages.INFO, 'You don\'t have enough E-Coins to place this bid.' )
@@ -77,8 +83,6 @@ def tradingCloseView(request, id=None):
 		if trade.buyer != trade.seller:
 			coins = request.user.eCoins + trade.highest_bid
 			User.objects.filter(id=trade.seller.id).update(eCoins=coins)
-			coins = User.objects.get(id=trade.buyer.id).eCoins - trade.highest_bid
-			User.objects.filter(id=trade.buyer.id).update(eCoins=coins)
 		obj = var.objects.filter(company=trade.company).filter(shareholder=trade.buyer)
 		if obj:
 			sum = obj.first().percentage_of_share + trade.percentage_for_sale
