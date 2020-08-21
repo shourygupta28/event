@@ -1019,12 +1019,13 @@
   bottom: 35px;
   right: 20px;
   margin-left: 20px;
-  max-width: 300px;
+  max-width: 500px;
+  z-index: 1000;
 }
 
 .callout-header {
   padding: 25px 15px;
-  background: #555;
+  background: rgba(0,0,0,0.85);
   font-size: 30px;
   color: white;
 }
@@ -1397,18 +1398,18 @@
     <!-- end Custom menu link HEADER -->
 
     {% if messages or user.alert %}
-    <div style="background: black; height:80px; width: 100%"></div>
-    <ul class="messages"
-        style="background: #32a852; width: 100%; color: rgb(255, 255, 255); text-align: center; margin: 0px; padding: 10px;">
         {% if user.alert %}
         <div class="callout">
-          <div class="callout-header" style="padding: 30px;">{{ user.alert }}</div>
+            <div class="callout-header" style="padding: 30px; text-align: justify !important; line-height: 1.5 !important;">{{ user.alert }}</div>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
           </div>
-        </div>
             
         {% endif %}
         {% if messages %}
             {% for message in messages %}
+                <div style="background: black; height:80px; width: 100%"></div>
+                 <ul class="messages"
+                    style="background: #32a852; width: 100%; color: rgb(255, 255, 255); text-align: center; margin: 0px; padding: 10px;">
             <h1 style="font-weight: 600; font-size: 25px; margin: 0px;">{{ message }}</h1>
             {% endfor %}
         {% endif %}

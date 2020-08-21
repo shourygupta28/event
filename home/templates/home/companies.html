@@ -285,15 +285,15 @@ class="home page-template-default page page-id-17 woocommerce-no-js has-fixed-he
                 <div style="align-self: center; width: 80vw; padding-left: 5vw; padding-right: 5vw; padding-bottom: 5vw; padding-top: 1vw; margin: auto;">
                     <table class="companies">
                         <tr style="font-size: 100px !important">
-                            <th>S.No.</th>
-                            <th>Company Name</th>
-                            <th>Current Multiplication Factor</th>
+                            <th style="font-size: 20px !important;">S.No.</th>
+                            <th style="font-size: 20px !important;">Company Name</th>
+                            <th style="font-size: 20px !important;">Current Multiplication Factor</th>
                         </tr> 
                 {% for Company in Companys %}
                             <tr>
-                                <td> {{ forloop.counter }}</td>
-                                <td>{{ Company.company_name }}</td>
-                                <td>{{ Company.multiplication_factor }}</td>
+                                <td style="font-size: 15px !important;"> {{ forloop.counter }}</td>
+                                <td style="font-size: 15px !important;">{{ Company.company_name }}</td>
+                                <td style="font-size: 15px !important;">{{ Company.multiplication_factor }}</td>
                             </tr>
 
                 {% endfor %}

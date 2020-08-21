@@ -85,10 +85,16 @@ def tradingUpdateView(request, id=None, pg=1):
 			form = TradeForm(request.POST, instance=trade)
 			if trade.highest_bid < int(form['highest_bid'].value()):
 				prev_bid = trade.highest_bid
-				if request.user.eCoins > int(form['highest_bid'].value()) and form.is_valid():
-					if trade.buyer != trade.seller:
-						coins = User.objects.get(id=trade.buyer.id).eCoins + prev_bid
-						User.objects.filter(id=trade.buyer.id).update(eCoins=coins)
+				if request.user.eCoins >= int(form['highest_bid'].value()):
+					if int(form['highest_bid'].value())/100 == 0 and form.is_valid():
+						if trade.buyer != trade.seller:
+							if trade.buyer != request.user:
+								coins = User.objects.get(id=trade.buyer.id).eCoins + prev_bid
+								User.objects.filter(id=trade.buyer.id).update(eCoins=coins)
+							else:
+								messages.add_message(request, messages.INFO, f'You are already the highest bidder on same company.' )
+					else:
+						messages.add_message(request, messages.INFO, f'You need to place bid in multiple of 100\'s only.' )
 					trade.buyer = request.user
 					form.save()
 					coins = User.objects.get(id=trade.buyer.id).eCoins - trade.highest_bid
@@ -104,7 +110,7 @@ def tradingUpdateView(request, id=None, pg=1):
 	
 	form = TradeForm()
 	trade_list = Trading.objects.order_by('-id')
-	paginator = Paginator(trade_list, 1)
+	paginator = Paginator(trade_list, 10)
 	context = {
 		'form':form,
 		'Tradings' : paginator.page(pg),
@@ -153,10 +159,14 @@ def bidding(request, id=None, pg=1):
 					messages.add_message(request, messages.INFO, 'You can\'t have highest bid on two Companies')
 					return redirect('bidding', pg=pg)						
 			if bid.bidding_price < int(form['bidding_price'].value()):
-				if request.user.eCoins > int(form['bidding_price'].value()) and form.is_valid():
-					bid.buyer = request.user
-					form.save()	
-					messages.add_message(request, messages.INFO, f'Your Bid has been placed sucessfully on {bid.company.company_name}' )
+				if request.user.eCoins > int(form['bidding_price'].value()):
+					if int(form['bidding_price'].value())/100 == 0 and form.is_valid():
+						bid.buyer = request.user
+						form.save()	
+						messages.add_message(request, messages.INFO, f'Your Bid has been placed sucessfully on {bid.company.company_name}' )
+					else:
+						messages.add_message(request, messages.INFO, 'You need to place bid in multiple of 100\'s only.'  )				
+
 				else:
 					messages.add_message(request, messages.INFO, 'You don\'t have enough E-Coins to place this bid.' )				
 			else:
@@ -165,7 +175,7 @@ def bidding(request, id=None, pg=1):
 	
 	form = BidForm()
 	bid_list = bidvar.objects.filter(visible=True).order_by('-id')
-	paginator = Paginator(bid_list, 1)
+	paginator = Paginator(bid_list, 10)
 	context = {
 		'form' : form,
 		'Bid' : paginator.page(pg),

@@ -415,11 +415,6 @@ vc_responsive"
                 </div>
             </div>
             {%endfor%}
-            {% else %}
-            <center>
-            <div style="font-size: 50px; line-height: 55px; height: auto; padding-top:90px">No bids available at the moment.</div>
-            </center>
-            {% endif %}
             <div id="post-496" class=" spaudio-post blogs-featured blogs-style2 blogs-style1 spcard post-496 post type-post status-publish format-audio has-post-thumbnail hentry category-art category-blog category-retro tag-country tag-natur tag-photo tag-photog post_format-post-format-audio" style="margin-top: 30px; margin-bottom: 120px; width: 100%;">
     
                 <div class="pagination">
@@ -440,6 +435,13 @@ vc_responsive"
                     </ul>
                 </div>
             </div>
+            {% else %}
+            <center>
+            <div style="font-size: 50px; line-height: 55px; height: auto; padding-top:90px">No bids available at the moment.</div>
+            </center>
+            <br><br><br>
+            {% endif %}
+            
     </div>
 </div>
 
