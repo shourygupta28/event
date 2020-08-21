@@ -296,10 +296,10 @@ class="home page-template-default page page-id-17 woocommerce-no-js has-fixed-he
                             <th>S.No.</th>
                             <th>Company Name</th>
                             <th>Current Multiplication Factor</th>
-                        </tr>  
+                        </tr> 
                 {% for Company in Companys %}
                             <tr>
-                                <td>S.No.</td>
+                                <td>S.No. {{ forloop.counter }}</td>
                                 <td>{{ Company.company_name }}</td>
                                 <td>{{ Company.multiplication_factor }}</td>
                             </tr>
