@@ -7,18 +7,10 @@ from django.contrib.auth.decorators import login_required
 from .models import Share as var
 from .models import  Bidding as bidvar
 from django.core.paginator import Paginator
-<<<<<<< HEAD
 import time as setInterval
-=======
 from django.views.defaults import page_not_found, server_error
 # from threading import Timer
 
-def handler_404(request, exception):
-	return page_not_found(request, exception, template_name="home/404.html")
-
-def handler_500(request):
-	return server_error(request, template_name="home/500.html")
->>>>>>> 3d992f8f5abfcc2cd978a7463c3e3d8414940fdf
 
 def alert_update(request):
 	if request.user.is_superuser:

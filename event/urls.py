@@ -29,6 +29,3 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name = 'logout'),
     # path('export/excel', user_views.export_users_xls, name='export_excel'),
 ]
-
-handler404 = 'home.views.handler_404'
-handler500 = 'home.views.handler_500'
