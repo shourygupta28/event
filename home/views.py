@@ -8,6 +8,9 @@ from .models import Share as var
 from .models import  Bidding as bidvar
 from django.core.paginator import Paginator
 import time as setInterval
+from django.views.defaults import page_not_found, server_error
+# from threading import Timer
+
 
 def alert_update(request):
 	if request.user.is_superuser:
