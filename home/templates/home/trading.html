@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{% static 'home/css/trading/bootstrap-iso.css' %}" />
     <link rel="stylesheet" href="{% static 'home/css/trading/css/bootstrap.min.css' %}" />
     <title>Hawkeye-Money Never Sleeps</title>
+    
+    <script type='text/javascript' src="{%static 'home/js/timer.js'%}"></script>
     <style type="text/css">
         img.wp-smiley,
         img.emoji {
@@ -301,6 +303,27 @@
             color: black !important;
             font-weight: bold;
         }
+
+        .callout {
+          position: fixed;
+          bottom: 35px;
+          right: 20px;
+          margin-left: 20px;
+          max-width: 300px;
+        }
+
+        .callout-header {
+          padding: 25px 15px;
+          background: #555;
+          font-size: 30px;
+          color: white;
+        }
+
+        .callout-container {
+          padding: 15px;
+          background-color: #ccc;
+          color: black
+        }
     </style>
 </head>
 {% endblock head %}
@@ -315,6 +338,21 @@ vc_responsive"
 
 
 {% block body %}
+<!-- <div class="callout">
+  <div class="callout-header">Trading Closes In</div>
+  <div class="callout-container">
+    <p>
+        <div id="clock"></div>
+        <div id="display">
+            <span class="days">Days</span>
+            <span class="hours">Hours</span>
+            <span class="minutes">Minutes</span>
+            <span class="seconds">Seconds</span>
+        </div>
+    </p>
+  </div>
+</div> -->
+
 <div class="main-content " style="">
     <div class="">
         <div class="row">
