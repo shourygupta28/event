@@ -39,6 +39,8 @@ def add_mycompanies(request):
 def coming(request):
 	return render(request, 'home/comingsoon.html')
 
+def closed(request):
+    return render(request, 'home/closed.html')
 
 def trading_closed(request):
 	return render(request, 'home/closed_trading.html')
@@ -47,12 +49,11 @@ def trading_closed(request):
 def comingbidding(request):
 	return render(request, 'home/comingsoon.html')
 
-
-def home(request):
+def company(request):
 	context = {
 		'Companys': Company.objects.order_by('-id')
 	}
-	return render(request, 'home/index.html', context)
+	return render(request, 'home/companies.html', context)
 
 
 def timepage(request):
@@ -204,8 +205,7 @@ def mycompanies(request, id=None):
 	}
 	return render(request, 'home/mycompanies.html', context)
 
-
-def newpage(request):
+def home(request):
     return render(request, 'home/home.html')
 
 
@@ -226,3 +226,4 @@ def mybid(request):
 def mycompanies_notrade(request):
 	messages.add_message(request, messages.INFO, 'The trade can not be placed before 23-08-2020 17:00.')
 	return redirect(mycompanies)
+
