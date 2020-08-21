@@ -7,6 +7,14 @@ from django.contrib.auth.decorators import login_required
 from .models import Share as var
 from .models import  Bidding as bidvar
 from django.core.paginator import Paginator
+# from threading import Timer
+
+
+def alert_update(request):
+    User.objects.all().update(alert='')
+    # Timer(30.0, alert_update).start()
+    return redirect('time')
+
 
 def coming(request):
 	return render(request, 'home/comingsoon.html')
@@ -17,6 +25,7 @@ def closed(request):
 def trading_closed(request):
 	return render(request, 'home/closed_trading.html')
 
+
 def comingbidding(request):
 	return render(request, 'home/comingsoon.html')
 
@@ -26,11 +35,14 @@ def company(request):
 	}
 	return render(request, 'home/companies.html', context)
 
+
 def timepage(request):
 	if request.user.is_superuser:
 		return render(request, 'home/save.html')
 	else:
 		return redirect('comingsoon')
+
+
 def time(request):
 	if request.user.is_superuser:
 		i = var.objects.all();
@@ -40,6 +52,7 @@ def time(request):
 		return redirect('timepage')
 	else:
 		return redirect('comingsoon')
+
 
 @login_required()
 def tradingUpdateView(request, id=None, pg=1):
@@ -79,6 +92,7 @@ def tradingUpdateView(request, id=None, pg=1):
 
 	return render(request, 'home/trading.html', context)
 	
+
 @login_required
 def tradingCloseView(request, id=None):
 	trade = Trading.objects.get(id=id)
@@ -86,6 +100,12 @@ def tradingCloseView(request, id=None):
 		if trade.buyer != trade.seller:
 			coins = request.user.eCoins + trade.highest_bid
 			User.objects.filter(id=trade.seller.id).update(eCoins=coins)
+		
+		messages.add_message(request, messages.INFO, f'Trade has been closed successfully for {trade.highest_bid} E-Coins')
+		
+		alert_message = f'{trade.percentage_for_sale}% shares of the company \'{trade.company}\' have been added to your companies.'
+		User.objects.filter(id=trade.buyer.id).update(alert=alert_message)
+		
 		obj = var.objects.filter(company=trade.company).filter(shareholder=trade.buyer)
 		if obj:
 			sum = obj.first().percentage_of_share + trade.percentage_for_sale
@@ -132,6 +152,7 @@ def bidding(request, id=None, pg=1):
 	}
 	return render(request, 'home/letsbid.html', context)
 
+
 @login_required
 def mycompanies(request, id=None):
 	if id:
@@ -167,17 +188,20 @@ def mycompanies(request, id=None):
 def home(request):
     return render(request, 'home/home.html')
 
+
 def mytrade(request):
 	context = {
 		'Trades': Trading.objects.filter(seller=request.user).order_by('-id'),
 	}
 	return render(request, 'home/mytrade.html', context)
 
+
 def mybid(request):
 	context = {
 		'Trades': Trading.objects.filter(buyer=request.user).order_by('-id'),
 	}
 	return render(request, 'home/mybids.html', context)
+
 
 def mycompanies_notrade(request):
 	messages.add_message(request, messages.INFO, 'The trade can not be placed before 23-08-2020 17:00.')

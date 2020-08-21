@@ -1363,13 +1363,18 @@
     </header>
     <!-- end Custom menu link HEADER -->
 
-    {% if messages %}
+    {% if messages or user.alert %}
     <div style="background: black; height:80px; width: 100%"></div>
     <ul class="messages"
         style="background: #32a852; width: 100%; color: rgb(255, 255, 255); text-align: center; margin: 0px; padding: 10px;">
-        {% for message in messages %}
-        <h1 style="font-weight: 600; font-size: 25px; margin: 0px;">{{ message }}</h1>
-        {% endfor %}
+        {% if user.alert %}
+            {{ user.alert }}
+        {% endif %}
+        {% if messages %}
+            {% for message in messages %}
+            <h1 style="font-weight: 600; font-size: 25px; margin: 0px;">{{ message }}</h1>
+            {% endfor %}
+        {% endif %}
     </ul>
     {% endif %}
     <!-- Body -->
