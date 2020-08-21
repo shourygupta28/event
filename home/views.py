@@ -7,13 +7,13 @@ from django.contrib.auth.decorators import login_required
 from .models import Share as var
 from .models import  Bidding as bidvar
 from django.core.paginator import Paginator
-# from threading import Timer
-
+import time as setInterval
 
 def alert_update(request):
-    User.objects.all().update(alert='')
-    # Timer(30.0, alert_update).start()
-    return redirect('time')
+	while(True):
+		User.objects.all().update(alert='')
+		setInterval.sleep(300)
+	return redirect('time')
 
 
 def coming(request):
