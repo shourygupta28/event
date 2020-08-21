@@ -25,15 +25,15 @@ def alert_update(request):
 def add_mycompanies(request):
 	if request.user.is_superuser:
 		for bid in bidvar.objects.all():
-			temp = var.objects.filter(company=bid.company)
-			print(bid.bidding_price)
-			if not temp:
-				var.objects.create(company=bid.company,
-							  	   shareholder=bid.buyer,
-							   	   percentage_of_share=100)
-				coins = User.objects.get(id=bid.buyer.id).eCoins - bid.bidding_price
-				print(coins)
-				User.objects.filter(id=bid.buyer.id).update(eCoins=coins)
+			if bid.buyer:
+				temp = var.objects.filter(company=bid.company)
+				if not temp:
+					var.objects.create(company=bid.company,
+								  	   shareholder=bid.buyer,
+								   	   percentage_of_share=100)
+					coins = User.objects.get(id=bid.buyer.id).eCoins - bid.bidding_price
+					print(coins)
+					User.objects.filter(id=bid.buyer.id).update(eCoins=coins)
 		return redirect('timepage')
 	else:
 		return redirect('home')
@@ -124,10 +124,10 @@ def tradingCloseView(request, id=None):
 			coins = request.user.eCoins + trade.highest_bid
 			User.objects.filter(id=trade.seller.id).update(eCoins=coins)
 		
-		messages.add_message(request, messages.INFO, f'Trade has been closed successfully for {trade.highest_bid} E-Coins')
-		
-		alert_message = f'{trade.percentage_for_sale}% shares of the company \'{trade.company}\' have been added to your companies.'
-		User.objects.filter(id=trade.buyer.id).update(alert=alert_message)
+			messages.add_message(request, messages.INFO, f'Trade has been closed successfully for {trade.highest_bid} E-Coins')
+			
+			alert_message = f'{trade.percentage_for_sale}% shares of the company \'{trade.company}\' have been added to your companies.'
+			User.objects.filter(id=trade.buyer.id).update(alert=alert_message)
 		
 		obj = var.objects.filter(company=trade.company).filter(shareholder=trade.buyer)
 		if obj:
