@@ -5,6 +5,7 @@ urlpatterns = [
     path('companies/', 			    views.home,   			name='home'),
     path('', 	                    views.coming,			name='comingsoon'),
     # path('trading/',              views.trading_closed,   name='trading'),
+    path('trade/begin/',            views.alert_update,     name='trade-begin'),
     path('trade/<int:pg>/', 		views.tradingUpdateView,name='trading'),
     path('trading/<int:id>/<int:pg>/',views.tradingUpdateView,name='trading-update'),
     path('bid/<int:pg>/', 		    views.bidding,			name='bidding'),
