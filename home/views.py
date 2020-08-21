@@ -175,3 +175,7 @@ def mybid(request):
 		'Trades': Trading.objects.filter(buyer=request.user).order_by('-id'),
 	}
 	return render(request, 'home/mybids.html', context)
+
+def mycompanies_notrade(request):
+	messages.add_message(request, messages.INFO, 'The trade can not be placed before 23-08-2020 17:00.')
+	return redirect(mycompanies)
