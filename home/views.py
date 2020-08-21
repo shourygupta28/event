@@ -104,7 +104,7 @@ def tradingUpdateView(request, id=None, pg=1):
 	
 	form = TradeForm()
 	trade_list = Trading.objects.order_by('-id')
-	paginator = Paginator(trade_list, 10)
+	paginator = Paginator(trade_list, 1)
 	context = {
 		'form':form,
 		'Tradings' : paginator.page(pg),
@@ -165,7 +165,7 @@ def bidding(request, id=None, pg=1):
 	
 	form = BidForm()
 	bid_list = bidvar.objects.filter(visible=True).order_by('-id')
-	paginator = Paginator(bid_list, 10)
+	paginator = Paginator(bid_list, 1)
 	context = {
 		'form' : form,
 		'Bid' : paginator.page(pg),
