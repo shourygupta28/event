@@ -45,5 +45,6 @@ function startTimer(id, deadline) {
 
 window.onload = function () {
     var deadline = new Date("August 22, 2020 10:25:10");
+   setTimeout("location.reload(true);", 35000);
     startTimer("clock", deadline);
 };

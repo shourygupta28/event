@@ -86,7 +86,7 @@ def tradingUpdateView(request, id=None, pg=1):
 			if trade.highest_bid < int(form['highest_bid'].value()):
 				prev_bid = trade.highest_bid
 				if request.user.eCoins >= int(form['highest_bid'].value()):
-					if int(form['highest_bid'].value())/100 == 0 and form.is_valid():
+					if int(form['highest_bid'].value())%100 == 0 and form.is_valid():
 						if trade.buyer != trade.seller:
 							if trade.buyer != request.user:
 								coins = User.objects.get(id=trade.buyer.id).eCoins + prev_bid
@@ -160,7 +160,7 @@ def bidding(request, id=None, pg=1):
 					return redirect('bidding', pg=pg)						
 			if bid.bidding_price < int(form['bidding_price'].value()):
 				if request.user.eCoins > int(form['bidding_price'].value()):
-					if int(form['bidding_price'].value())/100 == 0 and form.is_valid():
+					if int(form['bidding_price'].value())%100 == 0 and form.is_valid():
 						bid.buyer = request.user
 						form.save()	
 						messages.add_message(request, messages.INFO, f'Your Bid has been placed sucessfully on {bid.company.company_name}' )
