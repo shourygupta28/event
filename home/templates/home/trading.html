@@ -304,27 +304,37 @@
             font-weight: bold;
         }
 
-        .callout {
-          position: fixed;
-          bottom: 35px;
-          left: 20px;
-          margin-left: 20px;
-          max-width: 300px;
-          z-index: 1000;
-        }
+    .call {
+  position: fixed;
+  bottom: 35px;
+  left: 20px;
+  margin-left: 20px;
+  max-width: 500px;
+  z-index: 1000;
+}
 
-        .callout-header {
-          padding: 25px 15px;
-          background: #555;
-          font-size: 30px;
-          color: white;
-        }
+.call-header {
+  padding: 25px 15px;
+  background: rgba(0,0,0,0.85);
+  font-size: 30px;
+  color: white;
+}
 
-        .callout-container {
-          padding: 15px;
-          background-color: #ccc;
-          color: black
-        }
+.call-container {
+  padding: 15px;
+  background-color: #ccc;
+  color: black
+}
+
+.closebtn {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
     </style>
 </head>
 {% endblock head %}
@@ -339,9 +349,9 @@ vc_responsive"
 
 
 {% block body %}
-<div class="callout">
-  <div class="callout-header">Trading Closes In</div>
-  <div class="callout-container">
+<div class="call">
+  <div class="call-header">Trading Closes In</div>
+  <div class="call-container">
         <div id="clock"></div>
   </div>
 </div>
