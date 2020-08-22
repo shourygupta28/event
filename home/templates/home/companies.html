@@ -229,11 +229,11 @@ class="home page-template-default page page-id-17 woocommerce-no-js has-fixed-he
                         <div class="wpb_wrapper">
                             <div class="wpb_layerslider_element wpb_content_element">
                                 
-                                <script data-cfasync="false" type="text/javascript">
+                                <script data-cfasync="false" type="text/javascript" defer>
                                     var lsjQuery = jQuery;
                                 </script>
 
-                                <script data-cfasync="false" type="text/javascript">
+                                <script data-cfasync="false" type="text/javascript" defer>
                                     lsjQuery(document).ready(function() {
                                         if (typeof lsjQuery.fn.layerSlider == "undefined") {
                                             if (window._layerSlider && window._layerSlider.showNotice) {
@@ -817,7 +817,7 @@ class="home page-template-default page page-id-17 woocommerce-no-js has-fixed-he
         </div>
          
     </div>
-    <script type='text/javascript' src="{%static 'home/js/info-box.min.js'%}"></script>
-    <script type='text/javascript' src="{%static 'home/js/flip-box.min.js'%}"></script>
-    <script type='text/javascript' src="{%static 'home/js/vhparallax.min.js'%}"></script>
+    <script type='text/javascript' src="{%static 'home/js/info-box.min.js'%}" defer></script>
+    <script type='text/javascript' src="{%static 'home/js/flip-box.min.js'%}" defer></script>
+    <script type='text/javascript' src="{%static 'home/js/vhparallax.min.js'%}" defer></script>
 {% endblock body %}
