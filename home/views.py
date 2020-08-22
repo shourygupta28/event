@@ -193,7 +193,7 @@ def mycompanies(request, id=None):
 				obj.save()
 				per_of_share = current_share.percentage_of_share - per_for_sale
 				var.objects.filter(id=id).update(percentage_of_share=per_of_share)
-				return redirect('trading')
+				return redirect('trading', pg=1)
 			elif per_for_sale < 5:
 				messages.add_message(request, messages.INFO, 'You need to sell minimum 5 percent of Shares')
 			elif per_for_sale > int(current_share.percentage_of_share):

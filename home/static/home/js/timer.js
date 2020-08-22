@@ -1,16 +1,12 @@
 function updateTimer(deadline) {
+    var time = deadline - new Date();
     return {
-        minutes: Math.floor(deadline / 60),
-        seconds: Math.floor(deadline % 60),
-        total: deadline
+        minutes: Math.floor(time / 1000 / 60),
+        seconds: Math.floor((time / 1000) % 60),
+        total: time
     };
 }
 
-function animateClock(span) {
-    setTimeout(function () {
-        span.className = "";
-    }, 1000);
-}
 
 function startTimer(id, deadline) {
     var timer = updateTimer(deadline);
@@ -19,27 +15,35 @@ function startTimer(id, deadline) {
         var clock = document.getElementById(id);
         var timer = updateTimer(deadline);
 
-        if (timer.total < 0) {
+        if (timer.total <= 60) {
             clearInterval(timerInterval);
-            var a = document.querySelector(".row_main_body")
-            a.setAttribute("style", "display:none !important")
+            var a = document.querySelector(".main_body")
+            a.setAttribute("style", "display:none")
+            timer.minutes = 0
+            timer.seconds = 0
        }
         
-        clock.innerHTML =
-            "<span>" +
-            timer.minutes +
-            "</span>" +
-            "<span>" +
-            timer.seconds +
-            "</span>";
+        clock.innerHTML = ""
 
-        // animation
-        var spans = clock.getElementsByTagName("span");
-        animateClock(spans[1]);
-        if (timer.seconds == 59) animateClock(spans[0]);
+        if (timer.minutes < 10){
+            clock.innerHTML += "<span> 0" + timer.minutes + "</span>"
+        }
+        else {
+            clock.innerHTML += "<span>" + timer.minutes + "</span>"
+        }
+        clock.innerHTML += "<span> : </span>"
+        if (timer.seconds < 10){
+            clock.innerHTML += "<span> 0" + timer.seconds + "</span>"
+        }
+        else {
+            clock.innerHTML += "<span>" + timer.seconds + "</span>"
+        }
+        
     }, 1000);
 }
 
+
 window.onload = function () {
-    startTimer("clock", 300);
+    var deadline = new Date("August 22, 2020 10:25:10");
+    startTimer("clock", deadline);
 };
