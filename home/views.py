@@ -11,6 +11,9 @@ import time as setInterval
 from django.views.defaults import page_not_found, server_error
 # from threading import Timer
 
+def trade(request):
+	return render(request, 'home/trade-close.html')
+
 
 def alert_update(request):
 	User.objects.filter(id=request.user.id).update(alert='')
