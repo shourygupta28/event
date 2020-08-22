@@ -146,8 +146,7 @@ def tradingCloseView(request, id=None):
 		trade.delete()
 	return redirect('mytrade')
 
-
-@login_required()
+@login_required
 def bidding(request, id=None, pg=1):
 	if id:
 		a = bidvar.objects.all();
