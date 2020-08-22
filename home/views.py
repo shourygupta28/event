@@ -13,13 +13,8 @@ from django.views.defaults import page_not_found, server_error
 
 
 def alert_update(request):
-	if request.user.is_superuser:
-		while(True):
-			User.objects.all().update(alert='')
-			setInterval.sleep(300)
-		return redirect('timepage')
-	else:
-		return redirect('home')
+	User.objects.filter(id=request.user.id).update(alert='')
+	return redirect('mycompanies')
 
 
 def add_mycompanies(request):
@@ -52,9 +47,14 @@ def trading_closed(request):
 def comingbidding(request):
 	return render(request, 'home/comingsoon.html')
 
-def company(request):
+def company(request, pg=1):
+	company_list = Company.objects.order_by('id')
+	paginator = Paginator(company_list, 25)
+
 	context = {
-		'Companys': Company.objects.order_by('-id')
+		'Companys' : paginator.page(pg),
+		'page' : pg,
+		'paginator' : paginator,
 	}
 	return render(request, 'home/companies.html', context)
 
@@ -175,7 +175,7 @@ def bidding(request, id=None, pg=1):
 	
 	form = BidForm()
 	bid_list = bidvar.objects.filter(visible=True).order_by('-id')
-	paginator = Paginator(bid_list, 10)
+	paginator = Paginator(bid_list, 13)
 	context = {
 		'form' : form,
 		'Bid' : paginator.page(pg),

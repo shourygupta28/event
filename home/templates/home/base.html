@@ -1095,7 +1095,7 @@
                         <ul class="nav navbar-nav">
                             <li id="menu-item-1470"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1470">
-                                <a href="{% url 'home' %}" data-hover="Home" style="font-size: 15px !important;" >Companies</a></li>
+                                <a href="{% url 'home' '1' %}" data-hover="Home" style="font-size: 15px !important;" >Companies</a></li>
 
                             <li id="menu-item-1471"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1471">
@@ -1163,7 +1163,7 @@
                                     <ul class="nav navbar-nav">
                                         <li
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1470">
-                                            <a href="{% url 'home' %}" data-hover="Home">Companies</a>
+                                            <a href="{% url 'home' '1' %}" data-hover="Home">Companies</a>
                                         </li>
                                         
                                         <li
@@ -1263,7 +1263,7 @@
                     <ul class="nav navbar-nav">
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1470">
-                            <a href="{% url 'home' %}" data-hover="Home">Companies</a>
+                            <a href="{% url 'home' '1' %}" data-hover="Home">Companies</a>
                         </li>
                   
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1479">
@@ -1340,7 +1340,7 @@
                                 <ul class="nav navbar-nav">
                                     <li
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1470">
-                                        <a href="{% url 'home' %}" data-hover="Home" style="color: white">Companies</a>
+                                        <a href="{% url 'home' '1' %}" data-hover="Home" style="color: white">Companies</a>
                                     </li>
 
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1481">
@@ -1401,8 +1401,7 @@
         {% if user.alert %}
         <div class="callout">
             <div class="callout-header" style="padding: 30px; text-align: justify !important; line-height: 1.5 !important;">{{ user.alert }}</div>
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
-          </div>
+        <a class="closebtn" href="{% url 'trade-begin' %}">x</a>          </div>
             
         {% endif %}
         {% if messages %}
@@ -1574,7 +1573,7 @@
             <div class="">
                 <div class="fb_text" style="color: grey !important;" id="copyright_footer">
                     <span style="font-size: 15px" id="copyright_text"> © 2020-21 All Rights Reserved. Designed by <a
-                            href="{% url 'home' %}"> EDC-TIET</a></span>
+                            href="{% url 'home' '1' %}"> EDC-TIET</a></span>
                 </div>
                 <div class="fb_social">
                 </div>
