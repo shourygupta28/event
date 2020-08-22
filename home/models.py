@@ -17,7 +17,7 @@ class Trading(models.Model):
     highest_bid = models.PositiveIntegerField(default=0)
     buyer = models.ForeignKey(User, related_name = 'trading_buyer', on_delete=models.CASCADE, null=True, blank=True)
     seller = models.ForeignKey(User, related_name = 'trading_seller', on_delete=models.CASCADE,  null=True, blank=True)
-    percentage_for_sale = models.DecimalField(default=1, decimal_places = 0, max_digits = 3 )
+    percentage_for_sale = models.DecimalField(default=5, decimal_places = 0, max_digits = 3 )
     
     def __str__(self):
         return self.company.company_name + " - " + str(self.percentage_for_sale) + " From " + str(self.seller) + " to " + str(self.buyer)

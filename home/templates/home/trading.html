@@ -430,7 +430,7 @@ vc_responsive"
 
                                             </div>
                                             <div class="duration">
-                                                <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Precent For Sale:</h5>
+                                                <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Percent For Sale:</h5>
 
                                                 <p class="card-text" style=" font-size: 16px;"> {{ Trading.percentage_for_sale }}% </p>
                                             </div>
@@ -454,11 +454,6 @@ vc_responsive"
                                     </div>
             {% endwith %}
             {% endfor %}
-            {% else %}
-            <center>
-            <div style="font-size: 70px; line-height: 70px; height: auto; padding-top:90px">Coming Soon!</div>
-            </center>
-            {% endif %}
             <div id="post-496" class=" spaudio-post blogs-featured blogs-style2 blogs-style1 spcard post-496 post type-post status-publish format-audio has-post-thumbnail hentry category-art category-blog category-retro tag-country tag-natur tag-photo tag-photog post_format-post-format-audio" style="margin-top: 30px; margin-bottom: 120px; width: 100%;">
     
                 <div class="pagination">
@@ -479,6 +474,13 @@ vc_responsive"
                     </ul>
                 </div>
             </div>
+            {% else %}
+            <center>
+            <div style="font-size: 70px; line-height: 70px; height: auto; padding-top:90px">Coming Soon!</div>
+            </center>
+            <br><br><br>
+            {% endif %}
+            
         </div>
     </div>
 </div>
