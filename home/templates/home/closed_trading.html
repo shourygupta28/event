@@ -1,0 +1,71 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block head %}
+<title>HAWKEYE Money Never Sleeps</title>
+<link rel="pingback" href="{% static 'home/xmlrpc.php'%}" />
+    <link rel='stylesheet' id='ult-stats-counter-style-css' href="{% static 'home/css/stats-counter.min.css' %}" type='text/css' media='all' />
+
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+    <link rel='stylesheet' id='ls-google-fonts-css' href='https://fonts.googleapis.com/css?family=Lato:100,300,regular,700,900&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
+
+  
+    <style>
+      body{
+        background-color: #FFFFFF!important;
+      }
+      .main {
+        background-color: #FFFFFF;
+        width: 75%;
+        height: 300px;
+        margin: 7em auto;
+        border-radius: 1.5em;
+        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+        }
+        a{
+            color: rgb(47, 146, 187);
+        }
+        a:hover {
+            color:black;
+        }
+    </style>
+    <style type="text/css">
+        @media only screen and (max-width: 725px){
+            .main{
+                width: 90%;
+            }
+        }
+        .text{
+            margin: auto; 
+            vertical-align: center !important; 
+            font-size: 50px;
+
+        }
+         @media only screen and (max-width: 543px){
+            .text{
+                font-size: 30px !important;
+            }
+        }
+    </style>
+{% endblock head %}
+
+{% block bodytag %}
+    class="paged page-template page-template-tmp-blog-template page-template-tmp-blog-template-php page page-id-1039 paged-2 page-paged-2 woocommerce-no-js has-fixed-header     wpb-js-composer js-comp-ver-6.0.5 vc_responsive"
+{% endblock bodytag %}
+
+{% block body %}
+<div class="main">
+    <div align="center" style="padding-top: 100px !important;S">
+    <h1 class="text" style="">TRADING CLOSED</h1>        
+    </div>
+</div>
+
+{% endblock body %}

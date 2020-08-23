@@ -1,0 +1,447 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block head %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'home/css/trading/bootstrap-iso.css' %}" />
+    <link rel="stylesheet" href="{% static 'home/css/trading/css/bootstrap.min.css' %}" />
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.13.1/css/all.css'
+        integrity='sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q' crossorigin='anonymous'>
+
+    <title>Hawkeye-Money Never Sleeps</title>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <style id='woocommerce-inline-inline-css' type='text/css'>
+        .woocommerce form .form-row .required {
+            visibility: visible;
+        }
+    </style>
+    <script type='text/javascript' defer>
+        /* <![CDATA[ */
+        var LS_Meta = { "v": "6.7.1" };
+/* ]]> */
+    </script>
+    <noscript>
+        <style>
+            .woocommerce-product-gallery {
+                opacity: 1 !important;
+            }
+        </style>
+    </noscript>
+    <style type="text/css">
+        .recentcomments a {
+            display: inline !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+    </style>
+    <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress." />
+    <style type="text/css" title="dynamic-css" class="options-output">
+        .sk-folding-cube .sk-cube:before,
+        .rotating-plane,
+        .double-bounce1,
+        .double-bounce2,
+        .rectangle-bounce>div,
+        .cube1,
+        .cube2,
+        .pulse,
+        .dot1,
+        .dot2,
+        .three-bounce>div,
+        .sk-circle .sk-child:before,
+        .sk-cube-grid .sk-cube,
+        .sk-fading-circle .sk-circle:before {
+            background-color: #2f92bb;
+        }
+
+        .se-pre-con {
+            background-color: #000c21;
+        }
+
+        .regular-header .header-bottom,
+        #custom__menu {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .header-alt .header-bottom,
+        #custom__menu.header-alt {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .menu.menuEffects ul li a,
+        .menucont ul.navbar-navi>li>a,
+        .hsocial a,
+        .hsearch a {
+            font-family: Lato;
+            line-height: 21px;
+            font-weight: 700;
+            font-style: normal;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .hsocial a:hover,
+        .hsearch a:hover,
+        .menucont ul.navbar-navi>li>a:hover,
+        .menucont ul.navbar-navi>li>a:focus {
+            color: #2f92bb;
+        }
+
+        ul.sub-menu li a,
+        #custom__menu .menu.menuEffects ul li .sub-menu a,
+        #custom__menu .menucont div>ul>li>a,
+        #custom__menu .menu.menuEffects ul li a,
+        #custom__menu.header-alt .menu.menuEffects ul li a {
+            line-height: 12px;
+            font-weight: 700;
+            font-style: normal;
+            color: #ffffff;
+            font-size: 12px;
+        }
+
+        ul.sub-menu li a:hover {
+            color: #ffcece;
+        }
+
+        ul.sub-menu,
+        .menu.menuEffects,
+        #custom__menu .menu.menuEffects .menuContent {
+            background-color: #2f92bb;
+        }
+
+        ul.sub-menu li a {
+            border-color: #2f92bb;
+        }
+
+        body {
+            background-color: #f9f9f9;
+        }
+
+        .page-title-tint {
+            background-color: rgba(14, 29, 47, 0.74);
+        }
+
+        body {
+            font-family: Lato;
+            line-height: 24px;
+            font-weight: 400;
+            font-style: normal;
+            color: #888888;
+            font-size: 14px;
+        }
+
+        a,
+        .sticky.blogs-style1.spcard.blogs-style2 .sptitle a,
+        .widget_rss ul li .rss-date,
+        .widget_rss ul li a.rsswidget,
+        .woocommerce ul.cart_list li a,
+        .woocommerce ul.product_list_widget li a {
+            color: #2f92bb;
+        }
+
+        a:hover {
+            color: #f2f2f2;
+        }
+
+        h1 {
+            font-family: Montserrat;
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        h2 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        h3 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        h4 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        h5 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .main_footer {
+            background-color: #202329;
+        }
+
+        .footer_bottom {
+            background-color: #282d33;
+        }
+
+        .supcard_top,
+        .supcard_mid {
+            display: flex;
+            align-content: space-between;
+        }
+
+        .location,
+        .duration,
+        .Start,
+        .applyBy {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+    </style>
+    <noscript>
+        <style>
+            .wpb_animate_when_almost_visible {
+                opacity: 1;
+            }
+        </style>
+    </noscript>
+    <style>
+        .container {
+            width: 100% !important;
+        }
+
+        .vc_row {
+            width: 98vw !important;
+        }
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 30px 0px 110px 0px;
+            color: #000;
+        }
+
+        .create_button a {
+            margin-right: 20px;
+            border-radius: 10px;
+            padding: 15px 40px;
+            margin: 30px auto;
+            font-size: 21px;
+            color: black;
+            text-align: center;
+            display: block;
+            color: white;
+            transition: 0.5s;
+            background: rgb(47, 146, 187);
+            max-width: 300px;
+        }
+
+        .create_button a:hover {
+            transform: scale(1.02);
+            font-size: 21px;
+            color: black;
+            text-align: center;
+            display: block;
+            color: white;
+            text-decoration: none !important;
+        }
+
+        .view-detail-btn:hover {
+            background-color: #2f92bb;
+            color: white;
+        }
+
+        .supcard_top,
+        .supcard_mid {
+            display: flex;
+            align-content: space-between;
+        }
+
+        .location,
+        .duration,
+        .Start,
+        .applyBy {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            .location,
+            .duration,
+            .Start,
+            .applyBy {
+                padding: 15px;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            .supcard_top,
+            .supcard_mid {
+                flex-direction: column;
+                align-content: center;
+            }
+        }
+
+        .download-btn {
+            float: right !important;
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            .download-btn {
+                margin-top: 2%;
+                float: left !important;
+            }
+        }
+    </style>
+</head>
+{% endblock head %}
+
+
+{% block bodytag %}
+
+onload = "JavaScript:AutoRefresh(35000);"
+class="home page-template-default page page-id-17 woocommerce-no-js has-fixed-header wpb-js-composer js-comp-ver-6.0.5
+vc_responsive"
+{% endblock bodytag %}
+
+
+{% block body %}
+<div class="main-content " style="">
+    <div class="">
+        <div class="row">
+            <div class="vc_row wpb_row vc_row-fluid">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="wpb_layerslider_element wpb_content_element">
+                                <script data-cfasync="false" type="text/javascript" defer>var lsjQuery = jQuery;</script>
+                                <script data-cfasync="false" type="text/javascript" defer>
+                                    lsjQuery(document).ready(function () {
+                                        if (typeof lsjQuery.fn.layerSlider == "undefined") {
+                                            if (window._layerSlider && window._layerSlider.showNotice) {
+                                                window._layerSlider.showNotice('layerslider_1', 'jquery');
+                                            }
+                                        } else {
+                                            lsjQuery("#layerslider_1").layerSlider({ sliderVersion: '6.7.1', type: 'fullwidth', responsiveUnder: 1000, allowFullscreen: false, maxRatio: 1000, skin: 'v6', navPrevNext: false, hoverPrevNext: false, navStartStop: false, navButtons: false, showCircleTimer: false, thumbnailNavigation: 'disabled', skinsPath: 'https://skywarriorthemes.com/benri/demo1/wp-content/plugins/LayerSlider/static/layerslider/skins/' });
+                                        }
+                                    });
+                                </script>
+                                <div id="layerslider_1" class="ls-wp-container fitvidsignore"
+                                    style="width:1280px; height:650px; margin:0 auto; margin-bottom: 0px;">
+                                    <div class="ls-slide" data-ls="kenburnsscale:1.2;">
+                                        <img width="2000" height="1336"
+                                            src="wp-content/uploads/sites/17/layerslider/Home/rawpixel-com-196509-1.jpg"
+                                            class="ls-bg" alt=""
+                                            srcset="https://skywarriorthemes.com/benri/demo1/wp-content/uploads/sites/17/layerslider/Home/rawpixel-com-196509-1.jpg 2000w, https://skywarriorthemes.com/benri/demo1/wp-content/uploads/sites/17/layerslider/Home/rawpixel-com-196509-1-300x200.jpg 300w, https://skywarriorthemes.com/benri/demo1/wp-content/uploads/sites/17/layerslider/Home/rawpixel-com-196509-1-768x513.jpg 768w, https://skywarriorthemes.com/benri/demo1/wp-content/uploads/sites/17/layerslider/Home/rawpixel-com-196509-1-1024x684.jpg 1024w"
+                                            sizes="(max-width: 2000px) 100vw, 2000px" />
+
+                                        <h1 class="ls-l"
+                                            style="width: 100%; height: 100%;padding-top: 35%; text-align:center;font-weight:800;font-style:normal;text-decoration:none;font-family:Lato;font-size:100px;line-height:120px;color:#ffffff; text-align: center;"
+                                            data-ls="showinfo:1;parallax:true;parallaxlevel:-18;parallaxtype:3d;parallaxevent:scroll;parallaxaxis:y;"
+                                            data-ls="showinfo:1;parallax:true;parallaxlevel:-18;parallaxtype:3d;parallaxevent:scroll;parallaxaxis:y;">
+                                            YOUR <br> TRADES
+                                        </h1>
+                                        <a style="" class="ls-l" href="#startup" target="_self"
+                                            data-ls="showinfo:1;offsetyin:-50px;delayin:1000;parallax:true;parallaxlevel:-10;parallaxtype:3d;parallaxevent:scroll;parallaxaxis:y;">
+
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vc_row-full-width vc_clearfix"></div>
+
+            <div class="clear"></div>
+
+        </div>
+    </div>
+
+
+    {% if Trades %}
+    {% for obj in Trades %}
+    <div class="row main_body" style="max-width:100% !important; display:flex; justify-content: center;">
+
+
+
+        <div class="col-12 col-md-8 col-lg-8 col-sm-12 main_body_center ">
+
+            <div id="startup" class="card supcard"
+                style=" margin-top: 30px; border:none; box-shadow: 3px 5px 6px #ccc; padding-bottom: 2%; padding-left: 2%; padding-right: 2%; margin-bottom:30px; margin-left: 2%; margin-right: 2%">
+                <div class="supcard_top" style="max-width:80% !important;">
+
+
+                    <div class="card-body" style="margin-top: 15px;">
+                        <h4 class="card-title" style="font-size: 28px;">{{ obj.company.company_name }}</h4>
+                        <hr>
+                    </div>
+                </div>
+                <div class="supcard_mid" style=" margin-bottom: 20px; margin-left: 20px; overflow: visible;">
+
+                    <div class="location">
+                        <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Current Multiplication Factor:</h5>
+                        <p class="card-text" style=" font-size: 16px;">{{ obj.company.multiplication_factor }}</p>
+
+                    </div>
+
+                    <div class="location">
+                        <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;">Current Highest Bid:</h5>
+                        <p class="card-text" style=" font-size: 16px;">{{ obj.highest_bid }}</p>
+
+                    </div>
+                    <div class="duration">
+                        <h5 class="card-title" style="margin-bottom: 10px; font-size: 20px;"> Share %</h5>
+
+                        <p class="card-text" style=" font-size: 16px;"> {{ obj.percentage_for_sale }}% </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="supcard_mid" style=" margin-bottom: 20px; margin-left: 20px; overflow: visible;">
+                    <form class="form1" method="" action="{% url 'close-trade' obj.id %}">
+                        <br>
+                        <div class="form-group" >
+                                <input type="submit" value="Close Trade">
+
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br>
+
+        </div>
+
+
+        
+    </div>
+    {% endfor %}
+    {% else %}
+    <center>
+        <div style="font-size: 70px; line-height: 70px; height: auto; padding-top:90px">Companies you place for Trade will be shown here.</div>
+    </center>
+    <br><br><br>
+    {% endif %}
+
+{% endblock body %}

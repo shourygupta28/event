@@ -1,0 +1,417 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block head %}
+
+<link rel="pingback" href="{% static 'home/xmlrpc.php'%}" />
+<link rel='stylesheet' id='ult-stats-counter-style-css' href="{% static 'home/css/stats-counter.min.css' %}" type='text/css' media='all' />
+
+<link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+
+<title>Hawkeye-Money Never Sleeps</title>
+<style type="text/css" data-type="vc_shortcodes-custom-css">
+    .register-button{
+        align-items: center;
+        align-self: center;
+        text-align: center;
+        
+    }
+    .vc_custom_1522954642578 {
+        padding-top: 50px !important;
+        padding-bottom: 70px !important;
+    }
+
+    .vc_custom_1494624914514 {
+        padding-top: 50px !important;
+    }
+
+    .vc_custom_1494624919805 {
+        padding-bottom: 100px !important;
+    }
+
+    .vc_custom_1494626839758 {
+        padding-top: 100px !important;
+        padding-bottom: 210px !important;
+    }
+
+    .vc_custom_1494625858679 {
+        margin-top: -150px !important;
+    }
+
+    .vc_custom_1495476778635 {
+        margin-top: 100px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .vc_custom_1494618991842 {
+        padding-top: 50px !important;
+    }
+
+    .vc_custom_1494621972326 {
+        padding-top: 100px !important;
+    }
+
+    .vc_custom_1494621689637 {
+        margin-top: 30px !important;
+    }
+
+    .vc_custom_1494626651578 {
+        margin-top: 0px !important;
+        margin-bottom: 45px !important;
+    }
+
+    .vc_custom_1494628064641 {
+        margin-bottom: 45px !important;
+    }
+
+    .vc_custom_1494626726323 {
+        margin-top: 30px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .container {
+        position: relative;
+        width: 100%;
+
+    .vc_custom_1494625719386 {
+        margin-top: 0px !important;
+        margin-right: 0px !important;
+        margin-bottom: 0px !important;
+        margin-left: 0px !important;
+        padding-top: 0px !important;
+        padding-right: 0px !important;
+        padding-bottom: 0px !important;
+        padding-left: 0px !important;
+    }
+
+    .vc_custom_1494625728900 {
+        margin-top: 0px !important;
+        margin-right: 0px !important;
+        margin-bottom: 0px !important;
+        margin-left: 0px !important;
+        padding-top: 0px !important;
+        padding-right: 0px !important;
+        padding-bottom: 0px !important;
+        padding-left: 0px !important;
+    }
+
+    .vc_custom_1494625737076 {
+        margin-top: 0px !important;
+        margin-right: 0px !important;
+        margin-bottom: 0px !important;
+        margin-left: 0px !important;
+        padding-top: 0px !important;
+        padding-right: 0px !important;
+        padding-bottom: 0px !important;
+        padding-left: 0px !important;
+    }
+
+    .vc_custom_1495476642306 {
+        padding-bottom: 50px !important;
+    }
+
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+.callout {
+  position: fixed;
+  bottom: 35px;
+  right: 20px;
+  margin-left: 20px;
+  max-width: 300px;
+}
+
+.callout-header {
+  padding: 25px 15px;
+  background: #555;
+  font-size: 30px;
+  color: white;
+}
+
+.callout-container {
+  padding: 15px;
+  background-color: #ccc;
+  color: black
+}
+
+.closebtn {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+  color: lightgrey;
+}
+</style>
+
+<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+<link rel='stylesheet' id='ls-google-fonts-css' href='https://fonts.googleapis.com/css?family=Lato:100,300,regular,700,900&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<style id='woocommerce-inline-inline-css' type='text/css'>
+    .woocommerce form .form-row .required {
+        visibility: visible;
+    }
+</style>
+
+<style>
+    audio::-webkit-media-controls-timeline,
+    video::-webkit-media-controls-timeline {
+        display: none;
+    }
+</style>
+
+<link rel='stylesheet' id='ult-flip-style-css' href="{%static 'home/css/flip-box.min.css'%}" type='text/css' media='all' />
+<link rel='stylesheet' id='info-box-style-css' href="{%static 'home/css/info-box.min.css'%}" type='text/css' media='all' />
+<!--
+<noscript>
+    <style>
+        .woocommerce-product-gallery {
+            opacity: 1 !important;
+        } 
+        
+        .wpb_animate_when_almost_visible {
+            opacity: 1;
+        }
+
+    </style>
+</noscript>
+-->
+<style>
+    .vc_row{
+        max-width: 99vw !important;
+    }
+</style>
+<style>
+    @media(max-width: 414px){
+        #cards{
+            min-width: 312px !important;
+            min-height: 550px !important;
+        }
+        #pres_img{
+            margin-left: -20px !important;
+        }
+    }
+    @media(max-width:768px){
+        #cards{
+            min-width: 330px !important;
+            min-height: 550px !important; 
+        }
+        #pres_img{
+            margin-left: 85px;
+        }
+        #pmsg{
+            margin-left: 5px;
+        }
+        #pres_txt{
+            margin-left: 35px;
+        }
+        #abouttxt{
+            margin-left: 15px;
+        }
+        #aboutimg{
+            margin-left: -10px;
+        }
+       
+    }
+    @media(max-width:375px){
+        #cards{
+            min-width: 312px !important;
+            min-height: 550px !important; 
+        }
+        #pres_img{
+            margin-left: -20px;
+        }
+    }
+    @media(max-width:320px){
+        #cards{
+            min-width: 250px !important;
+            min-height: 800px !important; 
+        }
+    }
+</style>
+<style>
+
+    .companies {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .companies th, td {
+      text-align: left;
+      padding: 8px;
+    }    
+    .companies tr {
+        font-size: 17px;
+    }
+
+    .companies tr:nth-child(even){
+        background-color: #f2f2f2
+    }
+
+    .companies th {
+      background-color: rgb(47, 146, 187);
+      color: white;
+      font-size: 17px;
+    }
+</style>
+{% endblock head %}
+
+
+{% block bodytag %}
+class="home page-template-default page page-id-17 woocommerce-no-js has-fixed-header     wpb-js-composer js-comp-ver-6.0.5 vc_responsive" style="font-family: 'Josefin Sans', sans-serif;"
+{% endblock bodytag %}
+
+
+{% block body %}
+<div class="main-content ">
+    <div class="">
+        <div class="row">
+            <div class="vc_row wpb_row vc_row-fluid">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner" style="padding-top: 0px;">
+                        <div class="wpb_wrapper">
+                            <div class="wpb_layerslider_element wpb_content_element">
+                                
+                                <script data-cfasync="false" type="text/javascript">
+                                    var lsjQuery = jQuery;
+                                </script>
+
+                                <script data-cfasync="false" type="text/javascript">
+                                    lsjQuery(document).ready(function() {
+                                        if (typeof lsjQuery.fn.layerSlider == "undefined") {
+                                            if (window._layerSlider && window._layerSlider.showNotice) {
+                                                window._layerSlider.showNotice('layerslider_1', 'jquery');
+                                            }
+                                        } else {
+                                            lsjQuery("#layerslider_1").layerSlider({
+                                                sliderVersion: '6.7.1',
+                                                type: 'fullwidth',
+                                                responsiveUnder: 1000,
+                                                allowFullscreen: false,
+                                                maxRatio: 1000,
+                                                navPrevNext: false,
+                                                hoverPrevNext: false,
+                                                navStartStop: false,
+                                                navButtons: false,
+                                                showCircleTimer: false,
+                                                thumbnailNavigation: 'disabled',
+                                            });
+                                        }
+                                    });
+
+                                </script>
+
+                                <div id="layerslider_1" class="ls-wp-container fitvidsignore" style="background-color: #000; width:1280px;height:730px;margin:0 auto; margin-bottom: 0px;">
+                                    <div class="ls-slide" data-ls="kenburnsscale:1.2;">
+                                        <img width="2000" height="1336" src="{% static 'home/images/ImagesHomePage/trading.jpg' %}" class="ls-bg" sizes="(max-width: 2000px) 100vw, 2000px" style="opacity: 1;" />
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="callout">
+  <div class="callout-header" style="padding: 30px;">Keep Calm! 💕</div>
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+  <div class="callout-container" style="padding: 30px; font-size: 18px;">
+    <p>Trading starts on 23 August 12PM <a href="#"></p>
+  </div>
+</div>
+
+            <!--About EDC-->
+            <!--<div class="vc_row wpb_row vc_row-fluid vc_custom_1494624914514" style="padding-left: 50px; padding-right: 60px; margin-top: 50px; padding-top: 80px !important; padding-bottom: 30px !important; margin-left: 0px !important;">
+                <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeInDown" data-animation-delay="0" data-animation-duration="3" data-animation-iteration="1" style="opacity:0;" data-opacity_start_effect="">
+                    <div id="ultimate-heading-58855ec7fe8b6b57b" class="uvc-heading ult-adjust-bottom-margin ultimate-heading-58855ec7fe8b6b57b uvc-4982 " data-hspacer="line_only" data-halign="center" style="text-align:center">
+                        <div class="uvc-main-heading ult-responsive" data-ultimate-target='.uvc-heading.ultimate-heading-58855ec7fe8b6b57b h2' data-responsive-json-new='{"font-size":"desktop:32px;","line-height":"desktop:32px;"}'>
+                            <h2 style="font-family: 'Cinzel', serif;font-weight:700;color:#333333;">COMPANIES</h2>
+                        </div>
+                        <div class="uvc-heading-spacer line_only" style="margin-top:20px;margin-bottom:35px;height:2px;">
+                            <span class="uvc-headings-line" style="border-style:solid;border-bottom-width:2px;border-color:#2f92bb;width:70px;"></span>
+                        </div>
+                        <div class="uvc-sub-heading ult-responsive" data-ultimate-target='.uvc-heading.ultimate-heading-58855ec7fe8b6b57b .uvc-sub-heading ' data-responsive-json-new='{"font-size":"desktop:20px;","line-height":"desktop:35px;"}' style="font-family:&#039;Josefin Sans&#039;;font-weight:300;color:#666666;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {%if Companys %}
+                <div style="align-self: center; width: 80vw; padding-left: 5vw; padding-right: 5vw; padding-bottom: 5vw; padding-top: 1vw; margin: auto;">
+                    <table class="companies">
+                        <tr>
+                            <th>S.No.</th>
+                            <th>Company Name</th>
+                            <th>Current Multiplication Factor</th>
+                        </tr>  
+                {% for Company in Companys %}
+                            <tr>
+                                <td>S.No.</td>
+                                <td>{{ Company.company_name }}</td>
+                                <td>{{ Company.multiplication_factor }}</td>
+                            </tr>
+
+                {% endfor %}
+                    </table>
+                </div>
+            {% else %}
+                <h1>Companies will be shown here</h1>
+            {% endif %}
+        </div>
+         -->
+         <br><br>
+         
+         <div class=" vc_custom_1494621689637 ubtn-ctn-left register-button"><a class="ubtn-link ult-adjust-bottom-margin ubtn-left ubtn-custom " href="{% url 'register' %}">
+            <button type="button" id="ubtn-2814" class="ubtn ult-adjust-bottom-margin ult-responsive ubtn-custom ubtn-center-dg-bg  none  ubtn-sep-icon ubtn-sep-icon-left-push  ubtn-left   tooltip-5ec7fe8b6caec" data-hover="#2f92bb" data-border-color="#2f92bb" data-bg="#2f92bb" data-hover-bg="#f9f9f9" data-border-hover="#2f92bb" data-shadow-hover="" data-shadow-click="none" data-shadow="" data-shd-shadow="" data-ultimate-target='#ubtn-2814' data-responsive-json-new='{"font-size":"","line-height":""}' style="font-family:&#039;Josefin Sans&#039;;font-weight:500;width:px;min-height:px;padding:20px 50px;border-radius:0px;border-width:2px;border-color:#2f92bb;border-style:solid;background: #2f92bb;color: #ffffff;"><span class="ubtn-data ubtn-icon"><i class="fas fa-rocket" style="font-size:32px;color:#2f92bb;" aria-hidden:true></i></span><span class="ubtn-hover" style="background-color:#f9f9f9"></span><span class="ubtn-data ubtn-text ">REGISTER</span></button></a>
+        </div>
+        <h1 style="top:228px;left:345px;text-align:center;font-weight:800;font-style:normal;text-decoration:none;font-family: 'Josefin Sans', sans-serif;font-size:40px;line-height:100px;color:#000; font-family:Lato, serif;" class="ls-l" data-ls="showinfo:1;parallax:true;parallaxlevel:-18;parallaxtype:3d;parallaxevent:scroll;parallaxaxis:y;">REVISIT   US   ON   AUGUST 22, 2020 <br>
+        <h2 style="top:228px;left:345px;text-align:center;font-weight:400;font-style:normal;text-decoration:none;font-family: 'Josefin Sans', sans-serif;font-size:40px;line-height:100px;color:#000; font-family:Lato, serif;" class="ls-l" data-ls="showinfo:1;parallax:true;parallaxlevel:-18;parallaxtype:3d;parallaxevent:scroll;parallaxaxis:y;">ABOUT THE EVENT <br></h2>
+    </div>
+                <section class="pt100 pb100">
+                                    <div class="container" style="margin-top: -50px;">
+                                        <div class="wpb_single_image wpb_content_element vc_align_left  wpb_animate_when_almost_visible wpb_fadeInLeft fadeInLeft">
+                                            <div class="row justify-content-center">
+                                                <div class="col-12 col-md-10 section_title">
+                                                    <h3 class="title" style="font-size:50px; text-align: center;">
+                                                        <span style="color: rgb(47, 146, 187); font-size:50px;">Terms</span> and <span style="color: rgb(47, 146, 187); font-size:50px;">Conditions</span>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row justify-content-center">
+                                            <div class="col-11 col-md-5" style="width: 100%;">
+                                                <div class="icon_box_two">
+                                                    <div>
+                                                        <p style="padding-top: 1px; padding-left: 50px; padding-right: 50px; text-align: justify; font-size:20px; color: #000;">Are you ready to be the next big player in the market? Do you want to test your strategies but don’t want to take the financial risk?
+                                                            <br><br>
+                                                            Entrepreneurship Development Cell is delighted to announce Hawkeye, an online virtual trading event, where you will be able to trade real world companies and compete with other traders.<br><br>
+                                                            The rules are simple- Interpret the News flashes and buy/sell shares of those companies by analyzing which company will book profit and which will lose.<br><br>
+                                                            Note: Each  company will have a certain multiplication factor based on the effect on that company’s sector.
+                                                            </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+
+                                </section>
+                            </div>
+</div>
+<br>
+<br>
+    <script type='text/javascript' src="{%static 'home/js/info-box.min.js'%}"></script>
+    <script type='text/javascript' src="{%static 'home/js/flip-box.min.js'%}"></script>
+    <script type='text/javascript' src="{%static 'home/js/vhparallax.min.js'%}"></script>
+{% endblock body %}
