@@ -26,7 +26,7 @@
             visibility: visible;
         }
     </style>
-    <script type='text/javascript'>
+    <script type='text/javascript' defer>
         /* <![CDATA[ */
         var LS_Meta = { "v": "6.7.1" };
 /* ]]> */
@@ -296,6 +296,11 @@
                 align-content: center;
             }
         }
+
+        .pagination a:hover{
+            color: black !important;
+            font-weight: bold;
+        }
     </style>
 </head>
 {% endblock head %}
@@ -303,7 +308,6 @@
 
 {% block bodytag %}
 
-onload = "JavaScript:AutoRefresh(35000);"
 class="home page-template-default page page-id-17 woocommerce-no-js has-fixed-header wpb-js-composer js-comp-ver-6.0.5
 vc_responsive"
 {% endblock bodytag %}
@@ -318,8 +322,8 @@ vc_responsive"
                     <div class="vc_column-inner">
                         <div class="wpb_wrapper">
                             <div class="wpb_layerslider_element wpb_content_element">
-                                <script data-cfasync="false" type="text/javascript">var lsjQuery = jQuery;</script>
-                                <script data-cfasync="false" type="text/javascript">
+                                <script data-cfasync="false" type="text/javascript" defer>var lsjQuery = jQuery;</script>
+                                <script data-cfasync="false" type="text/javascript" defer>
                                     lsjQuery(document).ready(function () {
                                         if (typeof lsjQuery.fn.layerSlider == "undefined") {
                                             if (window._layerSlider && window._layerSlider.showNotice) {
@@ -410,13 +414,33 @@ vc_responsive"
                 </div>
             </div>
             {%endfor%}
+            <div id="post-496" class=" spaudio-post blogs-featured blogs-style2 blogs-style1 spcard post-496 post type-post status-publish format-audio has-post-thumbnail hentry category-art category-blog category-retro tag-country tag-natur tag-photo tag-photog post_format-post-format-audio" style="margin-top: 30px; margin-bottom: 120px; width: 100%;">
+    
+                <div class="pagination">
+                    <ul style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center;">
+                        {% if Bid.has_previous %}
+                            <li><a class='page-selector' href= "{% url 'bidding'  page|add:'-1' %}">&laquo;</a></li>
+                        {% endif %}
+                        {% for p in paginator.page_range %}
+                            {% if p == page %}
+                                <li class='active'><a href=''>{{p}}</a></li>
+                            {% else %}
+                                <li><a href="{% url 'bidding' p %}" class='inactive'>{{p}}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if Bid.has_next %}
+                            <li><a class='page-selector' href= "{% url 'bidding' page|add:'+1' %}">&raquo;</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
             {% else %}
             <center>
             <div style="font-size: 50px; line-height: 55px; height: auto; padding-top:90px">No bids available at the moment.</div>
             </center>
+            <br><br><br>
             {% endif %}
-            <br><br><br><br>
-        </div>
+            
     </div>
 </div>
 
