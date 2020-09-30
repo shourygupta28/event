@@ -413,7 +413,7 @@ vc_responsive"
                 </div>
                 <hr>
                 <div class="supcard_mid" style=" margin-bottom: 20px; margin-left: 20px; overflow: visible;">
-                    <form class="form1" method="POST" action="{% url 'notrade' %}">
+                    <form class="form1" method="POST" action="{% url 'mycompanies' %}">
                         {% csrf_token %}
                         <br>
                         {{ form }}

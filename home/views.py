@@ -83,6 +83,8 @@ def time(request):
 @login_required()
 def tradingUpdateView(request, id=None, pg=1):
 	if id:
+		if not Trading.objects.filter(id = id):
+			return render(request, 'home/trade-close.html')
 		trade = Trading.objects.get(id = id)
 		if request.method == 'POST' and trade.seller != request.user:
 			form = TradeForm(request.POST, instance=trade)
