@@ -5,7 +5,7 @@ Hawkeye is an online trading and bidding event organized by EDC, TIET to promote
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install everything required to set up this project on your local machine.
 
 ```bash
 pip install -r requirements.txt
