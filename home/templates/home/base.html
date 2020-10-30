@@ -4,7 +4,7 @@
 
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174334759-2"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174334759-2" defer></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -13,7 +13,7 @@
         gtag('config', 'UA-174334759-2');
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175500951-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175500951-1" defer></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -23,7 +23,7 @@
     </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7RLP5023J"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F7RLP5023J" defer></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -977,7 +977,7 @@
     <link rel='stylesheet' id='benri-main-css' href="{% static 'home/css/main.css' %}" type='text/css' media='all' />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
         integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/94ea23ad31.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/94ea23ad31.js" crossorigin="anonymous" defer></script>
 
     <!--[if lt IE 9]>
         <link rel='stylesheet' id='vc_lte_ie9-css'  href='https://skywarriorthemes.com/benri/demo1/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css' type='text/css' media='screen' />
@@ -1001,19 +1001,54 @@
         type='text/css' media='all' />
     <link rel="stylesheet" type="text/css" href="{%static 'home/css/cards.css'%}">
 
-    <script type='text/javascript' src="{% static 'home/js/greensock.js' %}"></script>
+    <script type='text/javascript' src="{% static 'home/js/greensock.js' %}" defer></script>
     <script type='text/javascript' src="{% static 'home/js/jquery.js' %}"></script>
     <script type='text/javascript' src="{% static 'home/js/jquery-migrate.min.js' %}"></script>
     <script type='text/javascript' src="{% static 'home/js/layerslider.kreaturamedia.jquery.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/layerslider.transitions.js' %}"></script>
+    <script type='text/javascript' src="{% static 'home/js/layerslider.transitions.js' %}" defer></script>
     <script type='text/javascript' src="{% static 'home/js/jquery.blockUI.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/add-to-cart.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/woocommerce-add-to-cart.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/ultimate-params.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/custom.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'home/js/add-to-cart.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/woocommerce-add-to-cart.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/ultimate-params.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/custom.min.js' %}" defer></script>
     <script type='text/javascript' src="{% static 'home/js/jquery-appear.min.js' %}"></script>
-    <script type='text/javascript' src="{%static 'home/js/headings.min.js'%}"></script>
+    <script type='text/javascript' src="{%static 'home/js/headings.min.js'%}" defer></script>
+<style type="text/css">
+    .callout {
+  position: fixed;
+  bottom: 35px;
+  right: 20px;
+  margin-left: 20px;
+  max-width: 500px;
+  z-index: 1000;
+}
 
+.callout-header {
+  padding: 25px 15px;
+  background: rgba(0,0,0,0.85);
+  font-size: 30px;
+  color: white;
+}
+
+.callout-container {
+  padding: 15px;
+  background-color: #ccc;
+  color: black
+}
+
+.closebtn {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+  color: lightgrey;
+}
+</style>
     <!-- head block -->
     {% block head %}{% endblock head %}
 
@@ -1060,7 +1095,7 @@
                         <ul class="nav navbar-nav">
                             <li id="menu-item-1470"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1470">
-                                <a href="{% url 'home' %}" data-hover="Home" style="font-size: 15px !important;" >Companies</a></li>
+                                <a href="{% url 'home' '1' %}" data-hover="Home" style="font-size: 15px !important;" >Companies</a></li>
 
                             <li id="menu-item-1471"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1471">
@@ -1068,7 +1103,7 @@
                             </li>
                             <li id="menu-item-1471"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1471">
-                                <a href="{% url 'trading' %}" style="font-size: 15px !important;">Trade</a>
+                                <a href="{% url 'trading' '1' %}" style="font-size: 15px !important;">Trade</a>
                             </li>
                             <li id="menu-item-1471"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1471">
@@ -1085,13 +1120,16 @@
                                                     <a href="#" aria-current="page" style="font-size: 15px !important;">E-Coins : {{ user.eCoins }} </a></li>
                                                 <li id="menu-item-1482"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
-                                                    <a href="{% url 'mycompanies' %}" aria-current="page" style="font-size: 13px !important;" >My Companies</a></li>
+                                                    <a href="{% url 'mycompanies' %}" aria-current="page" style="font-size: 15px !important;" >My Companies</a></li>
                                                 <li id="menu-item-1483"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
-                                                    <a href="{% url 'mytrade' %}" data-hover="Header generic style"style="font-size: 13px !important;">My Trades</a></li>
+                                                    <a href="{% url 'mytrade' %}" data-hover="Header generic style"style="font-size: 15px !important;">My Trades</a></li>
                                                 <li id="menu-item-1483"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
-                                                    <a href="{% url 'logout' %}" data-hover="Header generic style" style="font-size: 13px !important;">Logout</a></li>
+                                                    <a href="{% url 'mybids' %}" data-hover="Header generic style"style="font-size: 15px !important;">My Bids</a></li>
+                                                <li id="menu-item-1483"
+                                                    class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                    <a href="{% url 'logout' %}" data-hover="Header generic style" style="font-size: 15px !important;">Logout</a></li>
                                             </ul>
                                         </li>
                             {% else %}
@@ -1125,17 +1163,16 @@
                                     <ul class="nav navbar-nav">
                                         <li
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1470">
-                                            <a href="{% url 'home' %}" data-hover="Home">Companies</a>
+                                            <a href="{% url 'home' '1' %}" data-hover="Home">Companies</a>
                                         </li>
                                         
- -->
                                         <li
                                             class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
                                             <a href="{% url 'bidding' '1' %}" data-hover="Header generic style">Bid</a>
                                         </li>
                                         <li
                                             class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
-                                            <a href="{% url 'trading' %}" data-hover="Header generic style">Trade</a>
+                                            <a href="{% url 'trading' '1' %}" data-hover="Header generic style">Trade</a>
                                         </li>
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1471">
                                 <a href="{% url 'newpage' %}">Instructions</a>
@@ -1155,6 +1192,9 @@
                                                 <li id="menu-item-1483"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
                                                     <a href="{% url 'mytrade' %}" data-hover="Header generic style">My Trades</a></li>
+                                                    <li id="menu-item-1483"
+                                                    class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                    <a href="{% url 'mybids' %}" data-hover="Header generic style">My Bids</a></li>
                                                 <li id="menu-item-1483"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
                                                     <a href="{% url 'logout' %}" data-hover="Header generic style">Logout</a></li>
@@ -1223,14 +1263,15 @@
                     <ul class="nav navbar-nav">
                         <li
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1470">
-                            <a href="{% url 'home' %}" data-hover="Home">Companies</a>
+                            <a href="{% url 'home' '1' %}" data-hover="Home">Companies</a>
                         </li>
                   
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1479">
-                            <a href="{% url 'bidding' '1' %}">Bidding</a>
+
+                            <a href="{% url 'bidding' '1' %}">Bid</a>
                         </li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1479">
-                            <a href="{% url 'trading' %}">Trading</a>
+                            <a href="{% url 'trading' '1' %}">Trade</a>
                         </li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1471">
                                 <a href="{% url 'newpage' %}">Instructions</a>
@@ -1243,10 +1284,16 @@
                                             <ul class="sub-menu">
                                                 <li id="menu-item-1482"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
+                                                    <a href="#" aria-current="page">E-Coins : {{ user.eCoins }}</a></li>
+                                                <li id="menu-item-1482"
+                                                    class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
                                                     <a href="{% url 'mycompanies' %}" aria-current="page">My Companies</a></li>
                                                 <li id="menu-item-1483"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
                                                     <a href="{% url 'mytrade' %}" data-hover="Header generic style">My Trades</a></li>
+                                                    <li id="menu-item-1483"
+                                                    class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                    <a href="{% url 'mybids' %}" data-hover="Header generic style">My Bids</a></li>
                                                 <li id="menu-item-1483"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
                                                     <a href="{% url 'logout' %}" data-hover="Header generic style">Logout</a></li>
@@ -1293,14 +1340,14 @@
                                 <ul class="nav navbar-nav">
                                     <li
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1470">
-                                        <a href="{% url 'home' %}" data-hover="Home" style="color: white">Companies</a>
+                                        <a href="{% url 'home' '1' %}" data-hover="Home" style="color: white">Companies</a>
                                     </li>
 
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1481">
-                                        <a href="{% url 'bidding' '1' %}" style="color: white">Bidding</a>
+                                        <a href="{% url 'bidding' '1' %}" style="color: white">Bid</a>
                                     </li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1481">
-                                        <a href="{% url 'trading' %}" style="color: white">Trading</a>
+                                        <a href="{% url 'trading' '1' %}" style="color: white">Trade</a>
                                     </li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1471">
                                 <a href="{% url 'newpage' %}">Instructions</a>
@@ -1313,10 +1360,16 @@
                                             <ul class="sub-menu">
                                                 <li id="menu-item-1482"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
+                                                    <a href="#" aria-current="page">E-Coins : {{ user.eCoins }}</a></li>
+                                                <li id="menu-item-1482"
+                                                    class="menu-item menu-item-type-post_type menu-item-object-portfolio current-menu-item menu-item-1482">
                                                     <a href="{% url 'mycompanies' %}" aria-current="page">My Companies</a></li>
                                                 <li id="menu-item-1483"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
                                                     <a href="{% url 'mytrade' %}" data-hover="Header generic style">My Trades</a></li>
+                                                    <li id="menu-item-1483"
+                                                    class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
+                                                    <a href="{% url 'mybids' %}" data-hover="Header generic style">My Bids</a></li>
                                                 <li id="menu-item-1483"
                                                     class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-1483">
                                                     <a href="{% url 'logout' %}" data-hover="Header generic style">Logout</a></li>
@@ -1344,13 +1397,21 @@
     </header>
     <!-- end Custom menu link HEADER -->
 
-    {% if messages %}
-    <div style="background: black; height:80px; width: 100%"></div>
-    <ul class="messages"
-        style="background: #32a852; width: 100%; color: rgb(255, 255, 255); text-align: center; margin: 0px; padding: 10px;">
-        {% for message in messages %}
-        <h1 style="font-weight: 600; font-size: 25px; margin: 0px;">{{ message }}</h1>
-        {% endfor %}
+    {% if messages or user.alert %}
+        {% if user.alert %}
+        <div class="callout">
+            <div class="callout-header" style="padding: 30px; text-align: justify !important; line-height: 1.5 !important;">{{ user.alert }}</div>
+        <a class="closebtn" href="{% url 'trade-begin' %}">x</a>          </div>
+            
+        {% endif %}
+        {% if messages %}
+            {% for message in messages %}
+                <div style="background: black; height:80px; width: 100%"></div>
+                 <ul class="messages"
+                    style="background: #32a852; width: 100%; color: rgb(255, 255, 255); text-align: center; margin: 0px; padding: 10px;">
+            <h1 style="font-weight: 600; font-size: 25px; margin: 0px;">{{ message }}</h1>
+            {% endfor %}
+        {% endif %}
     </ul>
     {% endif %}
     <!-- Body -->
@@ -1418,7 +1479,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{% url 'trading' %}">
+                                <a href="{% url 'trading' '1' %}">
                                     <p style="color: white; font-family: PT Sans; font-weight: bold;"
                                         onmouseover="this.style.color='#c5e4f0';"
                                         onmouseout="this.style.color='white';">Trading</p>
@@ -1512,7 +1573,7 @@
             <div class="">
                 <div class="fb_text" style="color: grey !important;" id="copyright_footer">
                     <span style="font-size: 15px" id="copyright_text"> © 2020-21 All Rights Reserved. Designed by <a
-                            href="{% url 'home' %}"> EDC-TIET</a></span>
+                            href="{% url 'home' '1' %}"> EDC-TIET</a></span>
                 </div>
                 <div class="fb_social">
                 </div>
@@ -1534,29 +1595,29 @@
         media='all' />
     <link rel='stylesheet' id='ult-background-style-css' href=" {% static 'home/css/background-style.min.css' %}"
         type='text/css' media='all' />
-    <script type='text/javascript' src="{% static 'home/js/scripts.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/js.cookie.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/woocommerce.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/cart-fragments.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/isotope.pkgd.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'home/js/scripts.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/js.cookie.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/woocommerce.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/cart-fragments.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/isotope.pkgd.min.js' %}" defer></script>
     <script type='text/javascript' src="{% static 'home/js/jquery.prettyPhoto.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/mediaelement-and-player.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/anime.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/tilt.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/slimMenu.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/flickity.pkgd.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/prototip.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/global.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/comment-reply.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/wp-embed.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/js_composer_front.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/vc-waypoints.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/ultimate_bg.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/mb-YTPlayer.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'home/js/vc_isotope_gallery.js' %}"></script>
-    <script type='text/javascript' src="{%static 'home/js/info-box.min.js'%}"></script>
-    <script type='text/javascript' src="{%static 'home/js/flip-box.min.js'%}"></script>
-    <script type='text/javascript' src="{%static 'home/js/vhparallax.min.js'%}"></script>
+    <script type='text/javascript' src="{% static 'home/js/mediaelement-and-player.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/anime.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/tilt.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/slimMenu.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/flickity.pkgd.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/prototip.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/global.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/comment-reply.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/wp-embed.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/js_composer_front.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/vc-waypoints.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/ultimate_bg.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/mb-YTPlayer.min.js' %}" defer></script>
+    <script type='text/javascript' src="{% static 'home/js/vc_isotope_gallery.js' %}" defer></script>
+    <script type='text/javascript' src="{%static 'home/js/info-box.min.js'%}" defer></script>
+    <script type='text/javascript' src="{%static 'home/js/flip-box.min.js'%}" defer></script>
+    <script type='text/javascript' src="{%static 'home/js/vhparallax.min.js'%}" defer></script>
 </body>
 
 </html>

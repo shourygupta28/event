@@ -7,27 +7,68 @@ from django.contrib.auth.decorators import login_required
 from .models import Share as var
 from .models import  Bidding as bidvar
 from django.core.paginator import Paginator
+import time as setInterval
+from django.views.defaults import page_not_found, server_error
+# from threading import Timer
+
+def trade(request):
+	return render(request, 'home/trade-close.html')
+
+
+def alert_update(request):
+	User.objects.filter(id=request.user.id).update(alert='')
+	return redirect('mycompanies')
+
+
+def add_mycompanies(request):
+	if request.user.is_superuser:
+		for bid in bidvar.objects.all():
+			if bid.buyer:
+				temp = var.objects.filter(company=bid.company)
+				if not temp:
+					var.objects.create(company=bid.company,
+								  	   shareholder=bid.buyer,
+								   	   percentage_of_share=100)
+					coins = User.objects.get(id=bid.buyer.id).eCoins - bid.bidding_price
+					print(coins)
+					User.objects.filter(id=bid.buyer.id).update(eCoins=coins)
+		return redirect('timepage')
+	else:
+		return redirect('home')
+	
 
 def coming(request):
 	return render(request, 'home/comingsoon.html')
 
+def closed(request):
+    return render(request, 'home/closed.html')
+
 def trading_closed(request):
 	return render(request, 'home/closed_trading.html')
+
 
 def comingbidding(request):
 	return render(request, 'home/comingsoon.html')
 
-def home(request):
+def company(request, pg=1):
+	company_list = Company.objects.order_by('id')
+	paginator = Paginator(company_list, 25)
+
 	context = {
-		'Companys': Company.objects.order_by('-id')
+		'Companys' : paginator.page(pg),
+		'page' : pg,
+		'paginator' : paginator,
 	}
-	return render(request, 'home/index.html', context)
+	return render(request, 'home/companies.html', context)
+
 
 def timepage(request):
 	if request.user.is_superuser:
 		return render(request, 'home/save.html')
 	else:
 		return redirect('comingsoon')
+
+
 def time(request):
 	if request.user.is_superuser:
 		i = var.objects.all();
@@ -38,16 +79,31 @@ def time(request):
 	else:
 		return redirect('comingsoon')
 
+
 @login_required()
-def tradingUpdateView(request, id=None):
+def tradingUpdateView(request, id=None, pg=1):
 	if id:
+		if not Trading.objects.filter(id = id):
+			return render(request, 'home/trade-close.html')
 		trade = Trading.objects.get(id = id)
 		if request.method == 'POST' and trade.seller != request.user:
 			form = TradeForm(request.POST, instance=trade)
 			if trade.highest_bid < int(form['highest_bid'].value()):
-				if request.user.eCoins > int(form['highest_bid'].value()) and form.is_valid():
+				prev_bid = trade.highest_bid
+				if request.user.eCoins >= int(form['highest_bid'].value()):
+					if int(form['highest_bid'].value())%100 == 0 and form.is_valid():
+						if trade.buyer != trade.seller:
+							if trade.buyer != request.user:
+								coins = User.objects.get(id=trade.buyer.id).eCoins + prev_bid
+								User.objects.filter(id=trade.buyer.id).update(eCoins=coins)
+							else:
+								messages.add_message(request, messages.INFO, f'You are already the highest bidder on same company.' )
+					else:
+						messages.add_message(request, messages.INFO, f'You need to place bid in multiple of 100\'s only.' )
 					trade.buyer = request.user
 					form.save()
+					coins = User.objects.get(id=trade.buyer.id).eCoins - trade.highest_bid
+					User.objects.filter(id=trade.buyer.id).update(eCoins=coins)
 					messages.add_message(request, messages.INFO, f'Your Bid has been placed sucessfully on {trade.company.company_name}.' )
 				else:
 					messages.add_message(request, messages.INFO, 'You don\'t have enough E-Coins to place this bid.' )
@@ -55,18 +111,22 @@ def tradingUpdateView(request, id=None):
 				messages.add_message(request, messages.INFO, 'Enter a bid price higher than the current highest bid price.')
 		else:
 			messages.add_message(request, messages.INFO, 'You can\'t bid on your own company')
-		return redirect('trading')
-	else:
-		form = TradeForm()
-
+		return redirect('trading', pg=pg)
+	
+	form = TradeForm()
+	trade_list = Trading.objects.order_by('-id')
+	paginator = Paginator(trade_list, 10)
 	context = {
-		'form':form	,
-		'Tradings': Trading.objects.order_by('-id'),
+		'form':form,
+		'Tradings' : paginator.page(pg),
+		'page' : pg,
+		'paginator' : paginator,
 		'Companys': Company.objects.order_by('-id')
 	}
 
 	return render(request, 'home/trading.html', context)
 	
+
 @login_required
 def tradingCloseView(request, id=None):
 	trade = Trading.objects.get(id=id)
@@ -74,8 +134,12 @@ def tradingCloseView(request, id=None):
 		if trade.buyer != trade.seller:
 			coins = request.user.eCoins + trade.highest_bid
 			User.objects.filter(id=trade.seller.id).update(eCoins=coins)
-			coins = User.objects.get(id=trade.buyer.id).eCoins - trade.highest_bid
-			User.objects.filter(id=trade.buyer.id).update(eCoins=coins)
+		
+			messages.add_message(request, messages.INFO, f'Trade has been closed successfully for {trade.highest_bid} E-Coins')
+			
+			alert_message = f'{trade.percentage_for_sale}% shares of the company \'{trade.company}\' have been added to your companies.'
+			User.objects.filter(id=trade.buyer.id).update(alert=alert_message)
+		
 		obj = var.objects.filter(company=trade.company).filter(shareholder=trade.buyer)
 		if obj:
 			sum = obj.first().percentage_of_share + trade.percentage_for_sale
@@ -87,9 +151,8 @@ def tradingCloseView(request, id=None):
 		trade.delete()
 	return redirect('mytrade')
 
-
-@login_required()
-def bidding(request, id=None, pg=None):
+@login_required
+def bidding(request, id=None, pg=1):
 	if id:
 		a = bidvar.objects.all();
 		bid = bidvar.objects.filter(id = id).first()
@@ -100,19 +163,23 @@ def bidding(request, id=None, pg=None):
 					messages.add_message(request, messages.INFO, 'You can\'t have highest bid on two Companies')
 					return redirect('bidding', pg=pg)						
 			if bid.bidding_price < int(form['bidding_price'].value()):
-				if request.user.eCoins > int(form['bidding_price'].value()) and form.is_valid():
-					bid.buyer = request.user
-					form.save()	
-					messages.add_message(request, messages.INFO, f'Your Bid has been placed sucessfully on {bid.company.company_name}' )
+				if request.user.eCoins > int(form['bidding_price'].value()):
+					if int(form['bidding_price'].value())%100 == 0 and form.is_valid():
+						bid.buyer = request.user
+						form.save()	
+						messages.add_message(request, messages.INFO, f'Your Bid has been placed sucessfully on {bid.company.company_name}' )
+					else:
+						messages.add_message(request, messages.INFO, 'You need to place bid in multiple of 100\'s only.'  )				
+
 				else:
 					messages.add_message(request, messages.INFO, 'You don\'t have enough E-Coins to place this bid.' )				
 			else:
 				messages.add_message(request, messages.INFO, 'Enter a Bid Price higher than the current Highest Bid Price')
 			return redirect('bidding', pg=pg)
-	else:
-		form = BidForm()
-		bid_list = bidvar.objects.filter(visible=True).order_by('-id')
-		paginator = Paginator(bid_list, 2)
+	
+	form = BidForm()
+	bid_list = bidvar.objects.filter(visible=True).order_by('-id')
+	paginator = Paginator(bid_list, 13)
 	context = {
 		'form' : form,
 		'Bid' : paginator.page(pg),
@@ -121,6 +188,7 @@ def bidding(request, id=None, pg=None):
 		'Companys': Company.objects.order_by('-id')	
 	}
 	return render(request, 'home/letsbid.html', context)
+
 
 @login_required
 def mycompanies(request, id=None):
@@ -139,7 +207,7 @@ def mycompanies(request, id=None):
 				obj.save()
 				per_of_share = current_share.percentage_of_share - per_for_sale
 				var.objects.filter(id=id).update(percentage_of_share=per_of_share)
-				return redirect('trading')
+				return redirect('trading', pg=1)
 			elif per_for_sale < 5:
 				messages.add_message(request, messages.INFO, 'You need to sell minimum 5 percent of Shares')
 			elif per_for_sale > int(current_share.percentage_of_share):
@@ -154,11 +222,25 @@ def mycompanies(request, id=None):
 	}
 	return render(request, 'home/mycompanies.html', context)
 
-def newpage(request):
+def home(request):
     return render(request, 'home/home.html')
+
 
 def mytrade(request):
 	context = {
 		'Trades': Trading.objects.filter(seller=request.user).order_by('-id'),
 	}
 	return render(request, 'home/mytrade.html', context)
+
+
+def mybid(request):
+	context = {
+		'Trades': Trading.objects.filter(buyer=request.user).order_by('-id'),
+	}
+	return render(request, 'home/mybids.html', context)
+
+
+def mycompanies_notrade(request):
+	messages.add_message(request, messages.INFO, 'The trade can not be placed before 23-08-2020 17:00.')
+	return redirect(mycompanies)
+

@@ -1,0 +1,332 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block head %}
+
+<link rel="pingback" href="{% static 'home/xmlrpc.php'%}" />
+<link rel='stylesheet' id='ult-stats-counter-style-css' href="{% static 'home/css/stats-counter.min.css' %}" type='text/css' media='all' />
+
+<link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+
+<title>Hawkeye-Money Never Sleeps</title>
+<style type="text/css" data-type="vc_shortcodes-custom-css">
+    .vc_custom_1522954642578 {
+        padding-top: 50px !important;
+        padding-bottom: 70px !important;
+    }
+
+    .vc_custom_1494624914514 {
+        padding-top: 50px !important;
+    }
+
+    .vc_custom_1494624919805 {
+        padding-bottom: 100px !important;
+    }
+
+    .vc_custom_1494626839758 {
+        padding-top: 100px !important;
+        padding-bottom: 210px !important;
+    }
+
+    .vc_custom_1494625858679 {
+        margin-top: -150px !important;
+    }
+
+    .vc_custom_1495476778635 {
+        margin-top: 100px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .vc_custom_1494618991842 {
+        padding-top: 50px !important;
+    }
+
+    .vc_custom_1494621972326 {
+        padding-top: 100px !important;
+    }
+
+    .vc_custom_1494621689637 {
+        margin-top: 30px !important;
+    }
+
+    .vc_custom_1494626651578 {
+        margin-top: 0px !important;
+        margin-bottom: 45px !important;
+    }
+
+    .vc_custom_1494628064641 {
+        margin-bottom: 45px !important;
+    }
+
+    .vc_custom_1494626726323 {
+        margin-top: 30px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .vc_custom_1494625719386 {
+        margin-top: 0px !important;
+        margin-right: 0px !important;
+        margin-bottom: 0px !important;
+        margin-left: 0px !important;
+        padding-top: 0px !important;
+        padding-right: 0px !important;
+        padding-bottom: 0px !important;
+        padding-left: 0px !important;
+    }
+
+    .vc_custom_1494625728900 {
+        margin-top: 0px !important;
+        margin-right: 0px !important;
+        margin-bottom: 0px !important;
+        margin-left: 0px !important;
+        padding-top: 0px !important;
+        padding-right: 0px !important;
+        padding-bottom: 0px !important;
+        padding-left: 0px !important;
+    }
+
+    .vc_custom_1494625737076 {
+        margin-top: 0px !important;
+        margin-right: 0px !important;
+        margin-bottom: 0px !important;
+        margin-left: 0px !important;
+        padding-top: 0px !important;
+        padding-right: 0px !important;
+        padding-bottom: 0px !important;
+        padding-left: 0px !important;
+    }
+
+    .vc_custom_1495476642306 {
+        padding-bottom: 50px !important;
+    }
+
+</style>
+
+<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+<link rel='stylesheet' id='ls-google-fonts-css' href='https://fonts.googleapis.com/css?family=Lato:100,300,regular,700,900&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<style id='woocommerce-inline-inline-css' type='text/css'>
+    .woocommerce form .form-row .required {
+        visibility: visible;
+    }
+</style>
+
+<style>
+    audio::-webkit-media-controls-timeline,
+    video::-webkit-media-controls-timeline {
+        display: none;
+    }
+</style>
+
+<link rel='stylesheet' id='ult-flip-style-css' href="{%static 'home/css/flip-box.min.css'%}" type='text/css' media='all' />
+<link rel='stylesheet' id='info-box-style-css' href="{%static 'home/css/info-box.min.css'%}" type='text/css' media='all' />
+
+<noscript>
+    <style>
+        .woocommerce-product-gallery {
+            opacity: 1 !important;
+        } 
+        .wpb_animate_when_almost_visible {
+            opacity: 1;
+        }
+    </style>
+</noscript>
+
+<style>
+    .vc_row{
+        max-width: 99vw !important;
+    }
+</style>
+<style>
+    @media(max-width: 414px){
+        #cards{
+            min-width: 312px !important;
+            min-height: 550px !important;
+        }
+        #pres_img{
+            margin-left: -20px !important;
+        }
+    }
+    @media(max-width:768px){
+        #cards{
+            min-width: 330px !important;
+            min-height: 550px !important; 
+        }
+        #pres_img{
+            margin-left: 85px;
+        }
+        #pmsg{
+            margin-left: 5px;
+        }
+        #pres_txt{
+            margin-left: 35px;
+        }
+        #abouttxt{
+            margin-left: 15px;
+        }
+        #aboutimg{
+            margin-left: -10px;
+        }
+       
+    }
+    @media(max-width:375px){
+        #cards{
+            min-width: 312px !important;
+            min-height: 550px !important; 
+        }
+        #pres_img{
+            margin-left: -20px;
+        }
+    }
+    @media(max-width:320px){
+        #cards{
+            min-width: 250px !important;
+            min-height: 800px !important; 
+        }
+    }
+</style>
+<style>
+
+    .companies {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .companies th, td {
+      text-align: left;
+      padding: 8px;
+    }    
+    .companies tr {
+        font-size: 17px;
+    }
+
+    .companies tr:nth-child(even){
+        background-color: #f2f2f2
+    }
+
+    .companies th {
+      background-color: rgb(47, 146, 187);
+      color: white;
+      font-size: 17px;
+    }
+</style>
+{% endblock head %}
+
+
+{% block bodytag %}
+class="home page-template-default page page-id-17 woocommerce-no-js has-fixed-header     wpb-js-composer js-comp-ver-6.0.5 vc_responsive" style="font-family: 'Josefin Sans', sans-serif;"
+{% endblock bodytag %}
+
+
+{% block body %}
+<div class="main-content ">
+    <div class="">
+        <div class="row">
+            <div class="vc_row wpb_row vc_row-fluid">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner" style="padding-top: 0px;">
+                        <div class="wpb_wrapper">
+                            <div class="wpb_layerslider_element wpb_content_element">
+                                
+                                <script data-cfasync="false" type="text/javascript" defer>
+                                    var lsjQuery = jQuery;
+                                </script>
+
+                                <script data-cfasync="false" type="text/javascript" defer>
+                                    lsjQuery(document).ready(function() {
+                                        if (typeof lsjQuery.fn.layerSlider == "undefined") {
+                                            if (window._layerSlider && window._layerSlider.showNotice) {
+                                                window._layerSlider.showNotice('layerslider_1', 'jquery');
+                                            }
+                                        } else {
+                                            lsjQuery("#layerslider_1").layerSlider({
+                                                sliderVersion: '6.7.1',
+                                                type: 'fullwidth',
+                                                responsiveUnder: 1000,
+                                                allowFullscreen: false,
+                                                maxRatio: 1000,
+                                                navPrevNext: false,
+                                                hoverPrevNext: false,
+                                                navStartStop: false,
+                                                navButtons: false,
+                                                showCircleTimer: false,
+                                                thumbnailNavigation: 'disabled',
+                                            });
+                                        }
+                                    });
+
+                                </script>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--About EDC-->
+            <div class="vc_row wpb_row vc_row-fluid vc_custom_1494624914514" style="padding-left: 50px; padding-right: 60px; margin-top: 50px; padding-top: 80px !important; padding-bottom: 30px !important; margin-left: 0px !important;">
+                <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeInDown" data-animation-delay="0" data-animation-duration="3" data-animation-iteration="1" style="opacity:0;" data-opacity_start_effect="">
+                    <div id="ultimate-heading-58855ec7fe8b6b57b" class="uvc-heading ult-adjust-bottom-margin ultimate-heading-58855ec7fe8b6b57b uvc-4982 " data-hspacer="line_only" data-halign="center" style="text-align:center">
+                        <div class="uvc-main-heading ult-responsive" data-ultimate-target='.uvc-heading.ultimate-heading-58855ec7fe8b6b57b h2' data-responsive-json-new='{"font-size":"desktop:32px;","line-height":"desktop:32px;"}'>
+                            <h2 style="font-family: 'Cinzel', serif;font-weight:700;color:#333333;">COMPANIES</h2>
+                        </div>
+                        <div class="uvc-heading-spacer line_only" style="margin-top:20px;margin-bottom:35px;height:2px;">
+                            <span class="uvc-headings-line" style="border-style:solid;border-bottom-width:2px;border-color:#2f92bb;width:70px;"></span>
+                        </div>
+                        <div class="uvc-sub-heading ult-responsive" data-ultimate-target='.uvc-heading.ultimate-heading-58855ec7fe8b6b57b .uvc-sub-heading ' data-responsive-json-new='{"font-size":"desktop:20px;","line-height":"desktop:35px;"}' style="font-family:&#039;Josefin Sans&#039;;font-weight:300;color:#666666;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {%if Companys %}
+                <div style="align-self: center; width: 80vw; padding-left: 5vw; padding-right: 5vw; padding-bottom: 5vw; padding-top: 1vw; margin: auto;">
+                    <table class="companies">
+                        <tr style="font-size: 100px !important">
+                            <th style="font-size: 20px !important;">S.No.</th>
+                            <th style="font-size: 20px !important;">Company Name</th>
+                            <th style="font-size: 20px !important;">Current Multiplication Factor</th>
+                        </tr> 
+                {% for Company in Companys %}
+                            <tr>
+                                <td style="font-size: 15px !important;"> {{ forloop.counter }}</td>
+                                <td style="font-size: 15px !important;">{{ Company.company_name }}</td>
+                                <td style="font-size: 15px !important;">{{ Company.multiplication_factor }}</td>
+                            </tr>
+
+                {% endfor %}
+                    </table>
+                </div>
+                <div class="pagination">
+                    <ul style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center;">
+                        {% if Companys.has_previous %}
+                            <li><a class='page-selector' href= "{% url 'trading'  page|add:'-1' %}">&laquo;</a></li>
+                        {% endif %}
+                        {% for p in paginator.page_range %}
+                            {% if p == page %}
+                                <li class='active'><a href=''>{{p}}</a></li>
+                            {% else %}
+                                <li><a href="{% url 'trading' p %}" class='inactive'>{{p}}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if Tradings.has_next %}
+                            <li><a class='page-selector' href= "{% url 'trading' page|add:'+1' %}">&raquo;</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <br><br><br>
+                {% else %}
+                <center>
+                <div style="font-size: 50px; line-height: 50px; height: auto; padding:0 0 50px 0">Companies will be shown here.</div>
+                </center>
+            {% endif %}
+
+        </div>
+         
+    </div>
+    <script type='text/javascript' src="{%static 'home/js/info-box.min.js'%}" defer></script>
+    <script type='text/javascript' src="{%static 'home/js/flip-box.min.js'%}" defer></script>
+    <script type='text/javascript' src="{%static 'home/js/vhparallax.min.js'%}" defer></script>
+{% endblock body %}
